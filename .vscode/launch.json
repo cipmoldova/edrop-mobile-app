@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Attach on Android",
+            "type": "nativescript",
+            "request": "attach",
+            "platform": "android",
+            "appRoot": "${workspaceRoot}",
+            "sourceMaps": true,
+            "watch": false,
+            "sourceMapPathOverrides": {
+                "webpack:///*": "/app/*"
+            }
+        },
+        {
             "name": "Launch on iOS",
             "type": "nativescript",
             "request": "launch",

@@ -3,8 +3,8 @@
         <Label class="action-bar-title" text="Login"></Label>
     </ActionBar>
 
-    <ScrollView>
-        <StackLayout class="p-t-15">
+    <ScrollView class="my-class">
+        <StackLayout class="p-t-15" background>
             <Button class="btn btn-outline" tap="onLoginWithSocialProviderButtonTap" text="Log in with Social Provider"></Button>
 
             <Label class="m-t-10 text-center" text="or"></Label>
