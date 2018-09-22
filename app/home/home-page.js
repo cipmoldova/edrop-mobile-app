@@ -1,4 +1,4 @@
-const HomeViewModel = require("./Home-view-model");
+const HomeViewModel = require("./home-view-model");
 
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
