@@ -1,30 +1,35 @@
-/*
-In NativeScript, a file with the same name as an XML file is known as
-a code-behind file. The code-behind is a great place to place your view
-logic, and to set up your page’s data binding.
-*/
+const HomeViewModel = require("./Home-view-model");
 
-const HomeViewModel = require("./home-view-model");
-const fileSystemModule = require("tns-core-modules/file-system");
-
+/* ***********************************************************
+* Use the "onNavigatingTo" handler to initialize the page binding context.
+*************************************************************/
 function onNavigatingTo(args) {
     const page = args.object;
     page.bindingContext = new HomeViewModel();
 }
 
+function onLoginWithSocialProviderButtonTap() {
+    /* ***********************************************************
+    * For log in with social provider you can add your custom logic or
+    * use NativeScript plugin for log in with Facebook
+    * http://market.nativescript.org/plugins/nativescript-facebook
+    *************************************************************/
+}
+
+function onSigninButtonTap(args) {
+    const button = args.object;
+    const bindingContext = button.bindingContext;
+
+    bindingContext.signIn();
+}
+
+function onForgotPasswordTap() {
+    /* ***********************************************************
+    * Call your Forgot Password logic here.
+    *************************************************************/
+}
+
 exports.onNavigatingTo = onNavigatingTo;
-
-exports.pageLoaded = function() {
-    console.log("Hello World");
-};
-
-exports.pageLoaded = function() {
-    console.log({
-      type: "Apple",
-      color: "Red"
-    });
-};
-
-let documentsFolder = fileSystemModule.knownFolders.documents();
-const currentAppFolder = fileSystemModule.knownFolders.currentApp();
-const tempFolder = fileSystemModule.knownFolders.temp();
+exports.onLoginWithSocialProviderButtonTap = onLoginWithSocialProviderButtonTap;
+exports.onSigninButtonTap = onSigninButtonTap;
+exports.onForgotPasswordTap = onForgotPasswordTap;
