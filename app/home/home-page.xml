@@ -3,7 +3,7 @@
         <Label class="action-bar-title" text="Login"></Label>
     </ActionBar>
 
-    <ScrollView class="my-class">
+    <ScrollView class="layoutBackgroundImageFromRes">
         <StackLayout class="p-t-15" background>
             <Button class="btn btn-outline" tap="onLoginWithSocialProviderButtonTap" text="Log in with Social Provider"></Button>
 

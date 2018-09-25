@@ -27,7 +27,9 @@ components that have the btn class name.
     font-size: 18;
 }
 
-.my-class {
-    background-image: url("res://background");
-    background-repeat: no-repeat;
+.layoutBackgroundImageFromRes {
+    background-image: url("res://logo");
+    background-repeat: no-repeat;    
+    background-size: cover;
+    background-position: center;     
 }
