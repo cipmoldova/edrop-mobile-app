@@ -12,13 +12,6 @@ refer to http://docs.nativescript.org/ui/theme.
 /*@import '~nativescript-theme-core/css/core.light.css';*/
 @import "nativescript-theme-core/css/sky.css";
 
-/*Image {
-    animation-name: spin; 
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}*/
-
 /*
 For example, the following CSS rule changes the font size of all UI
 components that have the btn class name.

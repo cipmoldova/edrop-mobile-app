@@ -8,7 +8,7 @@
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "org.nativescript.HelloWorld" 
+    applicationId = "org.nativescript.eDrop" 
     
     //override supported platforms
     // ndk {
@@ -27,7 +27,7 @@ def settingsGradlePath
 if(project.hasProperty("appResourcesPath")){
     settingsGradlePath = "$project.appResourcesPath/Android/settings.gradle";
 } else {
-    settingsGradlePath = "$rootDir/../../app/App_Resources/Android/settings.gradle";
+    settingsGradlePath = "$rootDir/../../App_Resources/Android/settings.gradle";
 }
 
 def settingsGradleFile = new File(settingsGradlePath);
