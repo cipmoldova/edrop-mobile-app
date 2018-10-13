@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Page } from "ui/page";
 
 @Component({
     selector: "Home",
@@ -7,11 +8,12 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HomeComponent implements OnInit {
 
-    constructor() {
+    constructor(private _page: Page) {
         // Use the component constructor to inject providers.
     }
 
     ngOnInit(): void {
         // Init your component properties here.
+        this._page.actionBarHidden = true;
     }
 }

@@ -1,21 +1,13 @@
 <Page navigatingTo="onNavigatingTo" class="page" xmlns="http://schemas.nativescript.org/tns.xsd">
-    <ActionBar class="action-bar">
-        <Label 
-            class="action-bar-title" 
-            text="eDrop"
-            class="font-weight-bold" 
-            color="white"
-        ></Label>
-    </ActionBar>
+    
 
     <ScrollView class="layoutBackgroundImageFromRes">
         <StackLayout class="p-t-15" background>
-            <DockLayout stretchLastChild="true">
+            <DockLayout stretchLastChild="true" height="1100">
                 <Button 
-                    class="btn btn-outline btn-rounded-sm" 
+                    class="btn btn-outline btn-rounded-sm btn-quick-app" 
                     text="Înregistrare" 
                     tap="onSignupButtonTap"
-                    color="red"
                     dock="bottom"
                 ></Button>
             </DockLayout>
