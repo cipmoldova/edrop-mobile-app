@@ -28,9 +28,31 @@ components that have the btn class name.
 }
 
 .btn-quick-app {
-    background:red;
+    background:#FF0000;
     border-radius:50%;
     color:#FFFFFF;
-    border-color:red;
-    height:160px;
+    border-color:#FF0000;
+    height:50;
+    width:85%;
+}
+
+.btn-register-now {
+    background:#FFFFFF;
+    border-radius:50%;
+    color:#FF0000;
+    border-color:#FF0000;
+    height:50;
+    width:85%;
+    margin-bottom:50;
+}
+
+#home-paragraph {
+    font-size:22;
+    width:80%;
+    font-weight: 500;
+    margin-bottom:20;
+}
+
+.textcenter {
+    text-align: center;
 }
