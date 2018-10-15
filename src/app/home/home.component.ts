@@ -21,7 +21,10 @@ export class HomeComponent implements OnInit {
         this._page.actionBarHidden = true;
         console.log("Tapped " + this.counter + " times!");
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> 929bbea49741a37bdab171ec6ee706241b18af8f
     onSignupButtonTap(args: EventData) {
         let button = <Button>args.object;
     
