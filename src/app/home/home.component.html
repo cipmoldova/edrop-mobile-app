@@ -3,13 +3,13 @@
         <Button 
             class="btn btn-outline btn-rounded-sm btn-register-now" 
             text="Înregistrează-te acum" 
-            tap="onSignupButtonTap"
+            (tap)="onSignupButtonTap($event)"
             dock="bottom"
         ></Button>
         <Button 
             class="btn btn-outline btn-rounded-sm btn-quick-app" 
             text="Programare rapidă" 
-            tap="onSignupButtonTap"
+            (tap)="onSignupButtonTap($event)"
             dock="bottom"
         ></Button>
         <Label 

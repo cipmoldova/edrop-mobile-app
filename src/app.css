@@ -36,6 +36,11 @@ components that have the btn class name.
     width:85%;
 }
 
+.btn-quick-app:hover, .btn-quick-app:active, .btn-quick-app:focus {
+    background:#FFFFFF;
+    color:#FF0000;
+}
+
 .btn-register-now {
     background:#FFFFFF;
     border-radius:50%;
