@@ -32,8 +32,10 @@ components that have the btn class name.
     border-radius:50%;
     color:#FFFFFF;
     border-color:#FF0000;
-    height:50;
+    height:45;
     width:85%;
+    margin-bottom:0;
+    text-transform: none;
 }
 
 .btn-quick-app:hover, .btn-quick-app:active, .btn-quick-app:focus {
@@ -46,16 +48,26 @@ components that have the btn class name.
     border-radius:50%;
     color:#FF0000;
     border-color:#FF0000;
-    height:50;
+    height:45;
     width:85%;
-    margin-bottom:50;
+    margin-top:6;
+    margin-bottom:53;
+    text-transform: none;
+}
+
+.btn-register-now:hover, .btn-register-now:active, .btn-register-now:focus {
+    background:#FF0000;
+    color:#FFFFFF;
 }
 
 #home-paragraph {
-    font-size:22;
+    font-size:17;
     width:80%;
     font-weight: 500;
-    margin-bottom:20;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 0.04px;
+    margin-bottom:10;
+    line-height: 7;
 }
 
 .textcenter {

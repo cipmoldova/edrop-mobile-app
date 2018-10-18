@@ -19,17 +19,12 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void {
         // Init your component properties here.
         this._page.actionBarHidden = true;
-        console.log("Tapped " + this.counter + " times!");
     }
-<<<<<<< HEAD
     
-=======
->>>>>>> 929bbea49741a37bdab171ec6ee706241b18af8f
     onSignupButtonTap(args: EventData) {
         let button = <Button>args.object;
     
         this.counter++;
-        //console.log("Tapped " + button.get("text") + this.counter + " times!");
         console.log("Tapped " + button.get("text") + this.counter + " times!");
     }
 }
