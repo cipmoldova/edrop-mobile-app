@@ -1,23 +1,25 @@
 <Page navigatingTo="onNavigatingTo" class="page" xmlns="http://schemas.nativescript.org/tns.xsd">
     <DockLayout class="layoutBackgroundImageFromRes" stretchLastChild="false">
-        <Button 
-            class="btn btn-outline btn-rounded-sm btn-register-now" 
-            text="Înregistrează-te acum" 
+        <Button
+            class="btn btn-outline btn-rounded-sm btn-register-now"
+            text="Înregistrează-te acum"
+            (tap)="onSignupButtonTap($event)"
+            dock="bottom"
+            [nsRouterLink]="['/register']"
+        ></Button>
+        <Button
+            class="btn btn-outline btn-rounded-sm btn-quick-app"
+            text="Programare rapidă"
             (tap)="onSignupButtonTap($event)"
             dock="bottom"
         ></Button>
-        <Button 
-            class="btn btn-outline btn-rounded-sm btn-quick-app" 
-            text="Programare rapidă" 
-            (tap)="onSignupButtonTap($event)"
-            dock="bottom"
-        ></Button>
-        <Label 
+        <Label
             id="home-paragraph"
-            class="textcenter" 
-            dock="bottom" 
+            class="textcenter"
+            dock="bottom"
             text="Dan and Anna can plan their wedding thanks to eDrop donors."
             textWrap="true"
         ></Label>
+        <router-outlet></router-outlet>
     </DockLayout>
 </Page>
