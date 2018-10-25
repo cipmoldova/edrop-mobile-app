@@ -4,11 +4,11 @@ import { EventData } from "tns-core-modules/data/observable";
 import { Button } from "tns-core-modules/ui/button";
 
 @Component({
-    selector: "Register",
+    selector: "Dashboard",
     moduleId: module.id,
-    templateUrl: "./register.component.html"
+    templateUrl: "./dashboard.component.html"
 })
-export class RegisterComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
     public counter: number = 0;
 
@@ -19,12 +19,5 @@ export class RegisterComponent implements OnInit {
     ngOnInit(): void {
         // Init your component properties here.
         this._page.actionBarHidden = true;
-    }
-
-    onSignupButtonTap(args: EventData) {
-        let button = <Button>args.object;
-
-        this.counter++;
-        console.log("Tapped " + button.get("text") + this.counter + " times!");
     }
 }

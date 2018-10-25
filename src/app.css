@@ -27,6 +27,13 @@ components that have the btn class name.
     background-position: center;     
 }
 
+.layoutDashboardBackgroundImageFromRes {
+    background-image: url("res://dashboard");
+    background-repeat: no-repeat;    
+    background-size: cover;
+    background-position: center;     
+}
+
 .btn-quick-app {
     background:#FF0000;
     border-radius:50%;
@@ -43,7 +50,7 @@ components that have the btn class name.
     color:#FF0000;
 }
 
-.btn-register-now {
+.btn-login-now {
     background:#FFFFFF;
     border-radius:50%;
     color:#FF0000;
@@ -55,7 +62,7 @@ components that have the btn class name.
     text-transform: none;
 }
 
-.btn-register-now:hover, .btn-register-now:active, .btn-register-now:focus {
+.btn-login-now:hover, .btn-login-now:active, .btn-login-now:focus {
     background:#FF0000;
     color:#FFFFFF;
 }
@@ -70,7 +77,7 @@ components that have the btn class name.
     line-height: 7;
 }
 
-#register-paragraph {
+#login-paragraph {
     font-size:17;
     width:80%;
     font-weight: 500;
