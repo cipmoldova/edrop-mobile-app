@@ -1,4 +1,36 @@
 <ActionBar title="Dashboard"></ActionBar>
 <Page navigatingTo="onNavigatingTo" class="page" xmlns="http://schemas.nativescript.org/tns.xsd">
-    <GridLayout class="layoutDashboardBackgroundImageFromRes" rows="*,60"></GridLayout>
+    <GridLayout class="layoutDashboardBackgroundImageFromRes" rows="*,60">
+        <ScrollView row="0">
+            <WrapLayout orientation="horizontal">
+
+            </WrapLayout>
+        </ScrollView>
+        <StackLayout row="1" orientation="horizontal">
+            <Button textWrap="true" width="25%">
+                <FormattedString>
+                    <Span text="&#xf015;\n" fontFamily="FontAwesome"></Span>
+                    <Span text="Home"></Span>
+                </FormattedString>
+            </Button>
+            <Button textWrap="true" width="25%">
+                <FormattedString>
+                    <Span text="&#xf000;\n" fontFamily="FontAwesome"></Span>
+                    <Span text="All Cocktails"></Span>
+                </FormattedString>
+            </Button>
+            <Button textWrap="true" width="25%">
+                <FormattedString>
+                    <Span text="&#xf005;\n" fontFamily="FontAwesome"></Span>
+                    <Span text="Favorite"></Span>
+                </FormattedString>
+            </Button>
+            <Button textWrap="true" width="25%">
+                <FormattedString>
+                    <Span text="&#xf007;\n" fontFamily="FontAwesome"></Span>
+                    <Span text="Profile"></Span>
+                </FormattedString>
+            </Button>
+        </StackLayout>
+    </GridLayout>
 </Page>

@@ -1,0 +1,9 @@
+[
+    {
+        "title": "Chestionar",
+        "imageURL": "res://logo"
+    }, {
+        "title": "Despre aplicație",
+        "imageURL": "res://about"
+    }
+ ]

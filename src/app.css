@@ -11,6 +11,7 @@ refer to http://docs.nativescript.org/ui/theme.
 */
 /*@import '~nativescript-theme-core/css/core.light.css';*/
 @import "nativescript-theme-core/css/sky.css";
+@import "font-awesome/css/font-awesome.css";
 
 /*
 For example, the following CSS rule changes the font size of all UI
@@ -22,16 +23,16 @@ components that have the btn class name.
 
 .layoutBackgroundImageFromRes {
     background-image: url("res://logo");
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;     
+    background-position: center;
 }
 
 .layoutDashboardBackgroundImageFromRes {
     background-image: url("res://dashboard");
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;     
+    background-position: center;
 }
 
 .btn-quick-app {
