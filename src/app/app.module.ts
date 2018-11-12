@@ -18,7 +18,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
         NativeScriptModule,
         NativeScriptFormsModule,
         NativeScriptHttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
     ],
     declarations: [
         AppComponent,
@@ -27,7 +27,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
     ],
     providers: [
         UserService
-    ],    
+    ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

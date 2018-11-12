@@ -8,7 +8,7 @@
       "version": "4.2.0"
     }
   },
-  "description": "NativeScript Application",
+  "description": "Aplicație al cărei scop este acela de a susține donarea de sânge la nivelul cetățenilor.",
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
@@ -21,10 +21,8 @@
     "@angular/platform-browser": "~6.1.0",
     "@angular/platform-browser-dynamic": "~6.1.0",
     "@angular/router": "~6.1.0",
-    "angular-font-awesome": "^3.1.2",
     "email-validator": "^2.0.4",
     "extract-text-webpack-plugin": "^3.0.2",
-    "font-awesome": "^4.7.0",
     "kinvey-nativescript-sdk": "^3.12.1",
     "nativescript-angular": "~6.1.0",
     "nativescript-theme-core": "~1.0.4",
@@ -36,11 +34,13 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "~6.1.0",
+    "@fortawesome/fontawesome-free": "^5.5.0",
     "@nativescript/schematics": "^0.3.4",
     "@ngtools/webpack": "~6.2.0",
     "nativescript-dev-typescript": "~0.7.0",
     "nativescript-dev-webpack": "^0.16.3",
     "typescript": "~2.7.2"
   },
-  "readme": "NativeScript Application"
+  "readme": "NativeScript Application",
+  "author": "CIP Moldova (Centrul pentru Inovații și Politici din Moldova)"
 }
