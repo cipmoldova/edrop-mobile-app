@@ -10,7 +10,7 @@ of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
 /*@import '~nativescript-theme-core/css/core.light.css';*/
-@import "nativescript-theme-core/css/sky.css";
+@import "../node_modules/nativescript-theme-core/css/sky.css";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
 /*
@@ -19,6 +19,7 @@ components that have the btn class name.
 */
 .btn {
     font-size: 18;
+    color:#FFFFFF;
 }
 
 .layoutBackgroundImageFromRes {
@@ -28,6 +29,19 @@ components that have the btn class name.
     background-position: center;
 }
 
+.layoutDonateEnabledImageFromRes {
+    background-image: url("res://icon");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+}
+
+.layoutDonateDisabledImageFromRes {
+    background-image: url("res://icon_grey");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 .layoutDashboardBackgroundImageFromRes {
     background-image: url("res://dashboard");
     background-repeat: no-repeat;
@@ -91,4 +105,8 @@ components that have the btn class name.
 
 .textcenter {
     text-align: center;
+}
+
+.menu-button {
+    border-width: 0;
 }

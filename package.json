@@ -2,44 +2,45 @@
   "nativescript": {
     "id": "org.nativescript.eDrop",
     "tns-android": {
-      "version": "4.2.0"
-    },
-    "tns-ios": {
-      "version": "4.2.0"
+      "version": "5.0.0"
     }
   },
   "description": "Aplicație al cărei scop este acela de a susține donarea de sânge la nivelul cetățenilor.",
-  "license": "SEE LICENSE IN <your-license-filename>",
+  "license": "SEE LICENSE IN 'LICENSE.md'",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
-    "@angular/animations": "~6.1.0",
-    "@angular/common": "~6.1.0",
-    "@angular/compiler": "~6.1.0",
-    "@angular/core": "~6.1.0",
-    "@angular/forms": "~6.1.0",
-    "@angular/http": "~6.1.0",
-    "@angular/platform-browser": "~6.1.0",
-    "@angular/platform-browser-dynamic": "~6.1.0",
-    "@angular/router": "~6.1.0",
+    "@angular/animations": "~7.0.0",
+    "@angular/common": "~7.0.0",
+    "@angular/core": "~7.0.0",
+    "@angular/forms": "~7.0.0",
+    "@angular/http": "~7.0.0",
+    "@angular/platform-browser": "~7.0.0",
+    "@angular/platform-browser-dynamic": "~7.0.0",
+    "@angular/router": "~7.0.0",
+    "angular": "^1.7.5",
     "email-validator": "^2.0.4",
-    "extract-text-webpack-plugin": "^3.0.2",
     "kinvey-nativescript-sdk": "^3.12.1",
-    "nativescript-angular": "~6.1.0",
+    "nativescript-angular": "^7.0.2",
+    "nativescript-pdf-view": "^2.0.1",
     "nativescript-theme-core": "~1.0.4",
     "reflect-metadata": "~0.1.10",
-    "rxjs": "~6.2.0",
-    "tns-core-modules": "~4.2.0",
-    "webpack": "^3.1.0",
-    "zone.js": "~0.8.18"
+    "rxjs": "^6.3.3",
+    "tns-core-modules": "^5.0.5",
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "~6.1.0",
+    "@angular/compiler": "~7.0.0",
+    "@angular/compiler-cli": "~7.0.0",
     "@fortawesome/fontawesome-free": "^5.5.0",
-    "@nativescript/schematics": "^0.3.4",
-    "@ngtools/webpack": "~6.2.0",
-    "nativescript-dev-typescript": "~0.7.0",
-    "nativescript-dev-webpack": "^0.16.3",
-    "typescript": "~2.7.2"
+    "@nativescript/schematics": "^0.4.0",
+    "@ngtools/webpack": "~7.0.0",
+    "acorn": "^6.0.4",
+    "acorn-dynamic-import": "^4.0.0",
+    "ajv": "^6.5.5",
+    "nativescript-dev-typescript": "^0.7.6",
+    "nativescript-dev-webpack": "^0.18.0",
+    "typescript": "~3.1.1",
+    "webpack": "^4.26.1"
   },
   "readme": "NativeScript Application",
   "author": "CIP Moldova (Centrul pentru Inovații și Politici din Moldova)"

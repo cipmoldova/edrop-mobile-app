@@ -6,36 +6,59 @@
 
             </WrapLayout>
         </ScrollView>
-        <StackLayout row="1" orientation="horizontal">
+        <StackLayout row="1">
 
-            <Button textWrap="true" width="20%">
+            <ng-container
+                *ngIf="isEligibleForDonation; then eligibleForDonation; else notEligibleForDonation">
+              </ng-container>
+              
+              <ng-template #eligibleForDonation>
+                <Button class="layoutDonateEnabledImageFromRes" (tap)="donate()" >
+                </Button>
+                <div>
+                  <Span text="Sunteți eligibil pentru donare!"></Span>
+                </div>
+              </ng-template>
+              <ng-template #notEligibleForDonation>
+                <Span text="Momentan nu sunteți eligibil pentru donare. Veți deveni disponibil în data de 28 mai 2019."></Span>
+              </ng-template>
+            <FormattedString>
+              <Span text="Donez"></Span>
+            </FormattedString>
+            <WrapLayout orientation="horizontal">
+
+            </WrapLayout>
+        </StackLayout>
+        <StackLayout row="2" orientation="horizontal">
+
+            <Button width="18%">
                 <FormattedString>
-                  <Span android:text="&#xf015;" fontSize="large" fontFamily="Font Awesome 5 Free, fa-solid-900"></Span>
-                  <Span android:text="&#x000a;Acasă"></Span>
+                  <Span text="&#xf015;" fontFamily="fa-solid-900"></Span>
+                  <Span text="&#x000a;Acasă"></Span>
                 </FormattedString>
             </Button>
-            <Button textWrap="true" width="20%">
+            <Button width="17%">
                 <FormattedString>
-                    <Span android:text="&#xf279;" fontSize="large" fontFamily="Font Awesome 5 Free, fa-solid-900"></Span>
-                    <Span android:text="&#x000a;Hartă"></Span>
+                    <Span text="&#xf279;" fontFamily="fa-solid-900"></Span>
+                    <Span text="&#x000a;Hartă"></Span>
                 </FormattedString>
             </Button>
-            <Button textWrap="true" width="20%">
+            <Button width="22%">
                 <FormattedString>
-                    <Span android:text="&#xf004;" fontSize="large" fontFamily="Font Awesome 5 Free, fa-solid-900"></Span>
-                    <Span android:text="&#x000a;Beneficii"></Span>
+                    <Span text="&#xf004;" fontFamily="fa-solid-900"></Span>
+                    <Span text="&#x000a;Beneficii"></Span>
                 </FormattedString>
             </Button>
-            <Button textWrap="true" width="20%">
+            <Button width="21%">
                 <FormattedString>
-                    <Span android:text="&#xf15c;" fontSize="large" fontFamily="Font Awesome 5 Free, fa-solid-900"></Span>
-                    <Span android:text="&#x000a;Eligibil?"></Span>
+                    <Span text="&#xf15c;" fontFamily="fa-solid-900"></Span>
+                    <Span text="&#x000a;Eligibil?"></Span>
                 </FormattedString>
             </Button>
-            <Button textWrap="true" width="20%">
+            <Button width="20%">
                 <FormattedString>
-                    <Span android:text="&#xf150;" fontSize="large" fontFamily="Font Awesome 5 Free, fa-solid-900"></Span>
-                    <Span android:text="&#x000a;Mai mult"></Span>
+                    <Span text="&#xf150;" fontFamily="fa-solid-900"></Span>
+                    <Span text="&#x000a;Extra"></Span>
                 </FormattedString>
             </Button>
         </StackLayout>

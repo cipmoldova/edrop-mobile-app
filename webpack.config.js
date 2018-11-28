@@ -23,7 +23,6 @@ module.exports = env => {
         throw new Error("You need to provide a target platform!");
     }
 
-    const platforms = ["ios", "android"];
     const projectRoot = __dirname;
 
     // Default destination inside platforms/<platform>/...
@@ -43,7 +42,11 @@ module.exports = env => {
         uglify, // --env.uglify
         report, // --env.report
         sourceMap, // --env.sourceMap
+        hmr, // --env.hmr,
     } = env;
+    const externals = (env.externals || []).map((e) => { // --env.externals
+        return new RegExp(e + ".*");
+    });
 
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
@@ -63,6 +66,10 @@ module.exports = env => {
     const config = {
         mode: uglify ? "production" : "development",
         context: appFullPath,
+        externals: {
+             'nativescript-sqlite-commercial': 'nativescript-sqlite-commercial',
+             'nativescript-sqlite-encrypted': 'nativescript-sqlite-encrypted',
+        },
         watchOptions: {
             ignored: [
                 appResourcesFullPath,
@@ -93,11 +100,9 @@ module.exports = env => {
             alias: {
                 '~': appFullPath
             },
-            // resolve symlinks to symlinked modules
             symlinks: true
         },
         resolveLoader: {
-            // don't resolve symlinks to symlinked loaders
             symlinks: false
         },
         node: {
@@ -127,9 +132,9 @@ module.exports = env => {
             minimize: !!uglify,
             minimizer: [
                 new UglifyJsPlugin({
+                    parallel: true,
+                    cache: true,
                     uglifyOptions: {
-                        parallel: true,
-                        cache: true,
                         output: {
                             comments: false,
                         },
@@ -220,9 +225,9 @@ module.exports = env => {
             ]),
             // Copy assets to out dir. Add your own globs as needed.
             new CopyWebpackPlugin([
-                { from: "fonts/**" },
-                { from: "**/*.jpg" },
-                { from: "**/*.png" },
+                { from: { glob: "fonts/**" } },
+                { from: { glob: "**/*.jpg" } },
+                { from: { glob: "**/*.png" } },
             ], { ignore: [`${relative(appPath, appResourcesFullPath)}/**`] }),
             // Generate a bundle starter script and activate it in package.json
             new nsWebpack.GenerateBundleStarterPlugin([
@@ -232,10 +237,6 @@ module.exports = env => {
             // For instructions on how to set up workers with webpack
             // check out https://github.com/nativescript/worker-loader
             new NativeScriptWorkerPlugin(),
-            new nsWebpack.PlatformFSPlugin({
-                platform,
-                platforms,
-            }),
             ngCompilerPlugin,
             // Does IPC communication with the {N} CLI to notify events when running in watch mode.
             new nsWebpack.WatchStateLoggerPlugin(),
@@ -270,6 +271,10 @@ module.exports = env => {
             projectRoot,
             webpackConfig: config,
         }));
+    }
+
+    if (hmr) {
+        config.plugins.push(new webpack.HotModuleReplacementPlugin());
     }
 
     return config;
