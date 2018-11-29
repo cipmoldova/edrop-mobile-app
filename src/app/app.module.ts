@@ -1,18 +1,23 @@
 import { NgModule, NgModuleFactoryLoader, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 import { LoginComponent } from "./login/login.component";
 
 import { UserService } from "./shared/user.service";
-import { DashboardComponent } from "./dashboard/dashboard.component";
 
 @NgModule({
     bootstrap: [
-        AppComponent
+        AppComponent,
+    ],
+    declarations: [
+        AppComponent,
+        DashboardComponent,
+        LoginComponent,
     ],
     imports: [
         NativeScriptModule,
@@ -20,16 +25,11 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
         NativeScriptHttpClientModule,
         AppRoutingModule,
     ],
-    declarations: [
-        AppComponent,
-        LoginComponent,
-        DashboardComponent
-    ],
     providers: [
-        UserService
+        UserService,
     ],
     schemas: [
-        NO_ERRORS_SCHEMA
-    ]
+        NO_ERRORS_SCHEMA,
+    ],
 })
 export class AppModule { }

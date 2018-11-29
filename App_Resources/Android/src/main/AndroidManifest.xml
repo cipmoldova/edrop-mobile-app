@@ -29,7 +29,7 @@
         android:theme="@style/AppTheme">
  
         <activity 
-            android:name="org.nativescript.eDropMainActivity" 
+            android:name=".MainActivity" 
             android:label="@string/title_activity_kimera" 
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/LaunchScreenTheme">
@@ -43,6 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.tns.ErrorReportActivity"/>
+        <activity android:name=".ErrorReportActivity"/>
     </application>
 </manifest>

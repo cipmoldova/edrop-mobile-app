@@ -1,27 +1,27 @@
 import { Component, OnInit } from "@angular/core";
-import { Page } from "ui/page";
+import { registerElement } from "nativescript-angular";
+import { PDFView } from "nativescript-pdf-view";
 import { EventData } from "tns-core-modules/data/observable";
 import { Button } from "tns-core-modules/ui/button";
-import { PDFView } from 'nativescript-pdf-view';
-import { registerElement } from 'nativescript-angular';
+import { Page } from "ui/page";
 
 @Component({
-    selector: "Dashboard",
     moduleId: module.id,
-    templateUrl: "./dashboard.component.html"
+    selector: "Dashboard",
+    templateUrl: "./dashboard.component.html",
 })
 export class DashboardComponent implements OnInit {
 
     public counter: number = 0;
-    isEligibleForDonation: boolean = true;
+    public isEligibleForDonation: boolean = true;
 
-    constructor(private _page: Page) {
+    constructor(private page: Page) {
         // Use the component constructor to inject providers.
-    registerElement('PDFView', () => PDFView);
+    registerElement("PDFView", () => PDFView);
     }
 
     ngOnInit(): void {
         // Init your component properties here.
-        this._page.actionBarHidden = true;
+        this.page.actionBarHidden = true;
     }
 }

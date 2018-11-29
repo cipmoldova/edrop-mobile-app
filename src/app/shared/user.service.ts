@@ -10,9 +10,9 @@ export class UserService {
                 .then(() => {
                     Kinvey.User.signup({ username: user.email, password: user.password })
                         .then(resolve)
-                        .catch((error) => { this.handleErrors(error); reject(); })
+                        .catch((error) => { this.handleErrors(error); reject(); });
                 })
-                .catch((error) => { this.handleErrors(error); reject(); })
+                .catch((error) => { this.handleErrors(error); reject(); });
         });
     }
 
@@ -22,9 +22,9 @@ export class UserService {
                 .then(() => {
                     Kinvey.User.login(user.email, user.password)
                         .then(resolve)
-                        .catch((error) => { this.handleErrors(error); reject(); })
+                        .catch((error) => { this.handleErrors(error); reject(); });
                 })
-                .catch((error) => { this.handleErrors(error); reject(); })
+                .catch((error) => { this.handleErrors(error); reject(); });
         });
     }
 

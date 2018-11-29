@@ -10,7 +10,7 @@ export class BackendService {
     static setup() {
         Kinvey.init({
             appKey: BackendService.kinveyAppKey,
-            appSecret: BackendService.kinveyAppSecret
+            appSecret: BackendService.kinveyAppSecret,
         });
     }
 }

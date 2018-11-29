@@ -37,11 +37,14 @@
     "acorn": "^6.0.4",
     "acorn-dynamic-import": "^4.0.0",
     "ajv": "^6.5.5",
+    "codelyzer": "^4.5.0",
     "nativescript-dev-typescript": "^0.7.6",
     "nativescript-dev-webpack": "^0.18.0",
+    "tslint": "^5.11.0",
+    "tslint-angular": "^1.1.2",
     "typescript": "~3.1.1",
     "webpack": "^4.26.1"
   },
-  "readme": "NativeScript Application",
+  "readme": "eDrop Application",
   "author": "CIP Moldova (Centrul pentru Inovații și Politici din Moldova)"
 }

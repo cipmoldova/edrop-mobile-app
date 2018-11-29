@@ -7,16 +7,16 @@ import { User } from "../shared/user.model";
 import { UserService } from "../shared/user.service";
 
 @Component({
-    selector: "app-login",
     moduleId: module.id,
+    selector: "app-login",
+    styleUrls: ["./login.component.css"],
     templateUrl: "./login.component.html",
-    styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-    isLoggingIn = true;
-    user: User;
-    @ViewChild("password") password: ElementRef;
+    public isLoggingIn = true;
+    public user: User;
     @ViewChild("confirmPassword") confirmPassword: ElementRef;
+    @ViewChild("password") password: ElementRef;
 
     constructor(private page: Page, private userService: UserService, private router: Router) {
         this.page.actionBarHidden = true;
@@ -53,7 +53,7 @@ export class LoginComponent {
     }
 
     register() {
-        if (this.user.password != this.user.confirmPassword) {
+        if (this.user.password !== this.user.confirmPassword) {
             this.alert("Parolele nu se potrivesc.");
             return;
         }
@@ -69,17 +69,19 @@ export class LoginComponent {
 
     forgotPassword() {
         prompt({
-            title: "Parolă uitată",
-            message: "Vă rugăm introduceți adresa de email cu care v-ați înregistrat.",
-            inputType: "email",
+            cancelButtonText: "Cancel",
             defaultText: "",
+            inputType: "email",
+            message: "Vă rugăm introduceți adresa de email cu care v-ați înregistrat.",
             okButtonText: "Ok",
-            cancelButtonText: "Cancel"
+            title: "Parolă uitată",
         }).then((data) => {
             if (data.result) {
                 this.userService.resetPassword(data.text.trim())
                     .then(() => {
-                        this.alert("Parola dumneavoastră a fost resetată. Vă rugăm să vă verificați căsuța de e-mail pentru a afla să alegeți o nouă parolă pentru contul dumneavoastră.");
+                        this.alert("Parola dumneavoastră a fost resetată. \
+                        Vă rugăm să vă verificați căsuța de e-mail pentru a afla cum \
+                        să vă alegeți o nouă parolă pentru contul dumneavoastră.");
                     }).catch(() => {
                         this.alert("Din păcate a apărut o eroare la resetarea parolei.");
                     });
@@ -98,9 +100,9 @@ export class LoginComponent {
 
     alert(message: string) {
         return alert({
-            title: "eDrop",
+            message: message,
             okButtonText: "Bine",
-            message: message
+            title: "eDrop",
         });
     }
 }
