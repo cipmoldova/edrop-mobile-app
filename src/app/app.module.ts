@@ -24,6 +24,7 @@ import { UserService } from "./shared/user.service";
         NativeScriptFormsModule,
         NativeScriptHttpClientModule,
         AppRoutingModule,
+        DashboardRoutingModule,
         DashboardModule
     ],
     providers: [
