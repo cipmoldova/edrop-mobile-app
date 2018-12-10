@@ -1,66 +1,18 @@
-<ActionBar title="Dashboard"></ActionBar>
-<Page navigatingTo="onNavigatingTo" class="page" xmlns="http://schemas.nativescript.org/tns.xsd">
-    <GridLayout class="layoutDashboardBackgroundImageFromRes" rows="*,60">
-        <ScrollView row="0">
-            <WrapLayout orientation="horizontal">
+<TabView androidTabsPosition="bottom">
 
-            </WrapLayout>
-        </ScrollView>
-        <StackLayout row="1">
+    <page-router-outlet
+        *tabItem="{title: 'Acasă', iconSource: getIconSource('home')}"
+        name="homeTab">
+    </page-router-outlet>
 
-            <ng-container
-                *ngIf="isEligibleForDonation; then eligibleForDonation; else notEligibleForDonation">
-              </ng-container>
-              
-              <ng-template #eligibleForDonation>
-                <Button class="layoutDonateEnabledImageFromRes" (tap)="donate()" >
-                </Button>
-                <div>
-                  <Span text="Sunteți eligibil pentru donare!"></Span>
-                </div>
-              </ng-template>
-              <ng-template #notEligibleForDonation>
-                <Span text="Momentan nu sunteți eligibil pentru donare. Veți deveni disponibil în data de 28 mai 2019."></Span>
-              </ng-template>
-            <FormattedString>
-              <Span text="Donez"></Span>
-            </FormattedString>
-            <WrapLayout orientation="horizontal">
+    <page-router-outlet
+        *tabItem="{title: 'Donează', iconSource: getIconSource('browse')}"
+        name="browseTab">
+    </page-router-outlet>
 
-            </WrapLayout>
-        </StackLayout>
-        <StackLayout row="2" orientation="horizontal">
+    <page-router-outlet
+        *tabItem="{title: 'Mai multe', iconSource: getIconSource('search')}"
+        name="searchTab">
+    </page-router-outlet>
 
-            <Button width="18%">
-                <FormattedString>
-                  <Span text="&#xf015;" fontFamily="fa-solid-900"></Span>
-                  <Span text="&#x000a;Acasă"></Span>
-                </FormattedString>
-            </Button>
-            <Button width="17%">
-                <FormattedString>
-                    <Span text="&#xf279;" fontFamily="fa-solid-900"></Span>
-                    <Span text="&#x000a;Hartă"></Span>
-                </FormattedString>
-            </Button>
-            <Button width="22%">
-                <FormattedString>
-                    <Span text="&#xf004;" fontFamily="fa-solid-900"></Span>
-                    <Span text="&#x000a;Beneficii"></Span>
-                </FormattedString>
-            </Button>
-            <Button width="21%">
-                <FormattedString>
-                    <Span text="&#xf15c;" fontFamily="fa-solid-900"></Span>
-                    <Span text="&#x000a;Eligibil?"></Span>
-                </FormattedString>
-            </Button>
-            <Button width="20%">
-                <FormattedString>
-                    <Span text="&#xf150;" fontFamily="fa-solid-900"></Span>
-                    <Span text="&#x000a;Extra"></Span>
-                </FormattedString>
-            </Button>
-        </StackLayout>
-    </GridLayout>
-</Page>
+</TabView>

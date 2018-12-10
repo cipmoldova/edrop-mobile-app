@@ -1,0 +1,121 @@
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+// Font icon class
+.fa {
+   font-family: "FontAwesome";
+}
+// Common page class
+.page-content {
+    .page-placeholder {
+        color: $page-icon-color;
+        font-size: $page-content-placeholder-font-size;
+        vertical-align: center;
+        horizontal-align: center;
+    }
+
+    .page-icon {
+        font-size: 72;
+        vertical-align: top;
+        horizontal-align: center;
+        color: $page-icon-color;
+        margin-top: 20%;
+    }
+}
+
+//Action bar
+ActionBar .action-bar-title {
+    horizontal-align: center;
+}
+
+.layoutBackgroundImageFromRes {
+    background-image: url("res://logo");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.layoutDonateEnabledImageFromRes {
+    background-image: url("res://icon");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+}
+
+.layoutDonateDisabledImageFromRes {
+    background-image: url("res://icon_grey");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.layoutDashboardBackgroundImageFromRes {
+    background-image: url("res://dashboard");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.btn {
+    font-size: 18;
+    color:#FFFFFF;
+}
+
+.btn-quick-app {
+    background:#FF0000;
+    border-radius:50%;
+    color:#FFFFFF;
+    border-color:#FF0000;
+    height:45;
+    width:85%;
+    margin-bottom:0;
+    text-transform: none;
+}
+
+.btn-quick-app:hover, .btn-quick-app:active, .btn-quick-app:focus {
+    background:#FFFFFF;
+    color:#FF0000;
+}
+
+.btn-login-now {
+    background:#FFFFFF;
+    border-radius:50%;
+    color:#FF0000;
+    border-color:#FF0000;
+    height:45;
+    width:85%;
+    margin-top:6;
+    margin-bottom:53;
+    text-transform: none;
+}
+
+.btn-login-now:hover, .btn-login-now:active, .btn-login-now:focus {
+    background:#FF0000;
+    color:#FFFFFF;
+}
+
+#home-paragraph {
+    font-size:17;
+    width:80%;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 0.04px;
+    margin-bottom:10;
+    line-height: 7;
+}
+
+#login-paragraph {
+    font-size:17;
+    width:80%;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 0.04px;
+    margin-bottom:10;
+    line-height: 7;
+    color: blue;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+.menu-button {
+    border-width: 0;
+}

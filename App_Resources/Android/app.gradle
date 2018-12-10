@@ -5,17 +5,13 @@
 //	implementation 'com.android.support:recyclerview-v7:+'
 //}
 
+// If you want to add something to be applied before applying plugins' include.gradle files 
+// e.g. project.ext.googlePlayServicesVersion = "15.0.1"
+// create a file named before-plugins.gradle in the current directory and place it there
+
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "org.nativescript.eDrop" 
-    
-    //override supported platforms
-    // ndk {
-    //       abiFilters.clear()
-    //   		abiFilters "armeabi-v7a"
- 		// }
-  
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"  
@@ -27,7 +23,7 @@ def settingsGradlePath
 if(project.hasProperty("appResourcesPath")){
     settingsGradlePath = "$project.appResourcesPath/Android/settings.gradle";
 } else {
-    settingsGradlePath = "$rootDir/../../App_Resources/Android/settings.gradle";
+    settingsGradlePath = "$rootDir/../../app/App_Resources/Android/settings.gradle";
 }
 
 def settingsGradleFile = new File(settingsGradlePath);

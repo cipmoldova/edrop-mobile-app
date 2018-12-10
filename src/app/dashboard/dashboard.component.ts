@@ -1,27 +1,45 @@
 import { Component, OnInit } from "@angular/core";
-import { registerElement } from "nativescript-angular";
-import { PDFView } from "nativescript-pdf-view";
-import { EventData } from "tns-core-modules/data/observable";
-import { Button } from "tns-core-modules/ui/button";
-import { Page } from "ui/page";
+import { isAndroid } from "tns-core-modules/platform";
+import {
+    addCategories,
+    categories,
+    clearWriters,
+    disable,
+    enable,
+    isCategorySet,
+    isEnabled,
+    setCategories,
+    write
+} from "tns-core-modules/trace";
 
 @Component({
     moduleId: module.id,
     selector: "Dashboard",
-    templateUrl: "./dashboard.component.html",
+    styleUrls: ["./dashboard.component.scss"],
+    templateUrl: "./dashboard.component.html"
 })
 export class DashboardComponent implements OnInit {
 
-    public counter: number = 0;
-    public isEligibleForDonation: boolean = true;
-
-    constructor(private page: Page) {
+    constructor() {
         // Use the component constructor to inject providers.
-    registerElement("PDFView", () => PDFView);
     }
 
     ngOnInit(): void {
         // Init your component properties here.
-        this.page.actionBarHidden = true;
+        setCategories(categories.concat(
+            categories.Binding,
+            categories.Layout,
+            categories.Style,
+            categories.ViewHierarchy,
+            categories.VisualTreeEvents
+        ));
+        addCategories(categories.Navigation);
+        enable();
+    }
+
+    getIconSource(icon: string): string {
+        const iconPrefix = isAndroid ? "res://" : "res://tabIcons/";
+
+        return iconPrefix + icon;
     }
 }

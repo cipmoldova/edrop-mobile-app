@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { alert, prompt } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
@@ -8,13 +8,13 @@ import { UserService } from "../shared/user.service";
 
 @Component({
     moduleId: module.id,
-    selector: "app-login",
-    styleUrls: ["./login.component.css"],
-    templateUrl: "./login.component.html",
+    selector: "Login",
+    styleUrls: ["./login.component.scss"],
+    templateUrl: "./login.component.html"
 })
-export class LoginComponent {
-    public isLoggingIn = true;
-    public user: User;
+export class LoginComponent implements OnInit {
+    isLoggingIn = true;
+    user: User;
     @ViewChild("confirmPassword") confirmPassword: ElementRef;
     @ViewChild("password") password: ElementRef;
 
@@ -32,6 +32,7 @@ export class LoginComponent {
     submit() {
         if (!this.user.email || !this.user.password) {
             this.alert("Vă rugăm să scrieți un nume de utilizator și o parolă corecte.");
+
             return;
         }
 
@@ -55,6 +56,7 @@ export class LoginComponent {
     register() {
         if (this.user.password !== this.user.confirmPassword) {
             this.alert("Parolele nu se potrivesc.");
+
             return;
         }
         this.userService.register(this.user)
@@ -74,7 +76,7 @@ export class LoginComponent {
             inputType: "email",
             message: "Vă rugăm introduceți adresa de email cu care v-ați înregistrat.",
             okButtonText: "Ok",
-            title: "Parolă uitată",
+            title: "Parolă uitată"
         }).then((data) => {
             if (data.result) {
                 this.userService.resetPassword(data.text.trim())
@@ -102,7 +104,11 @@ export class LoginComponent {
         return alert({
             message: message,
             okButtonText: "Bine",
-            title: "eDrop",
+            title: "eDrop"
         });
+    }
+
+    ngOnInit(): void {
+        //
     }
 }
