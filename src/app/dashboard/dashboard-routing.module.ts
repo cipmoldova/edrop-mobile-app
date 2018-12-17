@@ -6,6 +6,7 @@ import { BrowseComponent } from "../browse/browse.component";
 import { HomeComponent } from "../home/home.component";
 import { ItemDetailComponent } from "../item-detail/item-detail.component";
 import { SearchComponent } from "../search/search.component";
+import { DashboardComponent } from "./dashboard.component";
 
 export const COMPONENTS = [
     BrowseComponent,
@@ -15,13 +16,15 @@ export const COMPONENTS = [
 ];
 
 const routes: Routes = [
-    { path: "dashboard", redirectTo: "/(homeTab:home//browseTab:browse//searchTab:search)", pathMatch: "full" },
+    { path: "", redirectTo: "/dashboard/(homeTab:home//browseTab:browse//searchTab:search)", pathMatch: "full" },
 
-    { path: "home", component: HomeComponent, outlet: "homeTab" },
-    { path: "browse", component: BrowseComponent, outlet: "browseTab" },
-    { path: "search", component: SearchComponent, outlet: "searchTab" },
+    { path: "dashboard", component: DashboardComponent, children: [
+        { path: "home", component: HomeComponent, outlet: "homeTab" },
+        { path: "browse", component: BrowseComponent, outlet: "browseTab" },
+        { path: "search", component: SearchComponent, outlet: "searchTab" },
 
-    { path: "item/:id", component: ItemDetailComponent, outlet: "searchTab" }
+        { path: "item/:id", component: ItemDetailComponent, outlet: "searchTab" }
+    ]}
 ];
 
 @NgModule({

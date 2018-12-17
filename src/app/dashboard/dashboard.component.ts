@@ -26,14 +26,7 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
-        setCategories(categories.concat(
-            categories.Binding,
-            categories.Layout,
-            categories.Style,
-            categories.ViewHierarchy,
-            categories.VisualTreeEvents
-        ));
-        addCategories(categories.Navigation);
+        setCategories(categories.All);
         enable();
     }
 
