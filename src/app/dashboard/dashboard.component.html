@@ -2,17 +2,20 @@
 
     <page-router-outlet
         *tabItem="{title: 'Acasă', iconSource: getIconSource('home')}"
-        name="homeTab">
-    </page-router-outlet>
+        name="homeTab"
+        actionBarVisibility="never"
+    ></page-router-outlet>
 
     <page-router-outlet
         *tabItem="{title: 'Donează', iconSource: getIconSource('browse')}"
-        name="browseTab">
-    </page-router-outlet>
+        name="browseTab"
+        actionBarVisibility="never"
+    ></page-router-outlet>
 
     <page-router-outlet
         *tabItem="{title: 'Mai multe', iconSource: getIconSource('search')}"
-        name="searchTab">
-    </page-router-outlet>
+        name="searchTab"
+        actionBarVisibility="never"
+    ></page-router-outlet>
 
 </TabView>

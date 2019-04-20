@@ -1,21 +1,21 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
-import { DashboardRoutingModule  } from "./dashboard-routing.module";
-import { DashboardComponent } from "./dashboard.component";
+import { BrowseRoutingModule  } from "./browse-routing.module";
+import { BrowseComponent } from "./browse.component";
 
 @NgModule({
     declarations: [
-        DashboardComponent
+        BrowseComponent,
     ],
     imports: [
         NativeScriptCommonModule,
-        DashboardRoutingModule,
+        BrowseRoutingModule,
     ],
     providers: [
     ],
     schemas: [
         NO_ERRORS_SCHEMA
-    ],
+    ]
 })
-export class DashboardModule { }
+export class BrowseModule { }

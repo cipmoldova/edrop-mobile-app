@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { NativeScriptRouterModule, NSEmptyOutletComponent } from "nativescript-angular/router";
 
 import { BrowseComponent } from "../browse/browse.component";
 import { HomeComponent } from "../home/home.component";
-import { ItemDetailComponent } from "../item-detail/item-detail.component";
+import { ItemDetailComponent } from "../search/item-detail/item-detail.component";
 import { SearchComponent } from "../search/search.component";
 import { DashboardComponent } from "./dashboard.component";
 
@@ -16,15 +16,28 @@ export const COMPONENTS = [
 ];
 
 const routes: Routes = [
-    { path: "", redirectTo: "/dashboard/(homeTab:home//browseTab:browse//searchTab:search)", pathMatch: "full" },
-
-    { path: "dashboard", component: DashboardComponent, children: [
-        { path: "home", component: HomeComponent, outlet: "homeTab" },
-        { path: "browse", component: BrowseComponent, outlet: "browseTab" },
-        { path: "search", component: SearchComponent, outlet: "searchTab" },
-
-        { path: "item/:id", component: ItemDetailComponent, outlet: "searchTab" }
-    ]}
+    {
+        path: "default", component: DashboardComponent, children: [
+            {
+                path: "home",
+                outlet: "homeTab",
+                component: NSEmptyOutletComponent,
+                loadChildren: "~/app/home/home.module#HomeModule",
+            },
+            {
+                path: "browse",
+                outlet: "browseTab",
+                component: NSEmptyOutletComponent,
+                loadChildren: "~/app/browse/browse.module#BrowseModule",
+            },
+            {
+                path: "search",
+                outlet: "searchTab",
+                component: NSEmptyOutletComponent,
+                loadChildren: "~/app/search/search.module#SearchModule",
+            },
+        ]
+    }
 ];
 
 @NgModule({

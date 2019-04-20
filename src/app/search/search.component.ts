@@ -3,7 +3,6 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { DataService, IDataItem } from "../core/data.service";
 
 @Component({
-    moduleId: module.id,
     selector: "Search",
     templateUrl: "./search.component.html"
 })

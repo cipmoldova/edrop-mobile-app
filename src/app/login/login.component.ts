@@ -1,13 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { Router } from "@angular/router";
 import { alert, prompt } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 
+import { RouterExtensions } from "nativescript-angular";
 import { User } from "../shared/user.model";
 import { UserService } from "../shared/user.service";
 
 @Component({
-    moduleId: module.id,
     selector: "Login",
     styleUrls: ["./login.component.scss"],
     templateUrl: "./login.component.html"
@@ -18,7 +17,7 @@ export class LoginComponent implements OnInit {
     @ViewChild("confirmPassword") confirmPassword: ElementRef;
     @ViewChild("password") password: ElementRef;
 
-    constructor(private page: Page, private userService: UserService, private router: Router) {
+    constructor(private page: Page, private userService: UserService, private routerExtension: RouterExtensions) {
         this.page.actionBarHidden = true;
         this.user = new User();
         // this.user.email = "foo2@foo.com";
@@ -46,7 +45,7 @@ export class LoginComponent implements OnInit {
     login() {
         this.userService.login(this.user)
             .then(() => {
-                this.router.navigate(["/dashboard"]);
+                this.routerExtension.navigate(["../dashboard/default"], { clearHistory: true });
             })
             .catch(() => {
                 this.alert("Din păcate nu am reușit să vă identificăm.");
@@ -102,7 +101,7 @@ export class LoginComponent implements OnInit {
 
     alert(message: string) {
         return alert({
-            message: message,
+            message,
             okButtonText: "Bine",
             title: "eDrop"
         });
