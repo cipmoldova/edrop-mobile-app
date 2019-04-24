@@ -7,7 +7,7 @@ import { User } from "../shared/user.model";
 import { UserService } from "../shared/user.service";
 
 @Component({
-    selector: "Login",
+    selector: "ns-login",
     styleUrls: ["./login.component.scss"],
     templateUrl: "./login.component.html"
 })

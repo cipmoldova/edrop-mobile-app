@@ -3,7 +3,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { DataService, IDataItem } from "../core/data.service";
 
 @Component({
-    selector: "Search",
+    selector: "ns-search",
     templateUrl: "./search.component.html"
 })
 export class SearchComponent implements OnInit {

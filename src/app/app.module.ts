@@ -10,7 +10,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
 
-import { NSModuleFactoryLoader } from "nativescript-angular/router";
 import { UserService } from "./shared/user.service";
 
 traceEnable();
@@ -29,7 +28,7 @@ export class MyErrorHandler implements ErrorHandler {
     ],
     declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
     ],
     imports: [
         NativeScriptModule,
@@ -40,7 +39,6 @@ export class MyErrorHandler implements ErrorHandler {
     providers: [
         UserService,
         { provide: ErrorHandler, useClass: MyErrorHandler },
-        { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader }
    ],
     schemas: [
         NO_ERRORS_SCHEMA

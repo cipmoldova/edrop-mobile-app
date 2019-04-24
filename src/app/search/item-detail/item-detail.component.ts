@@ -3,7 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { DataService, IDataItem } from "../../core/data.service";
 
 @Component({
-    selector: "ItemDetail",
+    selector: "ns-item-detail",
     templateUrl: "./item-detail.component.html"
 })
 export class ItemDetailComponent implements OnInit {

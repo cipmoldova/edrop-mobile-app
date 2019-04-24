@@ -2,11 +2,11 @@ import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
-import { BrowseComponent } from "./browse.component";
+import { DonationComponent } from "./donation.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "browse" },
-    { path: "browse", component: BrowseComponent },
+    { path: "", redirectTo: "donation" },
+    { path: "donation", component: DonationComponent },
 ];
 
 @NgModule({
@@ -15,4 +15,4 @@ const routes: Routes = [
     ],
     exports: [NativeScriptRouterModule]
 })
-export class BrowseRoutingModule { }
+export class DonationRoutingModule { }

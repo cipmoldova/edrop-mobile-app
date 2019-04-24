@@ -15,7 +15,7 @@ import {
 } from "tns-core-modules/trace";
 
 @Component({
-    selector: "Dashboard",
+    selector: "ns-dashboard",
     styleUrls: ["./dashboard.component.scss"],
     templateUrl: "./dashboard.component.html"
 })
@@ -35,7 +35,8 @@ export class DashboardComponent implements OnInit {
                 {
                     outlets: {
                         homeTab: ["home"],
-                        browseTab: ["browse"],
+                        donationTab: ["donation"],
+                        bountyTab: ["bounty"],
                         searchTab: ["search"],
                     }
                 }

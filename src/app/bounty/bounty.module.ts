@@ -1,16 +1,16 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
-import { BrowseRoutingModule  } from "./browse-routing.module";
-import { BrowseComponent } from "./browse.component";
+import { BountyRoutingModule  } from "./bounty-routing.module";
+import { BountyComponent } from "./bounty.component";
 
 @NgModule({
     declarations: [
-        BrowseComponent,
+        BountyComponent,
     ],
     imports: [
         NativeScriptCommonModule,
-        BrowseRoutingModule,
+        BountyRoutingModule,
     ],
     providers: [
     ],
@@ -18,4 +18,4 @@ import { BrowseComponent } from "./browse.component";
         NO_ERRORS_SCHEMA
     ]
 })
-export class BrowseModule { }
+export class BountyModule { }

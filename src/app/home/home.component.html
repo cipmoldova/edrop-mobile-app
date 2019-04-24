@@ -1,6 +1,39 @@
-<FlexboxLayout class="page">
-	<StackLayout class="form">
-		<Image class="logo" src="res://login"></Image>
-		<Label class="header" text="eDrop"></Label>
-	</StackLayout>
-</FlexboxLayout>
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Acasă"></Label>
+</ActionBar>
+
+<!-- <Page 
+    navigatingTo="onNavigatingTo" 
+    class="page" 
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+    <Span text="Momentan nu sunteți eligibil pentru donare. Veți deveni disponibil în data de 28 mai 2019."></Span>
+    <GridLayout class="layoutDashboardBackgroundImageFromRes" rows="*,60">
+        <ScrollView row="0">
+            <WrapLayout orientation="horizontal">
+
+            </WrapLayout>
+        </ScrollView>
+        <StackLayout row="1">
+            <ng-container
+                *ngIf="isEligibleForDonation; then eligibleForDonation; else notEligibleForDonation">
+            </ng-container>
+              
+            <ng-template #eligibleForDonation>
+                <Button class="layoutDonateEnabledImageFromRes" (tap)="donate()" >
+                </Button>
+                <div>
+                    <Span text="Sunteți eligibil pentru donare!"></Span>
+                </div>
+            </ng-template>
+            <ng-template #notEligibleForDonation>
+                <Span text="Momentan nu sunteți eligibil pentru donare. Veți deveni disponibil în data de 28 mai 2019."></Span>
+            </ng-template>
+            <FormattedString>
+                <Span text="Donez"></Span>
+            </FormattedString>
+            <WrapLayout orientation="horizontal">
+
+            </WrapLayout>
+        </StackLayout>
+    </GridLayout>
+</Page> -->

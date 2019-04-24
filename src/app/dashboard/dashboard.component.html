@@ -8,7 +8,13 @@
 
     <page-router-outlet
         *tabItem="{title: 'Donează', iconSource: getIconSource('browse')}"
-        name="browseTab"
+        name="donationTab"
+        actionBarVisibility="never"
+    ></page-router-outlet>
+
+    <page-router-outlet
+        *tabItem="{title: 'Beneficii', iconSource: getIconSource('browse')}"
+        name="bountyTab"
         actionBarVisibility="never"
     ></page-router-outlet>
 

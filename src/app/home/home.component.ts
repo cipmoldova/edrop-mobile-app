@@ -4,11 +4,11 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { PDFView } from "nativescript-pdf-view";
 import { EventData } from "tns-core-modules/data/observable";
 import { Button } from "tns-core-modules/ui/button";
-import { Page } from "ui/page";
+import { Page } from "tns-core-modules/ui/page";
 import { DataService, IDataItem } from "../core/data.service";
 
 @Component({
-    selector: "Home",
+    selector: "ns-home",
     styleUrls: ["./home.component.scss"],
     templateUrl: "./home.component.html"
 })

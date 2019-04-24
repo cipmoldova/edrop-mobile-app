@@ -2,18 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule, NSEmptyOutletComponent } from "nativescript-angular/router";
 
-import { BrowseComponent } from "../browse/browse.component";
-import { HomeComponent } from "../home/home.component";
-import { ItemDetailComponent } from "../search/item-detail/item-detail.component";
-import { SearchComponent } from "../search/search.component";
 import { DashboardComponent } from "./dashboard.component";
-
-export const COMPONENTS = [
-    BrowseComponent,
-    HomeComponent,
-    ItemDetailComponent,
-    SearchComponent
-];
 
 const routes: Routes = [
     {
@@ -25,10 +14,16 @@ const routes: Routes = [
                 loadChildren: "~/app/home/home.module#HomeModule",
             },
             {
-                path: "browse",
-                outlet: "browseTab",
+                path: "donation",
+                outlet: "donationTab",
                 component: NSEmptyOutletComponent,
-                loadChildren: "~/app/browse/browse.module#BrowseModule",
+                loadChildren: "~/app/donation/donation.module#DonationModule",
+            },
+            {
+                path: "bounty",
+                outlet: "bountyTab",
+                component: NSEmptyOutletComponent,
+                loadChildren: "~/app/bounty/bounty.module#BountyModule",
             },
             {
                 path: "search",
