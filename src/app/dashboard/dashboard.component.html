@@ -1,4 +1,4 @@
-<TabView androidTabsPosition="bottom">
+<TabView androidTabsPosition="bottom" class="icon">
 
     <page-router-outlet
         *tabItem="{title: 'Acasă', iconSource: getIconSource('home')}"
@@ -7,7 +7,8 @@
     ></page-router-outlet>
 
     <page-router-outlet
-        *tabItem="{title: 'Donează', iconSource: getIconSource('browse')}"
+        class="fa"
+        *tabItem="{title: '&#xf2ba;\nDonează'}"
         name="donationTab"
         actionBarVisibility="never"
     ></page-router-outlet>

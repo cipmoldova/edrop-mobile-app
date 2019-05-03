@@ -1,0 +1,20 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Acasă"></Label>
+</ActionBar>
+
+<Page 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    navigatingTo="onNavigatingTo" 
+    class="page"
+>
+    <StackLayout orientation="vertical" width="400" height="400" backgroundColor="lightgray">
+        <TextField [(ngModel)]="location" placeholder="Localitatea"></TextField>
+        <DatePicker 
+            [year]="currentYear" 
+            [month]="currentMonth" 
+            [day]="currentDay"
+            minDate="1970-01-01" 
+            maxDate="2100-12-31"
+        ></DatePicker>
+    </StackLayout>
+</Page>
