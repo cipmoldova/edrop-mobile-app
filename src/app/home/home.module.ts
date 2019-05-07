@@ -2,14 +2,18 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
+import { ChecklistComponent } from "./checklist/checklist.component";
 import { HomeRoutingModule  } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
+import { MarketplaceComponent } from "./marketplace/marketplace.component";
 import { ScheduleComponent } from "./schedule/schedule.component";
 
 @NgModule({
     declarations: [
         HomeComponent,
         ScheduleComponent,
+        ChecklistComponent,
+        MarketplaceComponent,
     ],
     imports: [
         NativeScriptCommonModule,

@@ -7,8 +7,12 @@
     navigatingTo="onNavigatingTo" 
     class="page"
 >
-    <StackLayout orientation="vertical" width="400" height="400" backgroundColor="lightgray">
-        <TextField [(ngModel)]="location" placeholder="Localitatea"></TextField>
+    <StackLayout orientation="vertical" width="400" height="600" backgroundColor="lightgray">
+        <!-- <TextField [(ngModel)]="location" placeholder="Localitatea"></TextField> -->
+        <Label text="Unde?"></Label>
+        <ListPicker [items]="listPickerCenters" [(ngModel)]="selectedListPickerIndex"></ListPicker>
+        <StackLayout class="hr-dark m-10"></StackLayout>
+        <Label text="Când?"></Label>
         <DatePicker 
             [year]="currentYear" 
             [month]="currentMonth" 
@@ -16,5 +20,15 @@
             minDate="1970-01-01" 
             maxDate="2100-12-31"
         ></DatePicker>
+
+        <Button 
+            text="Continuă" 
+            class="btn btn-primary" 
+            width="200" 
+            height="50" 
+            backgroundColor="red"
+            [nsRouterLink]="['../checklist']" 
+        ></Button>
+
     </StackLayout>
 </Page>

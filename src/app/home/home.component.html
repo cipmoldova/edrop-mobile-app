@@ -29,7 +29,14 @@
             <Label text="12 iulie" row="0" col="2" backgroundColor="blue"></Label>
         </GridLayout>
 
-        <Button text="Marketplace" class="btn btn-primary" width="200" height="50" backgroundColor="blue"></Button>
+        <Button
+            text="Marketplace" 
+            class="btn btn-primary"
+            width="200"
+            height="50"
+            backgroundColor="blue"
+            [nsRouterLink]="['../marketplace']" 
+        ></Button>
 
     </StackLayout>
 </Page>
