@@ -14,7 +14,7 @@ const routes: Routes = [
     imports: [
         NativeScriptRouterModule.forRoot(
             routes,
-            { enableTracing: true } // <-- debugging purposes only
+            { enableTracing: false } // <-- debugging purposes only
         )
     ],
     exports: [NativeScriptRouterModule]

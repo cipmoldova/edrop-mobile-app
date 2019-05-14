@@ -16,16 +16,18 @@ registerElement("PDFView", () => PDFView);
 export class HomeComponent implements OnInit {
     counter: number = 0;
     isEligibleForDonation: boolean = true;
+    glyph: string = "";
 
     constructor(
         private page: Page,
         private routerExtension: RouterExtensions,
     ) {
         // Use the component constructor to inject providers.
+        this.glyph = String.fromCharCode(0xe90b);
     }
 
     ngOnInit(): void {
         // Init your component properties here.
-        this.page.actionBarHidden = true;
+        this.page.actionBarHidden = false;
     }
 }

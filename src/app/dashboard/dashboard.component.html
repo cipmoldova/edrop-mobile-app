@@ -1,28 +1,30 @@
-<TabView androidTabsPosition="bottom" class="icon">
+<TabView 
+    androidTabsPosition="bottom" 
+    class="icon-home-outline"
+>
 
     <page-router-outlet
-        *tabItem="{title: 'Acasă', iconSource: getIconSource('home')}"
+        *tabItem="{title: '&#xf015;\nAcasă'}"
         name="homeTab"
-        actionBarVisibility="never"
+        actionBarVisibility="auto"
     ></page-router-outlet>
 
     <page-router-outlet
-        class="fa"
-        *tabItem="{title: '&#xf2ba;\nDonează'}"
+        *tabItem="{title: '&#xe90b;\nDonează'}"
         name="donationTab"
-        actionBarVisibility="never"
+        actionBarVisibility="auto"
     ></page-router-outlet>
 
     <page-router-outlet
-        *tabItem="{title: 'Beneficii', iconSource: getIconSource('browse')}"
+        *tabItem="{title: '&#xe9da;\nBeneficii'}"
         name="bountyTab"
-        actionBarVisibility="never"
+        actionBarVisibility="auto"
     ></page-router-outlet>
 
     <page-router-outlet
-        *tabItem="{title: 'Mai multe', iconSource: getIconSource('search')}"
+        *tabItem="{title: '&#xf0c9;\nMai multe'}"
         name="searchTab"
-        actionBarVisibility="never"
+        actionBarVisibility="auto"
     ></page-router-outlet>
 
 </TabView>

@@ -2,13 +2,9 @@
 // This is where the vast majority of your CSS code goes.
 
 // Font icon class
-.fa {
-   font-family: "FontAwesome";
-}
-    
 .icon-home-outline{
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
+    font-family: 'icomoon';
 }
 
 // Common page class
@@ -17,13 +13,13 @@
         color: $page-icon-color;
         font-size: $page-content-placeholder-font-size;
         vertical-align: center;
-        horizontal-align: center;
+        text-align: center;
     }
 
     .page-icon {
         font-size: 72;
         vertical-align: top;
-        horizontal-align: center;
+        text-align: center;
         color: $page-icon-color;
         margin-top: 20%;
     }
@@ -31,7 +27,7 @@
 
 //Action bar
 ActionBar .action-bar-title {
-    horizontal-align: center;
+    text-align: center;
 }
 
 .layoutBackgroundImageFromRes {
@@ -130,22 +126,28 @@ ActionBar .action-bar-title {
 
 .icon-home-outline:before {
     content: "\e900";
-}
-.icon-notebook-list:before {
+  }
+  .icon-notebook-list:before {
     content: "\e901";
-}
-.icon-home:before {
+  }
+  .icon-home:before {
     content: "\f015";
-}
-.icon-heart-o:before {
+  }
+  .icon-heart-o:before {
     content: "\f08a";
-}
-.icon-bars:before {
+  }
+  .icon-bars:before {
     content: "\f0c9";
-}
-.icon-navicon:before {
+  }
+  .icon-navicon:before {
     content: "\f0c9";
-}
-.icon-reorder:before {
+  }
+  .icon-reorder:before {
     content: "\f0c9";
-}
+  }
+  .icon-droplet:before {
+    content: "\e90b";
+  }
+  .icon-heart:before {
+    content: "\e9da";
+  }

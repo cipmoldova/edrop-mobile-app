@@ -1,5 +1,4 @@
-<ActionBar class="action-bar">
-    <Label class="action-bar-title" text="Acasă"></Label>
+<ActionBar title="Acasă" class="action-bar">
 </ActionBar>
 
 <Page 
@@ -7,7 +6,7 @@
     navigatingTo="onNavigatingTo" 
     class="page"
 >
-    <StackLayout orientation="vertical" width="400" height="400" backgroundColor="lightgray">
+    <StackLayout orientation="vertical" width="400" height="400" backgroundColor="white">
         <Button 
             text="Programare rapidă" 
             class="btn btn-primary" 
@@ -16,6 +15,11 @@
             backgroundColor="red"
             [nsRouterLink]="['../schedule']" 
         ></Button>
+
+        <StackLayout orientation="horizontal" horizontalAlignment="center">
+            <Label [text]="glyph" class="page-icon icon-home-outline"></Label>
+            <Label text="0xe90b" class="page-icon"></Label>
+        </StackLayout>
 
         <GridLayout 
             columns="*, *, *" 

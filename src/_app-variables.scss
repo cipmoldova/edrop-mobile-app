@@ -8,6 +8,7 @@ $background-dark: #F8F8F8 !default;
 $background-light: #FFFFFF !default;
 
 $blue-dark: #022734 !default;
+$red-light: #ff0000 !default;
 $blue-light: #02556E !default;
 $blue-50: rgba($blue-dark, 0.5) !default;
 $blue-20: rgba($blue-dark, 0.2) !default;
@@ -35,6 +36,7 @@ $page-icon-color: #D7D7D7 !default;
 
 // Sizes
 $page-content-placeholder-font-size: 20;
+$tab-font-size: 10;
 
 /**
  * Theme variables overrides
@@ -51,7 +53,7 @@ $error: $error-light;
 // SideDrawer
 $item-color-android : #737373;
 $item-active-background: #F8F8F8;
-$item-active-color: $accent;
+$item-active-color: $red-light;
 $item-active-icon-color: $item-active-color;
 $item-color-ios: $blue-dark;
 $item-color-android: $blue-dark;
