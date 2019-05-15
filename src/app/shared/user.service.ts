@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
-import { Kinvey } from "kinvey-nativescript-sdk";
-import { User } from "./user.model";
+import { Errors, User } from "kinvey-nativescript-sdk";
+import { LoginUser } from "./user.model";
 
 @Injectable()
 export class UserService {
-    register(user: User) {
+    register(user: LoginUser) {
         return new Promise((resolve, reject) => {
-            Kinvey.User.logout()
+            User.logout()
                 .then(() => {
-                    Kinvey.User.signup({ username: user.email, password: user.password })
+                    User.signup({ username: user.email, password: user.password })
                         .then(resolve)
                         .catch((error) => { this.handleErrors(error); reject(); });
                 })
@@ -16,11 +16,11 @@ export class UserService {
         });
     }
 
-    login(user: User) {
+    login(user: LoginUser) {
         return new Promise((resolve, reject) => {
-            Kinvey.User.logout()
+            User.logout()
                 .then(() => {
-                    Kinvey.User.login(user.email, user.password)
+                    User.login(user.email, user.password)
                         .then(resolve)
                         .catch((error) => { this.handleErrors(error); reject(); });
                 })
@@ -29,11 +29,11 @@ export class UserService {
     }
 
     resetPassword(email) {
-        return Kinvey.User.resetPassword(email)
+        return User.resetPassword(email)
             .catch(this.handleErrors);
     }
 
-    handleErrors(error: Kinvey.BaseError) {
+    handleErrors(error: Errors.BaseError) {
         console.error(error.message);
     }
 }

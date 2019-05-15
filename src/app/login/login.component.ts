@@ -3,7 +3,7 @@ import { alert, prompt } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 
 import { RouterExtensions } from "nativescript-angular";
-import { User } from "../shared/user.model";
+import { LoginUser } from "../shared/user.model";
 import { UserService } from "../shared/user.service";
 
 @Component({
@@ -13,13 +13,13 @@ import { UserService } from "../shared/user.service";
 })
 export class LoginComponent implements OnInit {
     isLoggingIn = true;
-    user: User;
+    user: LoginUser;
     @ViewChild("confirmPassword") confirmPassword: ElementRef;
     @ViewChild("password") password: ElementRef;
 
     constructor(private page: Page, private userService: UserService, private routerExtension: RouterExtensions) {
         this.page.actionBarHidden = true;
-        this.user = new User();
+        this.user = new LoginUser();
         // this.user.email = "foo2@foo.com";
         // this.user.password = "foo";
     }

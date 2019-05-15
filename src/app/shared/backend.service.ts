@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Kinvey } from "kinvey-nativescript-sdk";
+import { init } from "kinvey-nativescript-sdk";
 
 export class BackendService {
     static kinveyAppKey = "kid_SyY8LYO8M";
@@ -8,7 +8,7 @@ export class BackendService {
     static kinveyPassword = "admin";
 
     static setup() {
-        Kinvey.init({
+        init({
             appKey: BackendService.kinveyAppKey,
             appSecret: BackendService.kinveyAppSecret,
         });

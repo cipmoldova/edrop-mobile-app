@@ -5,7 +5,7 @@
       "version": "5.0.0"
     },
     "tns-android": {
-      "version": "5.3.1"
+      "version": "5.4.0"
     }
   },
   "description": "NativeScript Application",
@@ -24,15 +24,18 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "ajv": "^6.9.1",
     "kinvey-nativescript-sdk": "^4.0.0",
     "nativescript-angular": "^7.2.3",
     "nativescript-google-maps-sdk": "^2.7.0",
     "nativescript-pdf-view": "^2.0.1",
+    "nativescript-plugin-firebase": "^8.2.0",
     "nativescript-theme-core": "~1.0.4",
     "reflect-metadata": "~0.1.13",
     "rxjs": "^6.5.1",
-    "tns-core-modules": "^5.3.2",
-    "zone.js": "^0.9.1"
+    "tns-android": "^5.4.0",
+    "tns-core-modules": "^5.4.0",
+    "zone.js": "^0.8.29"
   },
   "devDependencies": {
     "@angular/cli": "^7.3.8",
@@ -45,7 +48,7 @@
     "nativescript-dev-typescript": "^0.9.0",
     "nativescript-dev-webpack": "^0.21.2",
     "tslint": "~5.16.0",
-    "typescript": "~3.4.5"
+    "typescript": "^3.1.6"
   },
   "readme": "eDrop Application"
 }
