@@ -7,21 +7,38 @@
     navigatingTo="onNavigatingTo" 
     class="page"
 >
-    <StackLayout orientation="vertical" width="400" height="600" backgroundColor="lightgray">
+    <GridLayout 
+        columns="*" rows="*, *, *"
+        orientation="vertical" 
+        width="400"  
+        height="400" 
+        backgroundColor="white"
+    >
         <!-- <TextField [(ngModel)]="location" placeholder="Localitatea"></TextField> -->
-        <Label text="Unde?"></Label>
-        <ListPicker [items]="listPickerCenters" [(ngModel)]="selectedListPickerIndex"></ListPicker>
-        <StackLayout class="hr-dark m-10"></StackLayout>
-        <Label text="Când?"></Label>
-        <DatePicker 
-            [year]="currentYear" 
-            [month]="currentMonth" 
-            [day]="currentDay"
-            minDate="1970-01-01" 
-            maxDate="2100-12-31"
-        ></DatePicker>
+        
+        <StackLayout col="0" row="0">
+            <Label text="Unde?"></Label>
+            <PickerField 
+                hint="Alegeți centrul de donare" 
+                [items]="listPickerCenters"
+                height="250"
+            ></PickerField>
+        </StackLayout>
 
+        <StackLayout col="0" row="1">
+            <Label text="Când?"></Label>
+            <DateTimePickerFields 
+                minDate="1970-01-01" 
+                maxDate="2100-12-31"
+                hintDate="Alege ziua..." 
+                hintTime="Alege ora..."
+                pickerOkText="Bine"
+                height="300"
+            ></DateTimePickerFields>
+        </StackLayout>
+        
         <Button 
+            col="0" row="2"
             text="Continuă" 
             class="btn btn-primary" 
             width="200" 
@@ -30,5 +47,6 @@
             [nsRouterLink]="['../checklist']" 
         ></Button>
 
-    </StackLayout>
+
+    </GridLayout>
 </Page>
