@@ -2,7 +2,7 @@
 // This is where the vast majority of your CSS code goes.
 
 // Font icon class
-.icon-home-outline{
+@mixin font-icon{
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon';
 }
@@ -28,6 +28,9 @@
 //Action bar
 ActionBar .action-bar-title {
     text-align: center;
+    vertical-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: red($color: #ff0000);
 }
 
 .layoutBackgroundImageFromRes {
@@ -44,12 +47,6 @@ ActionBar .action-bar-title {
     background-position: center;
 }
 
-.layoutDonateDisabledImageFromRes {
-    background-image: url("res://icon_grey");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
 .layoutDashboardBackgroundImageFromRes {
     background-image: url("res://dashboard");
     background-repeat: no-repeat;
@@ -122,32 +119,3 @@ ActionBar .action-bar-title {
 .menu-button {
     border-width: 0;
 }
-
-
-.icon-home-outline:before {
-    content: "\e900";
-  }
-  .icon-notebook-list:before {
-    content: "\e901";
-  }
-  .icon-home:before {
-    content: "\f015";
-  }
-  .icon-heart-o:before {
-    content: "\f08a";
-  }
-  .icon-bars:before {
-    content: "\f0c9";
-  }
-  .icon-navicon:before {
-    content: "\f0c9";
-  }
-  .icon-reorder:before {
-    content: "\f0c9";
-  }
-  .icon-droplet:before {
-    content: "\e90b";
-  }
-  .icon-heart:before {
-    content: "\e9da";
-  }

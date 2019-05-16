@@ -72,7 +72,10 @@ $btn-color: $accent;
 $btn-color-secondary: darken($btn-color, 10%);
 $btn-color-outline-highlighted: lighten($btn-color, 10%);
 
-//Text colors
+// Text colors
 $headings-color: $blue-dark;
 $secondary: $blue-dark;
 $text-color: $blue-dark;
+
+// TabView
+$tab-font-family: 'icomoon';
