@@ -30,8 +30,8 @@
             <DateTimePickerFields 
                 minDate="1970-01-01" 
                 maxDate="2100-12-31"
-                hintDate="Alege ziua..." 
-                hintTime="Alege ora..."
+                hintDate="Alegeți ziua..." 
+                hintTime="Alegeți ora..."
                 pickerOkText="Bine"
                 height="300"
             ></DateTimePickerFields>
@@ -39,12 +39,12 @@
         
         <Button 
             col="0" row="2"
-            text="Continuă" 
+            text="Continuați" 
             class="btn btn-primary" 
             width="200" 
             height="50" 
             backgroundColor="red"
-            [nsRouterLink]="['../checklist']" 
+            (tap)="schedule()"
         ></Button>
 
 

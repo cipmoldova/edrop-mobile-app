@@ -1,6 +1,8 @@
 <ActionBar class="action-bar">
-    <Image src="res://icon" class="action-image"></Image>
-    <Label class="action-bar-title" text="eDrop"></Label>
+    <Label 
+        class="action-bar-title" 
+        text="eDrop"
+    ></Label>
 </ActionBar>
 
 <TabView androidTabsPosition="bottom">
@@ -12,7 +14,7 @@
     ></page-router-outlet>
 
     <page-router-outlet
-        *tabItem="{title: '&#xe90b;\nDonează'}"
+        *tabItem="{title: '&#xe90b;\nDonare'}"
         name="donationTab"
         actionBarVisibility="auto"
     ></page-router-outlet>
@@ -24,8 +26,8 @@
     ></page-router-outlet>
 
     <page-router-outlet
-        *tabItem="{title: '&#xf0c9;\nMai multe'}"
-        name="searchTab"
+        *tabItem="{title: '&#xf0c9;\nAltele'}"
+        name="extraTab"
         actionBarVisibility="auto"
     ></page-router-outlet>
 

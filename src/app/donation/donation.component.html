@@ -2,7 +2,41 @@
     <Label class="action-bar-title" text="Donează sânge"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
-    <Label class="page-icon" text="&#xe900;"></Label>
-    <Label class="page-placeholder" text="text demonstrativ"></Label>
-</GridLayout>
+<ScrollView>
+    <StackLayout class="page page-content">
+
+        <Label
+            text="Câteva lucruri..." 
+            class="h2 m-5"
+        ></Label>
+
+        <StackLayout orientation="vertical">
+            <ol>
+                <li *ngFor="let infoItem of infoText; let i = index">
+                    <StackLayout orientation="horizontal">
+                        <Label 
+                            text="{{i + 1}}."
+                            width="40"
+                            fontWeight="bold"
+                            textAlignment="center"
+                        ></Label>
+                        <Label 
+                            text="{{ infoItem }}"
+                            textWrap="true"
+                        ></Label>
+                    </StackLayout>
+                </li>
+            </ol>
+        </StackLayout>
+
+        <Button
+            text="Continuați" 
+            class="btn btn-primary"
+            width="200"
+            height="50"
+            backgroundColor="red"
+            [nsRouterLink]="['../checklist']" 
+        ></Button>
+    
+    </StackLayout>
+</ScrollView>

@@ -2,12 +2,12 @@ import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
+import { ExtraComponent } from "./extra.component";
 import { ItemDetailComponent } from "./item-detail/item-detail.component";
-import { SearchComponent } from "./search.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "search" },
-    { path: "search", component: SearchComponent },
+    { path: "", redirectTo: "extra" },
+    { path: "extra", component: ExtraComponent },
     { path: "item/:id", component: ItemDetailComponent },
 ];
 
@@ -17,4 +17,4 @@ const routes: Routes = [
     ],
     exports: [NativeScriptRouterModule]
 })
-export class SearchRoutingModule { }
+export class ExtraRoutingModule { }

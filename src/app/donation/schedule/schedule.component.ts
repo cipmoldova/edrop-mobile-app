@@ -60,4 +60,8 @@ export class ScheduleComponent implements OnInit {
         // Init your component properties here.
         this.page.actionBarHidden = false;
     }
+
+    schedule(): void {
+        null;
+    }
 }

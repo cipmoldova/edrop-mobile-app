@@ -1,4 +1,4 @@
-@import 'checklist.component';
+@import 'bounty.component';
 
 .page {
   align-items: center;
@@ -51,4 +51,9 @@
 }
 .bold {
   color: #000000;
+}
+
+
+.list-group-item-heading {
+  font-family: "Roboto Regular"
 }

@@ -14,6 +14,8 @@ import {
     write
 } from "tns-core-modules/trace";
 
+import { ActionBar, NavigationButton } from "tns-core-modules/ui/action-bar";
+
 @Component({
     selector: "ns-dashboard",
     styleUrls: ["./dashboard.component.scss"],
@@ -23,7 +25,8 @@ export class DashboardComponent implements OnInit {
 
     constructor(
         private routerExtension: RouterExtensions,
-        private activeRoute: ActivatedRoute
+        private activeRoute: ActivatedRoute,
+        // private actionBar: ActionBar,
     ) {
         // Use the component constructor to inject providers.
     }
@@ -37,7 +40,7 @@ export class DashboardComponent implements OnInit {
                         homeTab: ["home"],
                         donationTab: ["donation"],
                         bountyTab: ["bounty"],
-                        searchTab: ["search"],
+                        extraTab: ["extra"],
                     }
                 }
             ],

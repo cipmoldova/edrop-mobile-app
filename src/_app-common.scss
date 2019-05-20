@@ -9,28 +9,35 @@
 
 // Common page class
 .page-content {
+    font-family: "Roboto Regular";
+    font-size: 24;
     .page-placeholder {
         color: $page-icon-color;
         font-size: $page-content-placeholder-font-size;
         vertical-align: center;
-        text-align: center;
+        horizontal-align: center;
     }
 
     .page-icon {
         font-size: 72;
         vertical-align: top;
-        text-align: center;
+        horizontal-align: center;
         color: $page-icon-color;
         margin-top: 20%;
     }
 }
 
 //Action bar
-ActionBar .action-bar-title {
-    text-align: center;
-    vertical-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    background-color: red($color: #ff0000);
+ActionBar {
+    background-color: white;
+    .action-bar-title {
+        horizontal-align: left;
+        vertical-align: center;
+        font-family: 'Roboto Regular';
+        color: red;
+        font-weight: bold;
+        font-size: 24;
+    }
 }
 
 .layoutBackgroundImageFromRes {

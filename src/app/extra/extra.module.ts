@@ -1,18 +1,18 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
+import { ExtraRoutingModule  } from "./extra-routing.module";
+import { ExtraComponent } from "./extra.component";
 import { ItemDetailComponent } from "./item-detail/item-detail.component";
-import { SearchRoutingModule  } from "./search-routing.module";
-import { SearchComponent } from "./search.component";
 
 @NgModule({
     declarations: [
-        SearchComponent,
+        ExtraComponent,
         ItemDetailComponent,
     ],
     imports: [
         NativeScriptCommonModule,
-        SearchRoutingModule,
+        ExtraRoutingModule,
     ],
     providers: [
     ],
@@ -20,4 +20,4 @@ import { SearchComponent } from "./search.component";
         NO_ERRORS_SCHEMA
     ]
 })
-export class SearchModule { }
+export class ExtraModule { }

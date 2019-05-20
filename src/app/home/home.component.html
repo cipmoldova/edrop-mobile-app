@@ -13,13 +13,8 @@
             width="200" 
             height="100" 
             backgroundColor="red"
-            [nsRouterLink]="['../schedule']" 
+            [nsRouterLink]="['../donation/schedule']" 
         ></Button>
-
-        <StackLayout orientation="horizontal" horizontalAlignment="center">
-            <Label [text]="glyph" class="page-icon"></Label>
-            <Label text="0xe90b" class="page-icon"></Label>
-        </StackLayout>
 
         <GridLayout 
             columns="*, *, *" 
@@ -32,15 +27,6 @@
             <Label text="3000 puncte" row="0" col="1" backgroundColor="green"></Label>
             <Label text="12 iulie" row="0" col="2" backgroundColor="blue"></Label>
         </GridLayout>
-
-        <Button
-            text="Marketplace" 
-            class="btn btn-primary"
-            width="200"
-            height="50"
-            backgroundColor="blue"
-            [nsRouterLink]="['../marketplace']" 
-        ></Button>
 
     </StackLayout>
 </Page>

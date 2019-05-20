@@ -26,10 +26,10 @@ const routes: Routes = [
                 loadChildren: "~/app/bounty/bounty.module#BountyModule",
             },
             {
-                path: "search",
-                outlet: "searchTab",
+                path: "extra",
+                outlet: "extraTab",
                 component: NSEmptyOutletComponent,
-                loadChildren: "~/app/search/search.module#SearchModule",
+                loadChildren: "~/app/extra/extra.module#ExtraModule",
             },
         ]
     }
