@@ -4,25 +4,25 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptDateTimePickerModule } from "nativescript-datetimepicker/angular";
 import { NativeScriptPickerModule } from "nativescript-picker/angular";
 
-import { ScheduleModule } from "../schedule/schedule.module";
-import { DonationRoutingModule  } from "./donation-routing.module";
-import { DonationComponent } from "./donation.component";
+import { ChecklistComponent } from "./checklist/checklist.component";
+import { ScheduleRoutingModule  } from "./schedule-routing.module";
+import { ScheduleComponent } from "./schedule.component";
 
 @NgModule({
     declarations: [
-        DonationComponent,
+        ScheduleComponent,
+        ChecklistComponent,
     ],
     imports: [
         NativeScriptCommonModule,
-        DonationRoutingModule,
         NativeScriptDateTimePickerModule,
         NativeScriptPickerModule,
-        ScheduleModule,
+        ScheduleRoutingModule,
     ],
     providers: [
     ],
     schemas: [
         NO_ERRORS_SCHEMA
-    ]
+    ],
 })
-export class DonationModule { }
+export class ScheduleModule { }

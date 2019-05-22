@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 import { isAndroid } from "tns-core-modules/platform";
+import { alert } from "tns-core-modules/ui/dialogs";
 import {
     addCategories,
     categories,
@@ -15,6 +16,7 @@ import {
 } from "tns-core-modules/trace";
 
 import { ActionBar, NavigationButton } from "tns-core-modules/ui/action-bar";
+import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view/tab-view";
 
 @Component({
     selector: "ns-dashboard",
@@ -48,8 +50,8 @@ export class DashboardComponent implements OnInit {
         );
 
         // Init your component properties here.
-        setCategories(categories.All);
-        enable();
+        //setCategories(categories.All);
+        //enable();
     }
 
 }

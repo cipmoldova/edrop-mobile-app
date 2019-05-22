@@ -11,24 +11,28 @@
         *tabItem="{title: '&#xf015;\nAcasă'}"
         name="homeTab"
         actionBarVisibility="auto"
+        [tabSelectedIndex]="tabSelectedIndex"
     ></page-router-outlet>
 
     <page-router-outlet
         *tabItem="{title: '&#xe90b;\nDonare'}"
         name="donationTab"
         actionBarVisibility="auto"
+        [tabSelectedIndex]="tabSelectedIndex"
     ></page-router-outlet>
 
     <page-router-outlet
         *tabItem="{title: '&#xe9da;\nBeneficii'}"
         name="bountyTab"
         actionBarVisibility="auto"
+        [tabSelectedIndex]="tabSelectedIndex"
     ></page-router-outlet>
 
     <page-router-outlet
         *tabItem="{title: '&#xf0c9;\nAltele'}"
         name="extraTab"
         actionBarVisibility="auto"
+        [tabSelectedIndex]="tabSelectedIndex"
     ></page-router-outlet>
 
 </TabView>

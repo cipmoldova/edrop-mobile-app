@@ -31,8 +31,8 @@ const routes: Routes = [
                 component: NSEmptyOutletComponent,
                 loadChildren: "~/app/extra/extra.module#ExtraModule",
             },
-        ]
-    }
+        ],
+    },
 ];
 
 @NgModule({
