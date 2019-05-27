@@ -1,32 +1,25 @@
 <ActionBar class="action-bar">
-    <Label class="action-bar-title" text="Chestionar"></Label>
+    <Label 
+        class="action-bar-title" 
+        text="Chestionar"
+    ></Label>
 </ActionBar>
 
-<Page 
-    xmlns="http://schemas.nativescript.org/tns.xsd" 
-    navigatingTo="onNavigatingTo" 
-    class="page"
->
+<ScrollView class="page page-content">
+    <StackLayout 
+        orientation="vertical"
+        width="400"
+        height="600"
+        backgroundColor="white"
+    >
 
-    <ScrollView>
-        <StackLayout 
-            orientation="vertical"
-            width="400"
-            height="600"
-            backgroundColor="lightgray"
-        >
-
-            <!-- <PDFView [src]="src" (load)="onLoad()"></PDFView> -->
-            <Image src="res://checklist"></Image>
-        
-            <Button
-                text="Continuați" 
-                class="btn btn-primary"
-                width="200"
-                height="50"
-                backgroundColor="red"
-                [nsRouterLink]="['../schedule']" 
-            ></Button>
-        </StackLayout>
-    </ScrollView>
-</Page>
+        <!-- <PDFView [src]="src" (load)="onLoad()"></PDFView> -->
+        <Image src="res://checklist"></Image>
+    
+        <Button
+            text="Continuați" 
+            class="btn-primary-one-row"
+            [nsRouterLink]="['../schedule']" 
+        ></Button>
+    </StackLayout>
+</ScrollView>

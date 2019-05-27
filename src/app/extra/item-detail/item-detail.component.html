@@ -3,10 +3,13 @@
         [nsRouterLink]="['../../extra']" 
         android.systemIcon="ic_menu_back"
     ></NavigationButton>
-    <Label class="action-bar-title" [text]="item.name"></Label>
+    <Label 
+        class="action-bar-title" 
+        [text]="item.name"
+    ></Label>
 </ActionBar>
 
-<GridLayout>
+<GridLayout class="page page-content">
     <Label 
         class="m-10 h3"
         verticalAlignment="top"

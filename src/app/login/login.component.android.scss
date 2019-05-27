@@ -1,9 +1,5 @@
 @import 'login.component';
 
-.page {
-  align-items: center;
-  flex-direction: column;
-}
 .form {
   margin-left: 30;
   margin-right: 30;
@@ -14,9 +10,8 @@
 .logo {
   margin-bottom: 12;
   height: 90;
-  font-weight: bold;
 }
-.header {
+.logo-text {
   text-align: center;
   font-size: 25;
   font-weight: 600;
@@ -33,16 +28,17 @@
   placeholder-color: #A8A8A8;
 }
 
-.btn-primary {
+.btn-login {
   height: 50;
   margin: 30 5 15 5;
   background-color: #D51A1A;
+  color:#FFFFFF;
   border-radius: 5;
   font-size: 20;
   font-weight: 600;
 }
 .login-label {
-  text-align: center;
+  horizontal-align: center;
   color: #A8A8A8;
   font-size: 16;
 }

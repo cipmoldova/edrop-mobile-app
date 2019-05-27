@@ -1,20 +1,17 @@
 <ActionBar class="action-bar">
-    <Label class="action-bar-title" text="Beneficii"></Label>
+    <Label 
+        class="action-bar-title"
+        text="Beneficii"
+    ></Label>
 </ActionBar>
 
-<Page 
-    xmlns="http://schemas.nativescript.org/tns.xsd" 
-    navigatingTo="onNavigatingTo" 
-    class="page"
+<StackLayout 
+    orientation="vertical"
+    width="400"
+    height="600"
+    backgroundColor="white"
+    class="page page-content"
 >
-    <StackLayout 
-        orientation="vertical"
-        width="400"
-        height="600"
-        backgroundColor="white"
-    >
-
-    <!-- <PDFView [src]="src" (load)="onLoad()"></PDFView> -->
     <ListView 
         class="list-group" 
         [items]="companies" 
@@ -32,12 +29,10 @@
                 ></Image>
                 <Label 
                     [text]="company.name" 
-                    class="list-group-item-heading"
-                    verticalAlignment="center" 
+                    fontSize="20"
                     style="width: 60%"
                 ></Label>
             </FlexboxLayout>
         </ng-template>
     </ListView>
-    </StackLayout>
-</Page>
+</StackLayout>

@@ -2,100 +2,86 @@
 // This is where the vast majority of your CSS code goes.
 
 // Font icon class
-@mixin font-icon{
+@mixin font-icon {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon';
+}
+
+.page {
+    align-items: center;
+    flex-direction: column;
 }
 
 // Common page class
 .page-content {
     font-family: "Roboto Regular";
     font-size: 24;
-    .page-placeholder {
-        color: $page-icon-color;
-        font-size: $page-content-placeholder-font-size;
-        vertical-align: center;
-        horizontal-align: center;
-    }
-
-    .page-icon {
-        font-size: 72;
-        vertical-align: top;
-        horizontal-align: center;
-        color: $page-icon-color;
-        margin-top: 20%;
-    }
 }
 
 //Action bar
-ActionBar {
+.action-bar-app {
     background-color: white;
     .action-bar-title {
         horizontal-align: left;
         vertical-align: center;
-        font-family: 'Roboto Regular';
         color: red;
-        font-weight: bold;
+        font-weight: normal;
         font-size: 24;
+        padding-top: -24;
+        @include font-icon;
+    }
+}
+.action-bar {
+    background-color: rgb(255, 127, 127);
+    height: 30;
+    padding: 0;
+    margin: 0;
+    .action-bar-title {
+        horizontal-align: center;
+        vertical-align: center;
+        color: white;
+        background-color: rgb(255, 127, 127);
+        font-family: 'Roboto Regular';
+        font-weight: bold;
+        font-size: 20;
+        margin: 0;
     }
 }
 
-.layoutBackgroundImageFromRes {
-    background-image: url("res://logo");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.layoutDonateEnabledImageFromRes {
-    background-image: url("res://icon");
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: center;
-}
-
-.layoutDashboardBackgroundImageFromRes {
-    background-image: url("res://dashboard");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-.btn {
-    font-size: 18;
-    color:#FFFFFF;
-}
-
-.btn-quick-app {
-    background:#FF0000;
-    border-radius:50%;
-    color:#FFFFFF;
+@mixin btn-primary {
+    background-color: #FF0000;
     border-color:#FF0000;
-    height:45;
-    width:85%;
-    margin-bottom:0;
-    text-transform: none;
-}
-
-.btn-quick-app:hover, .btn-quick-app:active, .btn-quick-app:focus {
-    background:#FFFFFF;
-    color:#FF0000;
-}
-
-.btn-login-now {
-    background:#FFFFFF;
-    border-radius:50%;
-    color:#FF0000;
-    border-color:#FF0000;
-    height:45;
-    width:85%;
-    margin-top:6;
-    margin-bottom:53;
-    text-transform: none;
-}
-
-.btn-login-now:hover, .btn-login-now:active, .btn-login-now:focus {
-    background:#FF0000;
+    border: 1;
     color:#FFFFFF;
+    font-family: 'Roboto Regular';
+    border-radius: 5;
+    font-size: 20;
+    width: 200;
+    margin-bottom:5;
+    margin-top:5;
+    font-weight: 300; 
+    text-align: center;
+    padding: 0;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    &:highlighted {
+        background-color:#FFFFFF;
+        color:#FF0000;
+    }
+}
+
+.btn-primary-one-row {
+    @include btn-primary;
+    height: 45;
+}
+.btn-primary-two-rows {
+    @include btn-primary;
+    height: 80;
+    line-height: 2;
+}
+
+.btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 #home-paragraph {
@@ -119,10 +105,3 @@ ActionBar {
     color: blue;
 }
 
-.textcenter {
-    text-align: center;
-}
-
-.menu-button {
-    border-width: 0;
-}

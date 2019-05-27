@@ -1,12 +1,18 @@
 <FlexboxLayout class="page">
 	<StackLayout class="form">
-		<Image class="logo" src="res://login"></Image>
-		<Label class="header" text="eDrop"></Label>
+		<Image 
+			class="logo" 
+			src="res://login"
+		></Image>
+		<Label 
+			class="logo-text" 
+			text="eDrop"
+		></Label>
 
 		<StackLayout class="input-field">
 			<TextField 
 				class="input" 
-				hint="Email" 
+				hint="Adresa de e-mail" 
 				keyboardType="email"
 				autocorrect="false"
 				autocapitalizationType="none" 
@@ -30,7 +36,10 @@
 			<StackLayout class="hr-light"></StackLayout>
 		</StackLayout>
 
-		<StackLayout *ngIf="!isLoggingIn" class="input-field">
+		<StackLayout 
+			*ngIf="!isLoggingIn" 
+			class="input-field"
+		>
 			<TextField 
 				#confirmPassword 
 				class="input" 
@@ -45,7 +54,7 @@
 		<Button 
 			[text]="isLoggingIn ? 'Conectați-vă' : 'Înregistrați-vă'" 
 			(tap)="submit()" 
-			class="btn btn-primary m-t-20"
+			class="btn-login m-t-20"
 		></Button>
 		<Label 
 			*ngIf="isLoggingIn" 
@@ -55,10 +64,16 @@
 		></Label>
 	</StackLayout>
 
-	<Label class="login-label sign-up-label" (tap)="toggleForm()">
+	<Label 
+		class="login-label sign-up-label" 
+		(tap)="toggleForm()"
+	>
 		<FormattedString>
 			<Span [text]="isLoggingIn ? 'Nu aveți cont? ' : 'Întoarceți-vă la Login'"></Span>
-			<Span [text]="isLoggingIn ? 'Înregistrați-vă' : ''" class="bold"></Span>
+			<Span 
+				[text]="isLoggingIn ? 'Înregistrați-vă' : ''" 
+				class="bold"
+			></Span>
 		</FormattedString>
 	</Label>
 </FlexboxLayout>
