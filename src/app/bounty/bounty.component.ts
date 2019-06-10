@@ -14,6 +14,8 @@ export class BountyComponent implements OnInit {
   location: string;
   date: Date;
 
+  height: number = 980;
+
   companies: Array<{ name: string, imageSrc: string }> = [
     {
         name: "Andy's Pizza",
@@ -51,10 +53,6 @@ export class BountyComponent implements OnInit {
       private webLocation: Location,
   ) {
       // Use the component constructor to inject providers.
-  }
-
-  goNext(): void {
-      // this.routerExtension.navigate(["../dashboard/default"], { clearHistory: true });
   }
 
   onItemTap(args: ItemEventData): void {

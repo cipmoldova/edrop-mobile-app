@@ -30,6 +30,7 @@ export class ChecklistComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
+        // TODO:
         // this.file.readText().then(
         //     res => {
         //         this.writtenContent = res;
@@ -67,9 +68,9 @@ export class ChecklistComponent implements OnInit {
                 ]
             );
             alert({
-                message: "Ne pare rău!\nDin păcate în acest moment nu sunteți pregătit pentru donare!",
+                message: "Din păcate în acest moment nu sunteți pregătit pentru donare!",
                 okButtonText: "Bine",
-                title: "Chestionar eșuat!"
+                title: "Ne pare rău!"
             });
             this.dashboard.changeTab("homeTab");
         } else {

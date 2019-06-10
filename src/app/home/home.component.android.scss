@@ -1,8 +1,12 @@
 @import 'home.component';
 
+.chart {
+  background-color: #fff3e4;
+}
+
 .highlight {
   color: red;
-  font-size: 24;
+  font-size: 18;
   font-weight: bold;
   vertical-align: center;
   horizontal-align: center;
@@ -11,7 +15,8 @@
 .stats-box {
   background-color: rgba(128, 64, 64, 0.05);
   border-width: 1;
-  border-color: white;
-  padding: 5;
-  margin: 5;
+  border-color: #ffe4c6;
+  padding: 1;
+  margin: 2;
+  font-size: 14;
 }

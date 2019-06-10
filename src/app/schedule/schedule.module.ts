@@ -9,9 +9,9 @@ import { DashboardModule } from "../dashboard/dashboard.module";
 import { BookingSummaryComponent } from "./booking/booking-summary/booking-summary.component";
 import { BookingComponent } from "./booking/booking.component";
 import { ChecklistComponent } from "./checklist/checklist.component";
+import { HtmlViewerComponent } from "./checklist/HtmlViewerComponent";
 import { ScheduleRoutingModule  } from "./schedule-routing.module";
 import { ScheduleComponent } from "./schedule.component";
-import { HtmlViewerComponent } from "./checklist/HtmlViewerComponent";
 
 @NgModule({
     declarations: [

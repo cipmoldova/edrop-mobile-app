@@ -25,24 +25,26 @@ export class HomeComponent implements OnInit {
     numberOfDisplayedMonths = 6;
 
     bloodNeeded: Array<GlobalStatsChart> = [
-        { month: "Ianuarie", amount: 20 },
-        { month: "Februarie", amount: 13 },
-        { month: "Martie", amount: 24 },
-        { month: "Aprilie", amount: 11 },
-        { month: "Mai", amount: 18 },
-        { month: "Iunie", amount: 17 },
+        { month: "Ianuarie", amount: 8.5 },
+        { month: "Februarie", amount: 7.8 },
+        { month: "Martie", amount: 7 },
+        { month: "Aprilie", amount: 4.2 },
+        { month: "Mai", amount: 6.8 },
+        { month: "Iunie", amount: 3.5 },
     ];
 
     bloodDonated: Array<GlobalStatsChart> = [
-        { month: "Ianuarie", amount: 10 },
-        { month: "Februarie", amount: 11 },
-        { month: "Martie", amount: 26 },
-        { month: "Aprilie", amount: 8 },
-        { month: "Mai", amount: 10 },
-        { month: "Iunie", amount: 5 },
+        { month: "Ianuarie", amount: 5 },
+        { month: "Februarie", amount: 4.9 },
+        { month: "Martie", amount: 5 },
+        { month: "Aprilie", amount: 2.2 },
+        { month: "Mai", amount: 5.1 },
+        { month: "Iunie", amount: 2 },
     ];
 
     bloodGap: Array<GlobalStatsChart> = new Array<GlobalStatsChart>();
+
+    labels: Array<GlobalStatsChart> = new Array<GlobalStatsChart>();
 
     constructor(
         private page: Page,
@@ -56,9 +58,15 @@ export class HomeComponent implements OnInit {
         this.page.actionBarHidden = false;
         // this.console.dir(this.bloodDonated);
         for (let i = 0; i < this.numberOfDisplayedMonths; i++) {
+            this.bloodNeeded[i].amount *= 1000;
+            this.bloodDonated[i].amount *= 1000;
             this.bloodGap[i] = new GlobalStatsChart(
                 this.bloodNeeded[i].month,
                 Math.max(this.bloodNeeded[i].amount - this.bloodDonated[i].amount, 0),
+            );
+            this.labels[i] = new GlobalStatsChart(
+                this.bloodNeeded[i].month,
+                Math.min(this.bloodDonated[i].amount / this.bloodNeeded[i].amount * 100, 100),
             );
         }
     }

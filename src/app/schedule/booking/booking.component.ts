@@ -34,7 +34,7 @@ export class BookingComponent implements OnInit {
         , "Spitalul Raional Drochia"
         , "Spitalul Raional Edineț"
     ];
-    selectedListPickerIndex: number = 0;
+    selectedListPickerIndex: number = 0; // TODO : ???
 
     currentDay: number = new Date().getDate();
     currentMonth: number = new Date().getMonth() + 1;

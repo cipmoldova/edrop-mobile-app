@@ -19,10 +19,6 @@ export class ScheduleComponent implements OnInit {
         // Use the component constructor to inject providers.
     }
 
-    goNext(): void {
-        // this.routerExtension.navigate(["../dashboard/default"], { clearHistory: true });
-    }
-
     ngOnInit(): void {
         // Init your component properties here.
         this.page.actionBarHidden = false;
