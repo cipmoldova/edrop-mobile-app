@@ -1,0 +1,46 @@
+<ScrollView
+    [visibility]="isItemVisible ? 'visible' : 'collapsed'"
+>
+    <StackLayout
+        orientation="vertical" 
+        class="page-content"
+    >
+        <StackLayout>
+            <Label 
+                text="Unde?" 
+                class="subtitle"
+            ></Label>
+            <PickerField 
+                hint="Alegeți centrul de donare..." 
+                [items]="listPickerCenters"
+                pickerTitle="Alegerea centrului de donare"
+            ></PickerField>
+        </StackLayout>
+
+        <StackLayout>
+            <Label 
+                text="Când?" 
+                class="subtitle"
+            ></Label>
+            <DateTimePickerFields 
+                minDate="1970-01-01" 
+                maxDate="2100-12-31"
+                hintDate="Alegeți ziua..." 
+                hintTime="Alegeți ora..."
+                pickerOkText="Bine"
+            ></DateTimePickerFields>
+        </StackLayout>
+
+        <StackLayout class="hr-light m-10"></StackLayout>
+        
+        <Button 
+            class="btn-primary-one-row" 
+            text="Continuare" 
+            (tap)="book()"
+        ></Button>
+
+    </StackLayout>
+</ScrollView>
+
+<router-outlet></router-outlet>
+

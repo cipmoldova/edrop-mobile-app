@@ -5,19 +5,17 @@
     ></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
+<GridLayout class="page-content">
     <ListView 
         [items]="items" 
         class="list-group"
     >
-        <ListView.itemTemplate>
-            <ng-template let-item="item">
-                <Label 
-                    [nsRouterLink]="['../item', item.id]" 
-                    [text]="item.name" 
-                    class="list-group-item"
-                ></Label>
-            </ng-template>
-        </ListView.itemTemplate>
+        <ng-template let-item="item">
+            <Label 
+                [nsRouterLink]="['item', item.id]" 
+                [text]="item.name" 
+                class="list-group-item"
+            ></Label>
+        </ng-template>
     </ListView>
 </GridLayout>

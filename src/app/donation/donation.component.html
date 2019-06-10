@@ -6,10 +6,10 @@
 </ActionBar>
 
 <ScrollView>
-    <StackLayout class="page page-content">
+    <StackLayout class="page-content">
 
         <Label
-            text="Câteva lucruri..." 
+            text="De ce să donez?" 
             class="h2 m-5"
         ></Label>
 
@@ -32,10 +32,12 @@
             </ol>
         </StackLayout>
 
+        <StackLayout class="hr-light m-10"></StackLayout>
+        
         <Button
-            text="Continuați" 
+            text="Continuare" 
             class="btn-primary-one-row"
-            [nsRouterLink]="['../schedule/checklist']" 
+            [nsRouterLink]="['schedule/default']" 
         ></Button>
     
     </StackLayout>

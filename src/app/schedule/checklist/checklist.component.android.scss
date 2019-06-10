@@ -1,1 +1,14 @@
 @import 'checklist.component';
+
+// Question Label
+.question-label {
+    padding-bottom: -36;
+    vertical-align: top;
+}
+
+// Checkbox
+.checkbox {
+    font-size: 16;
+    font-family: "Roboto Regular";
+    vertical-align: top;
+}

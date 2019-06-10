@@ -5,9 +5,14 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { DonationComponent } from "./donation.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "donation" },
-    { path: "donation", component: DonationComponent },
-    { path: "schedule", loadChildren: "~/app/schedule/schedule.module#ScheduleModule" },
+    {
+        path: "",
+        component: DonationComponent,
+    },
+    {
+        path: "schedule",
+        loadChildren: "~/app/schedule/schedule.module#ScheduleModule",
+    },
 ];
 
 @NgModule({

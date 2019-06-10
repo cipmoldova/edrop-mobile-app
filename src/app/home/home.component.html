@@ -5,11 +5,11 @@
     ></Label>
 </ActionBar>
 
-<ScrollView class="page page-content">
+<ScrollView class="page-content">
 
     <GridLayout 
-        rows="*, auto, auto, auto, auto"
-        height="1000px"
+        rows="*, auto, auto, auto, auto, auto, auto"
+        height="950px"
     >
         <RadCartesianChart row="0">
             <Palette 
@@ -19,52 +19,75 @@
             >
                 <PaletteEntry 
                     tkCartesianPaletteEntry 
-                    strokeWidth="3"
-                    strokeColor="Yellow" 
                     fillColor="Yellow"
+                    strokeWidth="2"
+                    strokeColor="Red"
                 ></PaletteEntry>
                 <PaletteEntry 
                     tkCartesianPaletteEntry 
-                    strokeWidth="3" 
-                    strokeColor="Yellow" 
                     fillColor="Yellow"
+                    strokeWidth="2"
+                    strokeColor="Red"
                 ></PaletteEntry>
                 <PaletteEntry 
                     tkCartesianPaletteEntry 
-                    strokeWidth="3" 
-                    strokeColor="Yellow" 
                     fillColor="Yellow"
+                    strokeWidth="2"
+                    strokeColor="Red"
                 ></PaletteEntry>
                 <PaletteEntry 
                     tkCartesianPaletteEntry 
-                    strokeWidth="3" 
-                    strokeColor="Yellow" 
                     fillColor="Yellow"
+                    strokeWidth="2"
+                    strokeColor="Red"
                 ></PaletteEntry>
                 <PaletteEntry 
                     tkCartesianPaletteEntry 
-                    strokeWidth="3" 
-                    strokeColor="Green" 
                     fillColor="Green"
+                    strokeWidth="2"
+                    strokeColor="Red"
+                ></PaletteEntry>
+                <PaletteEntry 
+                    tkCartesianPaletteEntry 
+                    fillColor="Green"
+                    strokeWidth="2"
+                    strokeColor="Red"
                 ></PaletteEntry>
             </Palette>
+            
+            <Palette 
+                seriesName="bloodGapSeries" 
+                tkCartesianPalette
+                seriesState="Normal"
+            >
+                <PaletteEntry 
+                    tkCartesianPaletteEntry 
+                    fillColor="White"
+                    strokeWidth="2"
+                    strokeColor="Red"
+                ></PaletteEntry>
+            </Palette>
+
             <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
-            <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+            <LinearAxis tkCartesianVerticalAxis labelFormat="%.0f "></LinearAxis>
             <BarSeries 
                 tkCartesianSeries 
                 seriesName="bloodDonatedSeries"
                 [items]="bloodDonated"
-                categoryProperty="Month" 
-                valueProperty="Amount"
+                categoryProperty="month" 
+                valueProperty="amount"
                 paletteMode="Item"
-            ></BarSeries>
-            <SplineSeries 
-                seriesName="bloodNecessarySeries"
+                stackMode="Stack"
+            ></BarSeries>    
+            <BarSeries 
                 tkCartesianSeries 
-                [items]="bloodNeeded"
-                categoryProperty="Month" 
-                valueProperty="Amount"
-            ></SplineSeries>     
+                seriesName="bloodGapSeries"
+                [items]="bloodGap"
+                categoryProperty="month" 
+                valueProperty="amount"
+                paletteMode="Series"
+                stackMode="Stack"
+            ></BarSeries>
         </RadCartesianChart>
 
         <StackLayout 
@@ -72,63 +95,65 @@
             class="hr-light m-10"
         ></StackLayout>
 
-        <GridLayout 
-            row="2" 
-            rows="*, *"
-            columns="*, *"
+        <StackLayout 
+            row="2"
+            orientation="horizontal"
+            class="stats-box"
         >
-            <Label
-                row="0"
-                col="0"
-                textWrap=true
-            >
+            <Label 
+                text="Recoltări&#010;realizate:" 
+                textWrap=true 
+                width="120"
+            ></Label>
+            <Label class="highlight">
                 <FormattedString>
-                    <Span text="Recoltări realizate:&#010;"></Span>
-                    <Span 
-                        text="{{ numberOfDonations }}"
-                        class="highlight"
-                    ></Span>
+                    <Span text="{{ numberOfDonations }}"></Span>
                 </FormattedString>
             </Label>
+        </StackLayout>
+        <StackLayout 
+            row="3"
+            orientation="horizontal"
+            class="stats-box"
+        >
             <Label 
-                row="0"
-                col="1"
-                textWrap=true
-            >
+                text="Puncte&#010;disponibile:" 
+                textWrap=true 
+                width="120"
+            ></Label>
+            <Label class="highlight">
                 <FormattedString>
-                    <Span text="Inimioare disponibile:&#010;"></Span>
-                    <Span 
-                        text="{{ numberOfCredits }}"
-                        class="highlight"
-                    ></Span>
+                    <Span text="{{ numberOfCredits }}"></Span>
                 </FormattedString>
             </Label>
+        </StackLayout>
+        <StackLayout 
+            row="4"
+            orientation="horizontal"
+            class="stats-box"
+        >
             <Label 
-                row="1"
-                col="0"
-                colSpan=2
-                textWrap=true
-            >
-            <FormattedString>
-                <Span text="Data ultimei recoltări:&#010;"></Span>
-                <Span 
-                    text="{{ dateLastDonation | date: 'dd MMMM yyyy': 'undefined':'ro-MD' }}"
-                    class="highlight"
-                ></Span>
-            </FormattedString>
-        </Label>
-        </GridLayout>
+                text="Data ultimei&#010;recoltări:" 
+                textWrap=true 
+                width="120"
+            ></Label>
+            <Label class="highlight">
+                <FormattedString>
+                    <Span text="{{ dateLastDonation | date: 'dd MMMM yyyy': 'undefined':'ro-MD' }}"></Span>
+                </FormattedString>
+            </Label>
+        </StackLayout>
 
         <StackLayout 
-            row="3" 
+            row="5" 
             class="hr-light m-10"
         ></StackLayout>
         
         <Button 
-            row="4"
-            text="Programare&#010;rapidă" 
-            class="btn-primary-two-rows" 
-            [nsRouterLink]="['../schedule/checklist']" 
+            row="6"
+            text="Programare" 
+            class="btn-primary-one-row" 
+            [nsRouterLink]="['schedule/default']" 
         ></Button>
     
     </GridLayout>

@@ -1,49 +1,8 @@
 <ActionBar class="action-bar">
     <Label 
         class="action-bar-title" 
-        text="Acasă"
+        text="Programare"
     ></Label>
 </ActionBar>
 
-<GridLayout 
-    columns="*" 
-    rows="*, *, *"
-    orientation="vertical" 
-    width="400"  
-    height="400" 
-    backgroundColor="white"
-    class="page page-content"
->
-    <!-- <TextField [(ngModel)]="location" placeholder="Localitatea"></TextField> -->
-    
-    <StackLayout col="0" row="0">
-        <Label text="Unde?"></Label>
-        <PickerField 
-            hint="Alegeți centrul de donare" 
-            [items]="listPickerCenters"
-            height="250"
-        ></PickerField>
-    </StackLayout>
-
-    <StackLayout col="0" row="1">
-        <Label text="Când?"></Label>
-        <DateTimePickerFields 
-            minDate="1970-01-01" 
-            maxDate="2100-12-31"
-            hintDate="Alegeți ziua..." 
-            hintTime="Alegeți ora..."
-            pickerOkText="Bine"
-            height="300"
-        ></DateTimePickerFields>
-    </StackLayout>
-    
-    <Button 
-        col="0" 
-        row="2"
-        class="btn-primary-one-row" 
-        text="Continuați" 
-        (tap)="schedule()"
-    ></Button>
-
-
-</GridLayout>
+<router-outlet></router-outlet>

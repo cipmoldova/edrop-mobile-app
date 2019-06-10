@@ -17,11 +17,15 @@ export class LoginComponent implements OnInit {
     @ViewChild("confirmPassword") confirmPassword: ElementRef;
     @ViewChild("password") password: ElementRef;
 
-    constructor(private page: Page, private userService: UserService, private routerExtension: RouterExtensions) {
+    constructor(
+        private page: Page,
+        private userService: UserService,
+        private routerExtension: RouterExtensions,
+    ) {
         this.page.actionBarHidden = true;
         this.user = new LoginUser();
-        // this.user.email = "foo2@foo.com";
-        // this.user.password = "foo";
+        this.user.email = "foo2@foo.com"; // debug
+        this.user.password = "foo"; // debug
     }
 
     toggleForm() {
@@ -45,7 +49,10 @@ export class LoginComponent implements OnInit {
     login() {
         this.userService.login(this.user)
             .then(() => {
-                this.routerExtension.navigate(["../dashboard/default"], { clearHistory: true });
+                this.routerExtension.navigate(
+                    ["../dashboard/default"],
+                    { clearHistory: true }
+                );
             })
             .catch(() => {
                 this.alert("Din păcate nu am reușit să vă identificăm.");

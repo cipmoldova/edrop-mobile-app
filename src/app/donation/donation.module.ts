@@ -4,7 +4,6 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptDateTimePickerModule } from "nativescript-datetimepicker/angular";
 import { NativeScriptPickerModule } from "nativescript-picker/angular";
 
-import { ScheduleModule } from "../schedule/schedule.module";
 import { DonationRoutingModule  } from "./donation-routing.module";
 import { DonationComponent } from "./donation.component";
 
@@ -17,7 +16,6 @@ import { DonationComponent } from "./donation.component";
         DonationRoutingModule,
         NativeScriptDateTimePickerModule,
         NativeScriptPickerModule,
-        ScheduleModule,
     ],
     providers: [
     ],

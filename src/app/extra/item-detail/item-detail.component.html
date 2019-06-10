@@ -1,7 +1,7 @@
 <ActionBar class="action-bar">
     <NavigationButton 
-        [nsRouterLink]="['../../extra']" 
         android.systemIcon="ic_menu_back"
+        (tap)="goBack()"
     ></NavigationButton>
     <Label 
         class="action-bar-title" 
@@ -9,7 +9,7 @@
     ></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
+<GridLayout class="page-content">
     <Label 
         class="m-10 h3"
         verticalAlignment="top"

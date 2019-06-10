@@ -1,22 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
-import { isAndroid } from "tns-core-modules/platform";
-import { alert } from "tns-core-modules/ui/dialogs";
-import {
-    addCategories,
-    categories,
-    clearWriters,
-    disable,
-    enable,
-    isCategorySet,
-    isEnabled,
-    setCategories,
-    write
-} from "tns-core-modules/trace";
-
-import { ActionBar, NavigationButton } from "tns-core-modules/ui/action-bar";
-import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view/tab-view";
 
 @Component({
     selector: "ns-dashboard",
@@ -25,15 +9,18 @@ import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view/tab-
 })
 export class DashboardComponent implements OnInit {
 
+    @ViewChild("dashboardTab") dashboardTab: ElementRef;
+
     constructor(
         private routerExtension: RouterExtensions,
         private activeRoute: ActivatedRoute,
-        // private actionBar: ActionBar,
     ) {
         // Use the component constructor to inject providers.
     }
 
     ngOnInit(): void {
+
+        // Init your component properties here.
 
         this.routerExtension.navigate(
             [
@@ -48,10 +35,39 @@ export class DashboardComponent implements OnInit {
             ],
             { relativeTo: this.activeRoute }
         );
-
-        // Init your component properties here.
-        //setCategories(categories.All);
-        //enable();
     }
 
+    changeTab(newTab: string): void {
+        switch (newTab) {
+            case "homeTab": {
+                this.dashboardTab.nativeElement.selectedIndex = 0;
+                break;
+            }
+            case "donationTab": {
+                this.dashboardTab.nativeElement.selectedIndex = 1;
+                break;
+            }
+            case "bountyTab": {
+                this.dashboardTab.nativeElement.selectedIndex = 2;
+                break;
+            }
+            case "extraTab": {
+                this.dashboardTab.nativeElement.selectedIndex = 3;
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+    }
+
+    goHome(): void {
+        this.routerExtension.navigate(
+            [
+                "/dashboard/default",
+                { outlets: { homeTab: ["home"] } },
+            ]
+        );
+        this.changeTab("homeTab");
+    }
 }

@@ -1,14 +1,17 @@
 @import 'home.component';
 
-.input-field {
-  margin-bottom: 25;
-}
-.input {
-  font-size: 18;
-  placeholder-color: #A8A8A8;
-}
-
 .highlight {
   color: red;
+  font-size: 24;
   font-weight: bold;
+  vertical-align: center;
+  horizontal-align: center;
+}
+
+.stats-box {
+  background-color: rgba(128, 64, 64, 0.05);
+  border-width: 1;
+  border-color: white;
+  padding: 5;
+  margin: 5;
 }

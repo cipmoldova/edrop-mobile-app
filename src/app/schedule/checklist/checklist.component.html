@@ -1,25 +1,71 @@
-<ActionBar class="action-bar">
-    <Label 
-        class="action-bar-title" 
-        text="Chestionar"
+<StackLayout class="page-content">
+
+    <Label
+        text="Chestionar preliminar" 
+        class="h2 m-5"
     ></Label>
-</ActionBar>
 
-<ScrollView class="page page-content">
-    <StackLayout 
-        orientation="vertical"
-        width="400"
-        height="600"
-        backgroundColor="white"
-    >
+    <ScrollView>
+        <StackLayout orientation="vertical">
+            <ListView 
+                class="list-group" 
+                [items]="checklistQuestions"
+                [height]="height"
+            >
+                <ng-template 
+                    let-question="item" 
+                    let-i="index"
+                >
+                    <FlexboxLayout
+                        flexDirection="row" 
+                        class="list-group-item"
+                        alignItems="flex-start"
+                        justifyContent="flex-end"
+                        padding="8"
+                        paddingLeft="0"
+                    >
+                        <StackLayout class="question-label">
+                            <HtmlViewer
+                                [html]="question.htmlText"
+                                textSize="16"
+                                textColor="#555555"
+                                fontFamily="Roboto Regular"
+                            >
+                            </HtmlViewer>
+                        </StackLayout>
+                        <Label width="12"></Label>
+                        <StackLayout 
+                            orientation="horizontal" 
+                            width="100"
+                            class="checkbox"
+                        >
+                            <CheckBox 
+                                #yesCheckbox 
+                                text="DA" 
+                                [checked]="question.positiveAnswer"
+                                (checkedChange)="yesCheckbox.checked !== question.positiveAnswer && question.changeCheckedRadio('DA')"
+                                boxType="square"
+                                checkStyle="checkbox_selector"
+                            ></CheckBox>
+                            <Label width="10"></Label>
+                            <CheckBox 
+                                #noCheckbox 
+                                text="NU" 
+                                [checked]="question.negativeAnswer"
+                                (checkedChange)="noCheckbox.checked !== question.negativeAnswer && question.changeCheckedRadio('NU')"
+                                boxType="square"
+                                checkStyle="checkbox_selector"
+                            ></CheckBox>
+                        </StackLayout>
+                    </FlexboxLayout>
+                </ng-template>
+            </ListView>
 
-        <!-- <PDFView [src]="src" (load)="onLoad()"></PDFView> -->
-        <Image src="res://checklist"></Image>
-    
-        <Button
-            text="Continuați" 
-            class="btn-primary-one-row"
-            [nsRouterLink]="['../schedule']" 
-        ></Button>
-    </StackLayout>
-</ScrollView>
+            <Button
+                text="Continuare" 
+                class="btn-primary-one-row"
+                (tap)="check()"
+            ></Button>
+        </StackLayout>
+    </ScrollView>
+</StackLayout>

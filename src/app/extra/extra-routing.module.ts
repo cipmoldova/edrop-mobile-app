@@ -6,9 +6,14 @@ import { ExtraComponent } from "./extra.component";
 import { ItemDetailComponent } from "./item-detail/item-detail.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "extra" },
-    { path: "extra", component: ExtraComponent },
-    { path: "item/:id", component: ItemDetailComponent },
+    {
+        path: "",
+        component: ExtraComponent,
+    },
+    {
+        path: "item/:id",
+        component: ItemDetailComponent,
+    },
 ];
 
 @NgModule({

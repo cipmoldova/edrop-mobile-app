@@ -5,8 +5,10 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { BountyComponent } from "./bounty.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "bounty" },
-    { path: "bounty", component: BountyComponent },
+    {
+        path: "",
+        component: BountyComponent
+    },
 ];
 
 @NgModule({

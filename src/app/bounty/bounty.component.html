@@ -7,10 +7,9 @@
 
 <StackLayout 
     orientation="vertical"
-    width="400"
-    height="600"
+    width="100%"
     backgroundColor="white"
-    class="page page-content"
+    class="page-content"
 >
     <ListView 
         class="list-group" 
@@ -22,6 +21,7 @@
             <FlexboxLayout 
                 flexDirection="row" 
                 class="list-group-item"
+                verticalAlignment="center"
             >
                 <Image 
                     [src]="company.imageSrc" 
@@ -29,8 +29,8 @@
                 ></Image>
                 <Label 
                     [text]="company.name" 
-                    fontSize="20"
-                    style="width: 60%"
+                    fontSize="18"
+                    verticalAlignment="center"
                 ></Label>
             </FlexboxLayout>
         </ng-template>

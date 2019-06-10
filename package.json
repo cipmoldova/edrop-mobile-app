@@ -27,6 +27,7 @@
     "ajv": "^6.9.1",
     "kinvey-nativescript-sdk": "^4.0.0",
     "nativescript-angular": "^7.2.3",
+    "nativescript-checkbox": "^3.0.3",
     "nativescript-datetimepicker": "^1.2.0",
     "nativescript-google-maps-sdk": "^2.7.0",
     "nativescript-pdf-view": "^2.0.1",
@@ -50,6 +51,7 @@
     "nativescript-dev-sass": "^1.7.0",
     "nativescript-dev-typescript": "^0.9.0",
     "nativescript-dev-webpack": "^0.21.2",
+    "tns-platform-declarations": "^5.4.2",
     "tslint": "~5.16.0",
     "typescript": "^3.1.6"
   },
