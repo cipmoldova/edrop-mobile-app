@@ -5,6 +5,11 @@
         orientation="vertical" 
         class="page-content"
     >
+        <Label
+            text="Stabilirea detaliilor programării"
+            class="page-title"
+        ></Label>
+
         <StackLayout>
             <Label 
                 text="Unde?" 
@@ -14,8 +19,12 @@
                 hint="Alegeți centrul de donare..." 
                 [items]="listPickerCenters"
                 pickerTitle="Alegerea centrului de donare"
-            ></PickerField>
+                [(ngModel)]="selectedIndex"
+            >
+            </PickerField>
         </StackLayout>
+
+        <StackLayout class="m-10"></StackLayout>
 
         <StackLayout>
             <Label 
@@ -28,17 +37,30 @@
                 hintDate="Alegeți ziua..." 
                 hintTime="Alegeți ora..."
                 pickerOkText="Bine"
+                dateFormat="dd MMMM yyyy"
+                [(ngModel)]="date"
             ></DateTimePickerFields>
         </StackLayout>
 
         <StackLayout class="hr-light m-10"></StackLayout>
         
-        <Button 
-            class="btn-primary-one-row" 
-            text="Continuare" 
-            (tap)="book()"
-        ></Button>
-
+        <FlexboxLayout 
+            flexDirection="row"
+            alignItems="stretch"
+            horizontalAlignment="center"
+        >
+            <Button
+                text="Renunțare" 
+                class="btn-primary-one-row"
+                (tap)="cancel()"
+            ></Button>
+            <Label width="18"></Label>
+            <Button
+                text="Continuare" 
+                class="btn-primary-one-row"
+                (tap)="goNext()"
+            ></Button>
+        </FlexboxLayout>
     </StackLayout>
 </ScrollView>
 

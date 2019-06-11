@@ -1,0 +1,28 @@
+@import 'booking-summary.component';
+
+.table-row {
+    width: 100%;
+    padding: 5;
+    padding-right: 1;
+}
+
+@mixin table-cell {
+    horizontal-align: left;
+    border-color: #AAAAAA;
+    border-width: 0.5;
+    vertical-align: center;
+    font-size: 18;
+}
+
+.property {
+    @include table-cell;
+    font-weight: bold;
+    background-color: #fff3e4;
+    width: 40%;
+}
+
+.value {
+    @include table-cell;
+    background-color: #ffffff;
+    width: 60%;
+}

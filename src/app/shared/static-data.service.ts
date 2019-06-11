@@ -9,7 +9,7 @@ export interface IDataItem {
 @Injectable({
     providedIn: "root"
 })
-export class DataService {
+export class StaticDataService {
 
     private items = new Array<IDataItem>(
         {

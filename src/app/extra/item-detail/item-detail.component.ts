@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { RouterExtensions } from "nativescript-angular";
-import { DataService, IDataItem } from "../../core/data.service";
+import { RouterExtensions } from "nativescript-angular/router";
+import { IDataItem, StaticDataService } from "../../shared/static-data.service";
 
 @Component({
     selector: "ns-item-detail",
@@ -11,7 +11,7 @@ export class ItemDetailComponent implements OnInit {
     item: IDataItem;
 
     constructor(
-        private data: DataService,
+        private data: StaticDataService,
         private route: ActivatedRoute,
         private routerExtension: RouterExtensions,
     ) { }

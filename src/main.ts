@@ -3,6 +3,4 @@ import { platformNativeScriptDynamic } from "nativescript-angular/platform";
 
 import { AppModule } from "./app/app.module";
 
-platformNativeScriptDynamic().bootstrapModule(AppModule)
-    // .catch((err) => console.error(err))
-;
+platformNativeScriptDynamic().bootstrapModule(AppModule);

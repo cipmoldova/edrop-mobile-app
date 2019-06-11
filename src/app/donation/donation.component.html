@@ -6,16 +6,26 @@
 </ActionBar>
 
 <ScrollView>
-    <StackLayout class="page-content">
-
+    <StackLayout 
+        orientation="vertical"
+        class="page-content"
+    >
         <Label
-            text="De ce să donez?" 
-            class="h2 m-5"
+            text="De ce să donez?"
+            class="page-title"
         ></Label>
 
-        <StackLayout orientation="vertical">
-            <ol>
-                <li *ngFor="let infoItem of infoText; let i = index">
+        <ListView
+            [items]="infoText"
+            [height]="height"
+            class="list-group"
+            orientation="vertical"
+        >
+            <ng-template 
+                let-infoItem="item" 
+                let-i="index"
+            >
+                <StackLayout>
                     <StackLayout orientation="horizontal">
                         <Label 
                             text="{{i + 1}}."
@@ -26,14 +36,14 @@
                         <Label 
                             text="{{ infoItem }}"
                             textWrap="true"
+                            fontSize="18"
                         ></Label>
                     </StackLayout>
-                </li>
-            </ol>
-        </StackLayout>
+                    <StackLayout class="hr-light m-5"></StackLayout>
+                </StackLayout>
+            </ng-template>
+        </ListView>
 
-        <StackLayout class="hr-light m-10"></StackLayout>
-        
         <Button
             text="Continuare" 
             class="btn-primary-one-row"

@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { alert, prompt } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 
-import { RouterExtensions } from "nativescript-angular";
+import { RouterExtensions } from "nativescript-angular/router";
 import { LoginUser } from "../shared/user.model";
 import { UserService } from "../shared/user.service";
 
@@ -14,6 +14,7 @@ import { UserService } from "../shared/user.service";
 export class LoginComponent implements OnInit {
     isLoggingIn = true;
     user: LoginUser;
+
     @ViewChild("confirmPassword") confirmPassword: ElementRef;
     @ViewChild("password") password: ElementRef;
 
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
     login() {
         this.userService.login(this.user)
             .then(() => {
+                this.user.tocken = "ZwPNMBoK8XD8Q="; // TODO : get from server
                 this.routerExtension.navigate(
                     ["../dashboard/default"],
                     { clearHistory: true }

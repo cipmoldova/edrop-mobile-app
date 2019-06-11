@@ -1,16 +1,61 @@
-<StackLayout 
-    class="page-content"
->
+<ScrollView>
+    <StackLayout 
+        class="page-content"
+    >
+        <Label
+            text="Detaliile programării" 
+            class="page-title"
+        ></Label>
 
-    <Label text="Felicitări!"></Label>
+        <StackLayout
+            orientation="horizontal"
+            width="100%"
+            paddingLeft="0"
+        >
+            <Label 
+                class="property"
+                text="Nume donator:"
+            ></Label>
+            <Label class="value">
+                <FormattedString>
+                    <Span text="{{ bookingTicket.person.firstName }}"></Span>
+                    <Span 
+                        *ngIf="bookingTicket.person.middleName" 
+                        text=" {{ bookingTicket.person.middleName }}}"
+                    ></Span>
+                    <Span text=" {{ bookingTicket.person.lastName }}"></Span>
+                </FormattedString>
+            </Label>
+        </StackLayout>
 
-    <Label text="Felicitări!"></Label>
+        <StackLayout class="m-5"></StackLayout>
 
-    <Label text="Felicitări!"></Label>
-
-    <Button
-        text="Finalizare" 
-        class="btn-primary-one-row"
-        (tap)="finalizeBooking()"
-    ></Button>
-</StackLayout>
+        <FlexboxLayout 
+            flexDirection="row"
+            alignItems="stretch"
+            horizontalAlignment="center"
+            width="100%"
+        >
+            <Button
+                text="Înapoi" 
+                class="btn-primary-one-row"
+                width="80"
+                (tap)="goBack()"
+            ></Button>
+            <Label width="8"></Label>
+            <Button
+                text="Renunțare" 
+                class="btn-primary-one-row"
+                width="120"
+                (tap)="cancel()"
+            ></Button>
+            <Label width="8"></Label>
+            <Button
+                text="Confirmare" 
+                class="btn-primary-one-row"
+                (tap)="finalizeBooking()"
+                width="128"
+            ></Button>
+        </FlexboxLayout>
+    </StackLayout>
+</ScrollView>

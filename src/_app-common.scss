@@ -56,10 +56,10 @@
     color:#FFFFFF;
     font-family: 'Roboto Regular';
     border-radius: 5;
-    font-size: 20;
-    width: 200;
-    margin-bottom:5;
-    margin-top:5;
+    font-size: 17;
+    width: 136;
+    margin-bottom: 5;
+    margin-top: 5;
     font-weight: 300; 
     text-align: center;
     padding: 0;
@@ -72,15 +72,21 @@
 
 .btn-primary-one-row {
     @include btn-primary;
-    height: 45;
+    height: 32;
 }
 .btn-primary-two-rows {
     @include btn-primary;
-    height: 65;
+    height: 48;
     line-height: 2;
 }
 
 .btn-disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.page-title {
+    margin-top: 22;
+    margin-bottom: 18;
+    font-size: 24;
 }

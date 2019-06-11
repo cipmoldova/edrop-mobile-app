@@ -18,7 +18,7 @@ export class ChecklistComponent implements OnInit {
     file: fs.File;
 
     checklistQuestions: Array<ChecklistQuestion>;
-    height: number = 888; // TODO: de calculat in mod dinamic
+    height: number = 864; // TODO: de calculat in mod dinamic
 
     constructor(
         private routerExtension: RouterExtensions,
@@ -51,28 +51,21 @@ export class ChecklistComponent implements OnInit {
         );
     }
 
+    cancel(): void {
+        this.dashboard.goHome();
+    }
+
     check(): void {
         // check whether there are wrong answers
         const failedQuestions = this.checklistQuestions.filter((question) => !question.pass()).length;
 
         if (failedQuestions > 0) {
-            this.routerExtension.navigate(
-                [
-                    "/dashboard/default",
-                    {
-                        outlets: {
-                            homeTab: ["home"],
-                            donationTab: ["donation"],
-                        }
-                    },
-                ]
-            );
             alert({
                 message: "Din păcate în acest moment nu sunteți pregătit pentru donare!",
                 okButtonText: "Bine",
                 title: "Ne pare rău!"
             });
-            this.dashboard.changeTab("homeTab");
+            this.dashboard.goHome();
         } else {
             this.routerExtension.navigate(
                 ["../booking"],

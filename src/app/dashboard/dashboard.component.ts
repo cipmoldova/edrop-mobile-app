@@ -62,10 +62,16 @@ export class DashboardComponent implements OnInit {
     }
 
     goHome(): void {
+        // Navigate to the home tab
         this.routerExtension.navigate(
             [
                 "/dashboard/default",
-                { outlets: { homeTab: ["home"] } },
+                {
+                    outlets: {
+                        homeTab: ["home"],
+                        donationTab: ["donation"],
+                    }
+                },
             ]
         );
         this.changeTab("homeTab");

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { ActivatedRoute  } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
+import { DashboardComponent } from "~/app/dashboard/dashboard.component";
 
 @Component({
     selector: "ns-booking",
@@ -9,9 +10,12 @@ import { RouterExtensions } from "nativescript-angular/router";
     templateUrl: "./booking.component.html"
 })
 export class BookingComponent implements OnInit {
-    location: string;
-    date: Date;
+
     isItemVisible: boolean = true;
+
+    selectedIndex: number;
+    date: Date;
+    location: string;
 
     listPickerCenters: Array<string> = [
           "CNTS Chișinău"
@@ -34,15 +38,11 @@ export class BookingComponent implements OnInit {
         , "Spitalul Raional Drochia"
         , "Spitalul Raional Edineț"
     ];
-    selectedListPickerIndex: number = 0; // TODO : ???
-
-    currentDay: number = new Date().getDate();
-    currentMonth: number = new Date().getMonth() + 1;
-    currentYear: number = new Date().getFullYear();
 
     constructor(
         private routerExtension: RouterExtensions,
         private route: ActivatedRoute,
+        private dashboard: DashboardComponent,
     ) {
         // Use the component constructor to inject providers.
     }
@@ -51,7 +51,37 @@ export class BookingComponent implements OnInit {
         // Init your component properties here.
     }
 
-    book(): void {
+    cancel(): void {
+        this.dashboard.goHome();
+    }
+
+    checkDate(): boolean {
+        const currentDate: Date = new Date();
+        const maxAllowedDate: Date = new Date(Date.now() + 30);
+
+        if (
+            this.date <= currentDate ||
+            this.date > maxAllowedDate
+        ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    goNext(): void {
+        if (!this.selectedIndex || !this.date) {
+            alert({
+                message: "Vă rugăm să completați toate câmpurile!",
+                okButtonText: "Bine",
+                title: "Lipsesc informații!"
+            });
+            this.cancel();
+
+            return;
+        }
+        this.location = this.listPickerCenters[this.selectedIndex];
+
         this.isItemVisible = false;
         this.routerExtension.navigate(
             ["booking-summary"],

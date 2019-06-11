@@ -13,7 +13,7 @@ import { Color } from "tns-core-modules/color";
             class="question-label"
         ></HtmlView>
 	`,
-    styleUrls: ["./checklist.component.css"],
+    styleUrls: ["./checklist.component.scss"],
 })
 export class HtmlViewerComponent implements OnInit {
 

@@ -1,9 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Errors, User } from "kinvey-nativescript-sdk";
-import { LoginUser } from "./user.model";
+import { Observable, of } from "rxjs";
+
+import { LoginUser, Person } from "./user.model";
 
 @Injectable()
 export class UserService {
+
+    authenticatedUser: LoginUser = new LoginUser();
+
     register(user: LoginUser) {
         return new Promise((resolve, reject) => {
             User.logout()
@@ -20,12 +25,30 @@ export class UserService {
         return new Promise((resolve, reject) => {
             User.logout()
                 .then(() => {
+                    this.authenticatedUser = null;
                     User.login(user.email, user.password)
-                        .then(resolve)
+                        .then(() => {
+                            this.authenticatedUser = user;
+                            resolve();
+                        })
                         .catch((error) => { this.handleErrors(error); reject(); });
                 })
                 .catch((error) => { this.handleErrors(error); reject(); });
         });
+    }
+
+    getPersonDetails(user: LoginUser): Observable<Person> {
+        // TODO get from server
+        const person: Person = new Person();
+        person.firstName = "Andrei";
+        person.middleName = "";
+        person.lastName = "Filip";
+        person.address = "194/3 Alba Iulia street, Chisinau";
+        person.email = "office@cipm.md";
+        person.password = "1234";
+        person.phoneNumber = "(+373) 68459217";
+
+        return of (person);
     }
 
     resetPassword(email) {
