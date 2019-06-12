@@ -1,85 +1,83 @@
 
-<ScrollView>
-    <StackLayout 
-        orientation="vertical"
-        class="page-content"
+<ListView 
+    class="list-group page-content" 
+    [items]="checklistQuestions"
+    orientation="vertical"
+>
+    <ng-template 
+        let-question="item" 
+        let-i="index"
     >
+        <StackLayout>
+            
+            <Label
+                text="Chestionar preliminar"
+                class="page-title"
+                *ngIf="checklistQuestions.isFirstIndex(i)"
+            ></Label>
 
-        <Label
-            text="Chestionar preliminar" 
-            class="page-title"
-        ></Label>
-
-        <ListView 
-            class="list-group" 
-            [items]="checklistQuestions"
-            [height]="height"
-        >
-            <ng-template 
-                let-question="item" 
-                let-i="index"
+            <FlexboxLayout
+                flexDirection="row" 
+                class="list-group-item"
+                alignItems="flex-start"
+                justifyContent="flex-end"
+                padding="8"
+                paddingLeft="0"
             >
-                <FlexboxLayout
-                    flexDirection="row" 
-                    class="list-group-item"
-                    alignItems="flex-start"
-                    justifyContent="flex-end"
-                    padding="8"
-                    paddingLeft="0"
-                >
-                    <StackLayout class="question-label">
-                        <HtmlViewer
-                            [html]="question.htmlText"
-                            textSize="16"
-                            textColor="#555555"
-                            fontFamily="Roboto Regular"
-                        >
-                        </HtmlViewer>
-                    </StackLayout>
-                    <Label width="12"></Label>
-                    <StackLayout 
-                        orientation="horizontal" 
-                        width="100"
-                        class="checkbox"
+                <StackLayout class="question-label">
+                    <HtmlViewer
+                        [html]="question.htmlText"
+                        textSize="16"
+                        textColor="#555555"
+                        fontFamily="Roboto Regular"
                     >
-                        <CheckBox 
-                            #yesCheckbox 
-                            text="DA" 
-                            [checked]="question.positiveAnswer"
-                            (checkedChange)="yesCheckbox.checked !== question.positiveAnswer && question.changeCheckedRadio('DA')"
-                            boxType="square"
-                            checkStyle="checkbox_selector"
-                        ></CheckBox>
-                        <Label width="10"></Label>
-                        <CheckBox 
-                            #noCheckbox 
-                            text="NU" 
-                            [checked]="question.negativeAnswer"
-                            (checkedChange)="noCheckbox.checked !== question.negativeAnswer && question.changeCheckedRadio('NU')"
-                            boxType="square"
-                            checkStyle="checkbox_selector"
-                        ></CheckBox>
-                    </StackLayout>
-                </FlexboxLayout>
-            </ng-template>
-        </ListView>
-
-        <FlexboxLayout 
-            flexDirection="row"
-            alignItems="stretch"
-            horizontalAlignment="center"
-        >
-            <Button
-                text="Renunțare" 
-                class="btn-primary-one-row"
-                (tap)="cancel()"
-            ></Button>
-            <Label width="18"></Label>
-            <Button
-                text="Continuare" 
-                class="btn-primary-one-row"
-                (tap)="check()"
-            ></Button>
-        </FlexboxLayout>
-    </StackLayout>
-</ScrollView>
+                    </HtmlViewer>
+                </StackLayout>
+                <Label width="12"></Label>
+                <StackLayout 
+                    orientation="horizontal" 
+                    width="100"
+                    class="checkbox"
+                >
+                    <CheckBox 
+                        #yesCheckbox 
+                        text="DA" 
+                        [checked]="question.positiveAnswer"
+                        (checkedChange)="yesCheckbox.checked !== question.positiveAnswer && question.changeCheckedRadio('DA')"
+                        boxType="square"
+                        checkStyle="checkbox_selector"
+                    ></CheckBox>
+                    <Label width="10"></Label>
+                    <CheckBox 
+                        #noCheckbox 
+                        text="NU" 
+                        [checked]="question.negativeAnswer"
+                        (checkedChange)="noCheckbox.checked !== question.negativeAnswer && question.changeCheckedRadio('NU')"
+                        boxType="square"
+                        checkStyle="checkbox_selector"
+                    ></CheckBox>
+                </StackLayout>
+            </FlexboxLayout>
+            
+            <FlexboxLayout 
+                flexDirection="row"
+                alignItems="stretch"
+                horizontalAlignment="center"
+                *ngIf="checklistQuestions.isLastIndex(i)"
+                marginTop="15"
+            >
+                <Button
+                    text="Renunțare" 
+                    class="btn-primary-one-row"
+                    (tap)="cancel()"
+                ></Button>
+                <Label width="18"></Label>
+                <Button
+                    text="Continuare" 
+                    class="btn-primary-one-row"
+                    (tap)="check()"
+                ></Button>
+            </FlexboxLayout>
+        </StackLayout>
+    </ng-template>
+</ListView>

@@ -14,8 +14,6 @@ export class BountyComponent implements OnInit {
   location: string;
   date: Date;
 
-  height: number = 980;
-
   companies: Array<{ name: string, imageSrc: string }> = [
     {
         name: "Andy's Pizza",

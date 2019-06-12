@@ -5,50 +5,44 @@
     ></Label>
 </ActionBar>
 
-<ScrollView>
-    <StackLayout 
-        orientation="vertical"
-        class="page-content"
+<ListView
+    class="list-group page-content"
+    [items]="infoText"
+    orientation="vertical"
+>
+    <ng-template 
+        let-infoItem="item" 
+        let-i="index"
     >
-        <Label
-            text="De ce să donez?"
-            class="page-title"
-        ></Label>
+        <StackLayout>
+            <Label
+                text="De ce să donez?"
+                class="page-title"
+                *ngIf="infoText.isFirstIndex(i)"
+            ></Label>
 
-        <ListView
-            [items]="infoText"
-            [height]="height"
-            class="list-group"
-            orientation="vertical"
-        >
-            <ng-template 
-                let-infoItem="item" 
-                let-i="index"
-            >
-                <StackLayout>
-                    <StackLayout orientation="horizontal">
-                        <Label 
-                            text="{{i + 1}}."
-                            width="40"
-                            fontWeight="bold"
-                            textAlignment="center"
-                        ></Label>
-                        <Label 
-                            text="{{ infoItem }}"
-                            textWrap="true"
-                            fontSize="18"
-                        ></Label>
-                    </StackLayout>
-                    <StackLayout class="hr-light m-5"></StackLayout>
-                </StackLayout>
-            </ng-template>
-        </ListView>
+            <StackLayout orientation="horizontal">
+                <Label 
+                    text="{{i + 1}}."
+                    width="40"
+                    fontWeight="bold"
+                    textAlignment="center"
+                ></Label>
+                <Label 
+                    text="{{ infoItem }}"
+                    textWrap="true"
+                    fontSize="18"
+                ></Label>
+            </StackLayout>
 
-        <Button
-            text="Continuare" 
-            class="btn-primary-one-row"
-            [nsRouterLink]="['schedule/default']" 
-        ></Button>
-    
-    </StackLayout>
-</ScrollView>
+            <Button
+                text="Continuare" 
+                class="btn-primary-one-row"
+                *ngIf="infoText.isLastIndex(i)"
+                [nsRouterLink]="['schedule/default']" 
+                marginTop="15"
+            ></Button>
+
+        </StackLayout>
+    </ng-template>
+</ListView>

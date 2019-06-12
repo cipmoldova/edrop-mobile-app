@@ -9,6 +9,21 @@ import { AppComponent } from "./app.component";
 
 traceEnable();
 
+declare global {
+    // tslint:disable-next-line: interface-name
+    interface Array<T> {
+        isFirstIndex(index: number): boolean;
+        isLastIndex(index: number): boolean;
+    }
+}
+// tslint:disable-next-line: only-arrow-functions
+Array.prototype.isFirstIndex = function(index: number): boolean {
+    return index === 0;
+};
+Array.prototype.isLastIndex = function(index: number): boolean {
+    return index === (this.length - 1);
+};
+
 export class MyErrorHandler implements ErrorHandler {
     handleError(error) {
         console.log("### ErrorHandler Error: " + error.toString());

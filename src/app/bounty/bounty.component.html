@@ -5,36 +5,30 @@
     ></Label>
 </ActionBar>
 
-<StackLayout 
+<ListView 
+    class="list-group page-content" 
+    [items]="companies" 
+    (itemTap)="onItemTap($event)"
     orientation="vertical"
     width="100%"
-    backgroundColor="white"
-    class="page-content"
 >
-    <ListView 
-        class="list-group" 
-        [items]="companies" 
-        (itemTap)="onItemTap($event)"
-        [height]="height"
-    >
-        <ng-template let-company="item">
-            <FlexboxLayout 
-                flexDirection="row" 
-                class="list-group-item"
+    <ng-template let-company="item">
+        <FlexboxLayout 
+            flexDirection="row" 
+            class="list-group-item"
+            verticalAlignment="center"
+            padding="10"
+        >
+            <Image 
+                [src]="company.imageSrc" 
+                class="thumb img-circle"
+            ></Image>
+            <Label 
+                [text]="company.name" 
+                fontSize="18"
                 verticalAlignment="center"
-                padding="10"
-            >
-                <Image 
-                    [src]="company.imageSrc" 
-                    class="thumb img-circle"
-                ></Image>
-                <Label 
-                    [text]="company.name" 
-                    fontSize="18"
-                    verticalAlignment="center"
-                    paddingTop="8"
-                ></Label>
-            </FlexboxLayout>
-        </ng-template>
-    </ListView>
-</StackLayout>
+                paddingTop="8"
+            ></Label>
+        </FlexboxLayout>
+    </ng-template>
+</ListView>

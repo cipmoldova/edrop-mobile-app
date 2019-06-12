@@ -2,7 +2,8 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
     selector: "ns-donation",
-    templateUrl: "./donation.component.html"
+    styleUrls: ["./donation.component.scss"],
+    templateUrl: "./donation.component.html",
 })
 export class DonationComponent implements OnInit {
 

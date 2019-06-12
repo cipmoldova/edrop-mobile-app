@@ -5,204 +5,201 @@
     ></Label>
 </ActionBar>
 
-<ScrollView class="page-content">
+<GridLayout 
+    rows="auto, 224, auto, auto, auto, auto, auto, auto"
+    height="100%"
+    marginTop="16"
+    fontSize="12"
+    flexDirection="column"
+    class="page-content"
+>   
+    <Label 
+        row="0"
+        text="Statistici globale" 
+        class="h3 p-l-0"
+    ></Label>
 
-    <GridLayout 
-        rows="auto, 224, auto, auto, auto, auto, auto, auto"
-        height="928px"
-        marginTop="16"
-        fontSize="12"
-        flexDirection="column"
-    >   
+    <StackLayout 
+        row="1"
+        paddingBottom="-26"
+    >
+        <RadCartesianChart class="chart">
+            <RadCartesianChartGrid
+                tkCartesianGrid
+                horizontalLinesVisible="true"
+                verticalLinesVisible="false"
+                horizontalStripLinesVisible="false"
+                verticalStripLinesVisible="false"
+                horizontalStrokeColor="#CCCCCC"
+                horizontalStrokeWidth="0.5"
+            >
+            </RadCartesianChartGrid>
+            <Palette 
+                seriesName="bloodDonatedSeries" 
+                tkCartesianPalette
+                seriesState="Normal"
+            >
+                <PaletteEntry 
+                    tkCartesianPaletteEntry 
+                    fillColor="#30a850"
+                    strokeColor="#30a850"
+                ></PaletteEntry>
+            </Palette>
+            
+            <Palette 
+                seriesName="bloodGapSeries" 
+                tkCartesianPalette
+                seriesState="Normal"
+            >
+                <PaletteEntry 
+                    tkCartesianPaletteEntry 
+                    fillColor="#FC9829"
+                    strokeColor="#FC9829"
+                ></PaletteEntry>
+            </Palette>
+
+            <Palette 
+                seriesName="labelsSeries" 
+                tkCartesianPalette
+                seriesState="Normal"
+            >
+                <PaletteEntry 
+                    tkCartesianPaletteEntry 
+                    fillColor="#FFFFFF"
+                    strokeColor="#FF0000"
+                    strokeSize="0.5"
+                ></PaletteEntry>
+            </Palette>
+
+            <RadLegendView 
+                tkCartesianLegend
+                position="Bottom" 
+                enableSelection="false"
+            ></RadLegendView>
+
+            <CategoricalAxis
+                tkCartesianHorizontalAxis
+                ticksHidden="false"
+                ticksOffset="2"
+                ticksColor="#FFFFFF"
+                lineThickness="1"
+            ></CategoricalAxis>
+            <LinearAxis 
+                tkCartesianVerticalAxis 
+                labelFormat="%.1s "
+                lineThickness="1"
+            ></LinearAxis>
+            <BarSeries 
+                tkCartesianSeries 
+                seriesName="bloodDonatedSeries"
+                [items]="bloodDonated"
+                categoryProperty="month" 
+                valueProperty="amount"
+                paletteMode="Series"
+                stackMode="Stack"
+                legendTitle="Sânge donat (în kilolitri)"
+            ></BarSeries>    
+            <BarSeries 
+                tkCartesianSeries 
+                seriesName="bloodGapSeries"
+                [items]="bloodGap"
+                categoryProperty="month" 
+                valueProperty="amount"
+                paletteMode="Series"
+                stackMode="Stack"
+                legendTitle="Sânge necesar (în kilolitri)"
+            ></BarSeries>  
+            <BarSeries 
+                tkCartesianSeries 
+                seriesName="labelsSeries"
+                [items]="labels"
+                categoryProperty="month" 
+                valueProperty="amount"
+                paletteMode="Series"
+                stackMode="Stack"
+                showLabels="true"
+                legendTitle="Raportul sânge donat / sânge necesar"
+                maxBarSize="0.5"
+            >
+                <PointLabelStyle 
+                    tkBarLabelStyle
+                    margin="5" 
+                    fontStyle="Normal" 
+                    fillColor="White" 
+                    textSize="10" 
+                    textColor="Red"
+                    strokeColor="Red"
+                    textFormat="%.0f%%">
+                </PointLabelStyle>
+            </BarSeries>
+        </RadCartesianChart>
+    </StackLayout>
+
+    <Label 
+        row="2"
+        text="Statistici personale" 
+        class="h3 p-l-0 m-t-10"
+    ></Label>
+
+    <StackLayout 
+        row="3"
+        orientation="horizontal"
+        class="stats-box"
+    >
         <Label 
-            row="0"
-            text="Statistici globale" 
-            class="h3 p-l-0"
+            text="Recoltări&#010;realizate:" 
+            textWrap=true 
+            width="120"
         ></Label>
-
-        <StackLayout 
-            row="1"
-            paddingBottom="-26"
-        >
-            <RadCartesianChart class="chart">
-                <RadCartesianChartGrid
-                    tkCartesianGrid
-                    horizontalLinesVisible="true"
-                    verticalLinesVisible="false"
-                    horizontalStripLinesVisible="false"
-                    verticalStripLinesVisible="false"
-                    horizontalStrokeColor="#CCCCCC"
-                    horizontalStrokeWidth="0.5"
-                >
-                </RadCartesianChartGrid>
-                <Palette 
-                    seriesName="bloodDonatedSeries" 
-                    tkCartesianPalette
-                    seriesState="Normal"
-                >
-                    <PaletteEntry 
-                        tkCartesianPaletteEntry 
-                        fillColor="#30a850"
-                        strokeColor="#30a850"
-                    ></PaletteEntry>
-                </Palette>
-                
-                <Palette 
-                    seriesName="bloodGapSeries" 
-                    tkCartesianPalette
-                    seriesState="Normal"
-                >
-                    <PaletteEntry 
-                        tkCartesianPaletteEntry 
-                        fillColor="#FC9829"
-                        strokeColor="#FC9829"
-                    ></PaletteEntry>
-                </Palette>
-
-                <Palette 
-                    seriesName="labelsSeries" 
-                    tkCartesianPalette
-                    seriesState="Normal"
-                >
-                    <PaletteEntry 
-                        tkCartesianPaletteEntry 
-                        fillColor="#FFFFFF"
-                        strokeColor="#FF0000"
-                        strokeSize="0.5"
-                    ></PaletteEntry>
-                </Palette>
-
-                <RadLegendView 
-                    tkCartesianLegend
-                    position="Bottom" 
-                    enableSelection="false"
-                ></RadLegendView>
-
-                <CategoricalAxis
-                    tkCartesianHorizontalAxis
-                    ticksHidden="false"
-                    ticksOffset="2"
-                    ticksColor="#FFFFFF"
-                    lineThickness="1"
-                ></CategoricalAxis>
-                <LinearAxis 
-                    tkCartesianVerticalAxis 
-                    labelFormat="%.1s "
-                    lineThickness="1"
-                ></LinearAxis>
-                <BarSeries 
-                    tkCartesianSeries 
-                    seriesName="bloodDonatedSeries"
-                    [items]="bloodDonated"
-                    categoryProperty="month" 
-                    valueProperty="amount"
-                    paletteMode="Series"
-                    stackMode="Stack"
-                    legendTitle="Sânge donat (în kilolitri)"
-                ></BarSeries>    
-                <BarSeries 
-                    tkCartesianSeries 
-                    seriesName="bloodGapSeries"
-                    [items]="bloodGap"
-                    categoryProperty="month" 
-                    valueProperty="amount"
-                    paletteMode="Series"
-                    stackMode="Stack"
-                    legendTitle="Sânge necesar (în kilolitri)"
-                ></BarSeries>  
-                <BarSeries 
-                    tkCartesianSeries 
-                    seriesName="labelsSeries"
-                    [items]="labels"
-                    categoryProperty="month" 
-                    valueProperty="amount"
-                    paletteMode="Series"
-                    stackMode="Stack"
-                    showLabels="true"
-                    legendTitle="Raportul sânge donat / sânge necesar"
-                    maxBarSize="0.5"
-                >
-                    <PointLabelStyle 
-                        tkBarLabelStyle
-                        margin="5" 
-                        fontStyle="Normal" 
-                        fillColor="White" 
-                        textSize="10" 
-                        textColor="Red"
-                        strokeColor="Red"
-                        textFormat="%.0f%%">
-                    </PointLabelStyle>
-                </BarSeries>
-            </RadCartesianChart>
-        </StackLayout>
-
+        <Label class="highlight">
+            <FormattedString>
+                <Span text="{{ numberOfDonations }}"></Span>
+            </FormattedString>
+        </Label>
+    </StackLayout>
+    <StackLayout 
+        row="4"
+        orientation="horizontal"
+        class="stats-box"
+    >
         <Label 
-            row="2"
-            text="Statistici personale" 
-            class="h3 p-l-0 m-t-10"
+            text="Puncte&#010;disponibile:" 
+            textWrap=true 
+            width="120"
         ></Label>
+        <Label class="highlight">
+            <FormattedString>
+                <Span text="{{ numberOfCredits }}"></Span>
+            </FormattedString>
+        </Label>
+    </StackLayout>
+    <StackLayout 
+        row="5"
+        orientation="horizontal"
+        class="stats-box"
+    >
+        <Label 
+            text="Data ultimei&#010;recoltări:" 
+            textWrap=true 
+            width="120"
+        ></Label>
+        <Label class="highlight">
+            <FormattedString>
+                <Span text="{{ dateLastDonation | date: 'dd MMMM yyyy': 'undefined':'ro-MD' }}"></Span>
+            </FormattedString>
+        </Label>
+    </StackLayout>
 
-        <StackLayout 
-            row="3"
-            orientation="horizontal"
-            class="stats-box"
-        >
-            <Label 
-                text="Recoltări&#010;realizate:" 
-                textWrap=true 
-                width="120"
-            ></Label>
-            <Label class="highlight">
-                <FormattedString>
-                    <Span text="{{ numberOfDonations }}"></Span>
-                </FormattedString>
-            </Label>
-        </StackLayout>
-        <StackLayout 
-            row="4"
-            orientation="horizontal"
-            class="stats-box"
-        >
-            <Label 
-                text="Puncte&#010;disponibile:" 
-                textWrap=true 
-                width="120"
-            ></Label>
-            <Label class="highlight">
-                <FormattedString>
-                    <Span text="{{ numberOfCredits }}"></Span>
-                </FormattedString>
-            </Label>
-        </StackLayout>
-        <StackLayout 
-            row="5"
-            orientation="horizontal"
-            class="stats-box"
-        >
-            <Label 
-                text="Data ultimei&#010;recoltări:" 
-                textWrap=true 
-                width="120"
-            ></Label>
-            <Label class="highlight">
-                <FormattedString>
-                    <Span text="{{ dateLastDonation | date: 'dd MMMM yyyy': 'undefined':'ro-MD' }}"></Span>
-                </FormattedString>
-            </Label>
-        </StackLayout>
-
-        <StackLayout 
-            row="6" 
-            class="m-2"
-        ></StackLayout>
-        
-        <Button 
-            row="7"
-            text="Programare" 
-            class="btn-primary-one-row" 
-            [nsRouterLink]="['schedule/default']" 
-        ></Button>
+    <StackLayout 
+        row="6" 
+        class="m-2"
+    ></StackLayout>
     
-    </GridLayout>
+    <Button 
+        row="7"
+        text="Programare" 
+        class="btn-primary-one-row" 
+        [nsRouterLink]="['schedule/default']" 
+    ></Button>
 
-</ScrollView>
+</GridLayout>
