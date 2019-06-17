@@ -5,32 +5,27 @@
     ></Label>
 </ActionBar>
 
-<GridLayout 
-    rows="auto, 224, auto, auto, auto, auto, auto, auto"
-    height="100%"
-    marginTop="16"
-    fontSize="12"
-    flexDirection="column"
-    class="page-content"
->   
-    <Label 
-        row="0"
-        text="Statistici globale" 
-        class="h3 p-l-0"
-    ></Label>
+<ScrollView>
+    <StackLayout
+        height="496"
+        marginTop="16"
+        fontSize="12"
+        class="page-content"
+    >   
+        <Label 
+            text="Statistici globale" 
+            class="h3 p-l-0"
+        ></Label>
 
-    <StackLayout 
-        row="1"
-        paddingBottom="-26"
-    >
         <RadCartesianChart class="chart">
+
             <RadCartesianChartGrid
                 tkCartesianGrid
                 horizontalLinesVisible="true"
                 verticalLinesVisible="false"
                 horizontalStripLinesVisible="false"
                 verticalStripLinesVisible="false"
-                horizontalStrokeColor="#CCCCCC"
+                horizontalStrokeColor="lightGray"
                 horizontalStrokeWidth="0.5"
             >
             </RadCartesianChartGrid>
@@ -81,13 +76,16 @@
                 tkCartesianHorizontalAxis
                 ticksHidden="false"
                 ticksOffset="2"
-                ticksColor="#FFFFFF"
+                ticksColor="white"
                 lineThickness="1"
             ></CategoricalAxis>
             <LinearAxis 
                 tkCartesianVerticalAxis 
-                labelFormat="%.1s "
+                labelFormat="%.0f"
+                labelMargin="8"
                 lineThickness="1"
+                labelSize="10.5"
+                ticksColor="lightGray"
             ></LinearAxis>
             <BarSeries 
                 tkCartesianSeries 
@@ -97,7 +95,7 @@
                 valueProperty="amount"
                 paletteMode="Series"
                 stackMode="Stack"
-                legendTitle="Sânge donat (în kilolitri)"
+                legendTitle="Sânge donat (în {{ measurementUnit }})"
             ></BarSeries>    
             <BarSeries 
                 tkCartesianSeries 
@@ -107,10 +105,10 @@
                 valueProperty="amount"
                 paletteMode="Series"
                 stackMode="Stack"
-                legendTitle="Sânge necesar (în kilolitri)"
+                legendTitle="Sânge necesar (în {{ measurementUnit }})"
             ></BarSeries>  
             <BarSeries 
-                tkCartesianSeries 
+                tkCartesianSeries
                 seriesName="labelsSeries"
                 [items]="labels"
                 categoryProperty="month" 
@@ -133,73 +131,66 @@
                 </PointLabelStyle>
             </BarSeries>
         </RadCartesianChart>
-    </StackLayout>
 
-    <Label 
-        row="2"
-        text="Statistici personale" 
-        class="h3 p-l-0 m-t-10"
-    ></Label>
-
-    <StackLayout 
-        row="3"
-        orientation="horizontal"
-        class="stats-box"
-    >
         <Label 
-            text="Recoltări&#010;realizate:" 
-            textWrap=true 
-            width="120"
+            text="Statistici personale" 
+            class="h3 p-l-0 m-t-10"
         ></Label>
-        <Label class="highlight">
-            <FormattedString>
-                <Span text="{{ numberOfDonations }}"></Span>
-            </FormattedString>
-        </Label>
-    </StackLayout>
-    <StackLayout 
-        row="4"
-        orientation="horizontal"
-        class="stats-box"
-    >
-        <Label 
-            text="Puncte&#010;disponibile:" 
-            textWrap=true 
-            width="120"
-        ></Label>
-        <Label class="highlight">
-            <FormattedString>
-                <Span text="{{ numberOfCredits }}"></Span>
-            </FormattedString>
-        </Label>
-    </StackLayout>
-    <StackLayout 
-        row="5"
-        orientation="horizontal"
-        class="stats-box"
-    >
-        <Label 
-            text="Data ultimei&#010;recoltări:" 
-            textWrap=true 
-            width="120"
-        ></Label>
-        <Label class="highlight">
-            <FormattedString>
-                <Span text="{{ dateLastDonation | date: 'dd MMMM yyyy': 'undefined':'ro-MD' }}"></Span>
-            </FormattedString>
-        </Label>
-    </StackLayout>
 
-    <StackLayout 
-        row="6" 
-        class="m-2"
-    ></StackLayout>
-    
-    <Button 
-        row="7"
-        text="Programare" 
-        class="btn-primary-one-row" 
-        [nsRouterLink]="['schedule/default']" 
-    ></Button>
+        <StackLayout orientation="vertical">
+            <StackLayout 
+                class="stats-box"
+                orientation="horizontal"
+            >
+                <Label 
+                    text="Recoltări&#010;realizate:" 
+                    textWrap=true 
+                    width="120"
+                ></Label>
+                <Label class="highlight">
+                    <FormattedString>
+                        <Span text="{{ numberOfDonations }}"></Span>
+                    </FormattedString>
+                </Label>
+            </StackLayout>
+            <StackLayout 
+                orientation="horizontal"
+                class="stats-box"
+            >
+                <Label 
+                    text="Puncte&#010;disponibile:" 
+                    textWrap=true 
+                    width="120"
+                ></Label>
+                <Label class="highlight">
+                    <FormattedString>
+                        <Span text="{{ numberOfCredits }}"></Span>
+                    </FormattedString>
+                </Label>
+            </StackLayout>
+            <StackLayout 
+                orientation="horizontal"
+                class="stats-box"
+            >
+                <Label 
+                    text="Data ultimei&#010;recoltări:" 
+                    textWrap=true 
+                    width="120"
+                ></Label>
+                <Label class="highlight">
+                    <FormattedString>
+                        <Span text="{{ dateLastDonation | date: 'dd MMMM yyyy': 'undefined':'ro-MD' }}"></Span>
+                    </FormattedString>
+                </Label>
+            </StackLayout>
+        </StackLayout>
 
-</GridLayout>
+        <Button 
+            text="Programare" 
+            class="btn-primary-one-row"
+            marginTop="5"
+            [nsRouterLink]="['schedule/default']" 
+        ></Button>
+
+    </StackLayout>
+</ScrollView>

@@ -2,27 +2,32 @@
 
 .table-row {
     width: 100%;
-    padding: 5;
-    padding-right: 1;
+    padding: 0;
+    height: 52;
+    orientation: horizontal;
 }
 
 @mixin table-cell {
     horizontal-align: left;
     border-color: #AAAAAA;
     border-width: 0.5;
-    vertical-align: center;
-    font-size: 18;
+    vertical-align: middle;
+    font-size: 16;
+    padding: 5;
+    padding-right: 1;
+    height: 52;
+    text-wrap: true;
 }
 
 .property {
     @include table-cell;
     font-weight: bold;
-    background-color: #fff3e4;
-    width: 40%;
+    background-color: seaShell;
+    width: 30%;
 }
 
 .value {
     @include table-cell;
     background-color: #ffffff;
-    width: 60%;
+    width: 70%;
 }

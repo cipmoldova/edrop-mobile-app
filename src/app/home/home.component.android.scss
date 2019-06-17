@@ -1,14 +1,15 @@
-@import 'home.component';
+@import "home.component";
 
 .chart {
-  background-color: #fff3e4;
+  background-color: seaShell;
+  height: 224;
 }
 
 .highlight {
   color: red;
   font-size: 18;
   font-weight: bold;
-  vertical-align: center;
+  vertical-align: middle;
   horizontal-align: center;
 }
 

@@ -1,8 +1,19 @@
 @import 'booking.component';
 
-.subtitle {
-    font-size: 20;
-    margin-top: 2;
-    margin-bottom: 4;
-    horizontal-align: left;
+.date-time-picker {
+
+    &.date-time-picker-fields {
+        color: #FFFFFF;
+        background-color: #FF0000;
+    }
+
+    &.date-time-picker-spinners {
+        color: #dc4c39;
+        background-color: #fff3e4;
+    }
+
+    &.date-time-picker-buttons {
+        color: #dc4c39;
+        background-color: #FFFFFF;
+    }
 }

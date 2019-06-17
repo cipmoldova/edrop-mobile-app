@@ -9,6 +9,7 @@
     class="list-group page-content"
     [items]="infoText"
     orientation="vertical"
+    width="100%"
 >
     <ng-template 
         let-infoItem="item" 
@@ -21,17 +22,19 @@
                 *ngIf="infoText.isFirstIndex(i)"
             ></Label>
 
-            <StackLayout orientation="horizontal">
+            <StackLayout 
+                orientation="horizontal"
+                class="list-group-item list-view-text-item"
+            >
                 <Label 
-                    text="{{i + 1}}."
-                    width="40"
+                    text="{{i + 1}}. "
+                    width="30"
                     fontWeight="bold"
                     textAlignment="center"
                 ></Label>
                 <Label 
                     text="{{ infoItem }}"
                     textWrap="true"
-                    fontSize="18"
                 ></Label>
             </StackLayout>
 
@@ -40,7 +43,6 @@
                 class="btn-primary-one-row"
                 *ngIf="infoText.isLastIndex(i)"
                 [nsRouterLink]="['schedule/default']" 
-                marginTop="15"
             ></Button>
 
         </StackLayout>

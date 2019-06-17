@@ -1,79 +1,83 @@
-<FlexboxLayout class="login-page">
-	<StackLayout class="form">
-		<Image 
-			class="logo" 
-			src="res://login"
-		></Image>
+<ScrollView>
+	<FlexboxLayout class="login-page">
+		<StackLayout class="logo">
+			<Image 
+				class="logo-image" 
+				src="res://login"
+			></Image>
+			<Label 
+				class="logo-text" 
+				text="eDrop"
+			></Label>
+		</StackLayout>
+		<StackLayout class="form">
+
+			<StackLayout class="input-field">
+				<TextField 
+					class="input" 
+					hint="Adresa de e-mail" 
+					keyboardType="email"
+					autocorrect="false"
+					autocapitalizationType="none" 
+					[(ngModel)]="user.email" 
+					returnKeyType="next" 
+					(returnPress)="focusPassword()"
+				></TextField>
+				<StackLayout class="hr-light"></StackLayout>
+			</StackLayout>
+
+			<StackLayout class="input-field">
+				<TextField 
+					#password 
+					class="input" 
+					hint="Parola" 
+					secure="true" 
+					[(ngModel)]="user.password" 
+					[returnKeyType]="isLoggingIn ? 'done' : 'next'" 
+					(returnPress)="focusConfirmPassword()"
+				></TextField>
+				<StackLayout class="hr-light"></StackLayout>
+			</StackLayout>
+
+			<StackLayout
+				class="input-field"
+				*ngIf="!isLoggingIn" 
+			>
+				<TextField
+					#confirmPassword 
+					class="input" 
+					hint="Confirmați parola" 
+					secure="true" 
+					[(ngModel)]="user.confirmPassword" 
+					returnKeyType="done"
+				></TextField>
+				<StackLayout class="hr-light"></StackLayout>
+			</StackLayout>
+
+			<Button
+				class="btn-login"
+				[text]="isLoggingIn ? 'Conectați-vă' : 'Înregistrați-vă'" 
+				(tap)="submit()" 
+			></Button>
+			<Label
+				class="login-label" 
+				*ngIf="isLoggingIn" 
+				text="Ați uitat parola?" 
+				(tap)="forgotPassword()"
+			></Label>
+		</StackLayout>
+
 		<Label 
-			class="logo-text" 
-			text="eDrop"
-		></Label>
-
-		<StackLayout class="input-field">
-			<TextField 
-				class="input" 
-				hint="Adresa de e-mail" 
-				keyboardType="email"
-				autocorrect="false"
-				autocapitalizationType="none" 
-				[(ngModel)]="user.email" 
-				returnKeyType="next" 
-				(returnPress)="focusPassword()"
-			></TextField>
-			<StackLayout class="hr-light"></StackLayout>
-		</StackLayout>
-
-		<StackLayout class="input-field">
-			<TextField 
-				#password 
-				class="input" 
-				hint="Parola" 
-				secure="true" 
-				[(ngModel)]="user.password" 
-				[returnKeyType]="isLoggingIn ? 'done' : 'next'" 
-				(returnPress)="focusConfirmPassword()"
-			></TextField>
-			<StackLayout class="hr-light"></StackLayout>
-		</StackLayout>
-
-		<StackLayout 
-			*ngIf="!isLoggingIn" 
-			class="input-field"
+			class="login-label sign-up-label"
+			(tap)="toggleForm()"
 		>
-			<TextField 
-				#confirmPassword 
-				class="input" 
-				hint="Confirmați parola" 
-				secure="true" 
-				[(ngModel)]="user.confirmPassword" 
-				returnKeyType="done"
-			></TextField>
-			<StackLayout class="hr-light"></StackLayout>
-		</StackLayout>
-
-		<Button 
-			[text]="isLoggingIn ? 'Conectați-vă' : 'Înregistrați-vă'" 
-			(tap)="submit()" 
-			class="btn-login m-t-20"
-		></Button>
-		<Label 
-			*ngIf="isLoggingIn" 
-			text="Ați uitat parola?" 
-			class="login-label" 
-			(tap)="forgotPassword()"
-		></Label>
-	</StackLayout>
-
-	<Label 
-		class="login-label sign-up-label" 
-		(tap)="toggleForm()"
-	>
-		<FormattedString>
-			<Span [text]="isLoggingIn ? 'Nu aveți cont? ' : 'Întoarceți-vă la Login'"></Span>
-			<Span 
-				[text]="isLoggingIn ? 'Înregistrați-vă' : ''" 
-				class="bold"
-			></Span>
-		</FormattedString>
-	</Label>
-</FlexboxLayout>
+			<FormattedString>
+				<Span [text]="isLoggingIn ? 'Nu aveți cont? ' : 'Întoarceți-vă la Login'"></Span>
+				<Span
+					class="bold"
+					[text]="isLoggingIn ? 'Înregistrați-vă' : ''" 
+				></Span>
+			</FormattedString>
+		</Label>
+	</FlexboxLayout>
+</ScrollView>

@@ -15,4 +15,11 @@ export class Person {
     email: string;
     password: string;
     phoneNumber: string;
+
+    getFullName(): string {
+        return this.firstName
+            + (this.middleName ? " " + this.middleName : "")
+            + (this.lastName ? " " + this.lastName : "")
+        ;
+    }
 }

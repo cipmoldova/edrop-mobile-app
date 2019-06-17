@@ -41,7 +41,7 @@ export class UserService {
         // TODO get from server
         const person: Person = new Person();
         person.firstName = "Andrei";
-        person.middleName = "";
+        person.middleName = "Ion";
         person.lastName = "Filip";
         person.address = "194/3 Alba Iulia street, Chisinau";
         person.email = "office@cipm.md";

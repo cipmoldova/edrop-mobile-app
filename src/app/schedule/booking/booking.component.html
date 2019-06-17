@@ -10,16 +10,22 @@
             class="page-title"
         ></Label>
 
+        <Label 
+            text="Pentru a putea continua, vă rugăm a completa toate câmpurile de mai jos!" 
+            class="nota-bene"
+            textWrap="true"
+        ></Label>
+
         <StackLayout>
             <Label 
-                text="Unde?" 
-                class="subtitle"
+                text="Unde? " 
+                class="page-subtitle"
             ></Label>
-            <PickerField 
+            <PickerField
+                #pickerField
                 hint="Alegeți centrul de donare..." 
                 [items]="listPickerCenters"
                 pickerTitle="Alegerea centrului de donare"
-                [(ngModel)]="selectedIndex"
             >
             </PickerField>
         </StackLayout>
@@ -28,27 +34,29 @@
 
         <StackLayout>
             <Label 
-                text="Când?" 
-                class="subtitle"
+                text="Când? " 
+                class="page-subtitle"
             ></Label>
-            <DateTimePickerFields 
-                minDate="1970-01-01" 
-                maxDate="2100-12-31"
+            <DateTimePickerFields
+                #dateTimePickerFields
+                class="date-time-picker"
+                [minDate]="minDate" 
+                [maxDate]="maxDate"
                 hintDate="Alegeți ziua..." 
                 hintTime="Alegeți ora..."
                 pickerOkText="Bine"
-                dateFormat="dd MMMM yyyy"
-                [(ngModel)]="date"
+                dateFormat="E, d MMMM yyyy"
+                timeFormat="HH:mm"
+                locale="ro-MD"
+                pickerTitleDate="Ziua programării" 
+                pickerTitleTime="Ora programării"
+                autoPickTime="false"
             ></DateTimePickerFields>
         </StackLayout>
 
         <StackLayout class="hr-light m-10"></StackLayout>
         
-        <FlexboxLayout 
-            flexDirection="row"
-            alignItems="stretch"
-            horizontalAlignment="center"
-        >
+        <FlexboxLayout class="button-row">
             <Button
                 text="Renunțare" 
                 class="btn-primary-one-row"

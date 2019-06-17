@@ -11,6 +11,24 @@ export interface IDataItem {
 })
 export class StaticDataService {
 
+    bloodNeeded: Array<{month: string, amount: number}> = [
+        { month: "Ianuarie", amount: 18500 },
+        { month: "Februarie", amount: 17800 },
+        { month: "Martie", amount: 7000 },
+        { month: "Aprilie", amount: 4200 },
+        { month: "Mai", amount: 6800 },
+        { month: "Iunie", amount: 3500 },
+    ];
+
+    bloodDonated: Array<{month: string, amount: number}> = [
+        { month: "Ianuarie", amount: 5000 },
+        { month: "Februarie", amount: 4900 },
+        { month: "Martie", amount: 5000 },
+        { month: "Aprilie", amount: 2200 },
+        { month: "Mai", amount: 5100 },
+        { month: "Iunie", amount: 2000 },
+    ];
+
     private items = new Array<IDataItem>(
         {
             id: 1,
@@ -100,5 +118,13 @@ export class StaticDataService {
 
     getItem(id: number): IDataItem {
         return this.items.filter((item) => item.id === id)[0];
+    }
+
+    getBloodNeeded(): Array<{month: string, amount: number}> {
+        return this.bloodNeeded;
+    }
+
+    getBloodDonated(): Array<{month: string, amount: number}> {
+        return this.bloodDonated;
     }
 }

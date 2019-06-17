@@ -39,6 +39,8 @@ export class ChecklistComponent implements OnInit {
         //     console.log(err.stack);
         // });
         // this.a.color
+
+        // Credits: Organizatia Tinerilor din Sibiu (otsibiu.ro)
         this.checklistQuestions = new Array<ChecklistQuestion>(
             new ChecklistQuestion("<span><p>Aveți vârsta cuprinsă între 18 și 60 de ani?</p></span>", "DA"),
             new ChecklistQuestion("<span><p>Aveți greutatea de peste 50 kg?</p></span>", "DA"),
@@ -59,7 +61,7 @@ export class ChecklistComponent implements OnInit {
         // check whether there are wrong answers
         const failedQuestions = this.checklistQuestions.filter((question) => !question.pass()).length;
 
-        if (failedQuestions > 0) {
+        if (failedQuestions > 0 && false) { // dbg
             alert({
                 message: "Din păcate în acest moment nu sunteți pregătit pentru donare!",
                 okButtonText: "Bine",

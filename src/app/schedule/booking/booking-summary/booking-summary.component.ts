@@ -52,36 +52,51 @@ export class BookingSummaryComponent implements OnInit {
         );
     }
 
+    // Get User personal info from server
     getPerson(): void {
-        // TODO : get from server
         this.userService.getPersonDetails(this.userService.authenticatedUser).subscribe(
             (person) => this.bookingTicket.person = person
         );
     }
 
     sendBookingToDonationCenter(): void {
+        const options = {
+            weekday: "long",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+        };
         this.scheduleService.book(this.bookingTicket)
             .then(() => {
                 alert({
-                    message: "Programarea a reușit!",
+                    title: "Vă mulțumim!",
+                    message: "Ați fost programat(ă) în data de " + this.bookingTicket.date.toLocaleDateString("ro-MD", options)
+                        + " la ora " + this.bookingTicket.date.toLocaleTimeString("ro-MD")
+                        + " la " + this.bookingTicket.location + ".\n"
+                        + "Vă rugăm să aveți buletinul la dumneavoastră!\n",
                     okButtonText: "Bine",
-                    title: "Vă mulțumim!"
                 });
             })
             .catch(() => {
                 alert({
+                    title: "Ne cerem iertare!",
                     message: "Din păcate a apărut o eroare și nu am reușit să vă programăm.\nVă rugăm sunați la numărul de telefon (+373) 68459217.",
                     okButtonText: "Bine",
-                    title: "Ne cerem iertare!"
                 });
             });
     }
 
     finalizeBooking(): void {
-        // TODO : send booking to donation center
         this.getTicketNumber();
         this.sendBookingToDonationCenter();
         this.scheduled = true;
+    }
+
+    exitSchedulePane(): void {
         this.dashboard.goHome();
+    }
+
+    printTicket(): void {
+
     }
 }

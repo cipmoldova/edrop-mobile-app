@@ -59,12 +59,9 @@
                 </StackLayout>
             </FlexboxLayout>
             
-            <FlexboxLayout 
-                flexDirection="row"
-                alignItems="stretch"
-                horizontalAlignment="center"
+            <FlexboxLayout
+                class="button-row"
                 *ngIf="checklistQuestions.isLastIndex(i)"
-                marginTop="15"
             >
                 <Button
                     text="Renunțare" 

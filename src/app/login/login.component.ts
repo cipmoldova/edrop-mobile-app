@@ -15,8 +15,11 @@ export class LoginComponent implements OnInit {
     isLoggingIn = true;
     user: LoginUser;
 
-    @ViewChild("confirmPassword") confirmPassword: ElementRef;
-    @ViewChild("password") password: ElementRef;
+    @ViewChild("confirmPassword")
+    confirmPassword: ElementRef;
+
+    @ViewChild("password")
+    password: ElementRef;
 
     constructor(
         private page: Page,

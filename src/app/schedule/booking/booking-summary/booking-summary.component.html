@@ -1,52 +1,95 @@
 <ScrollView>
-    <StackLayout 
-        class="page-content"
-    >
-        <Label
-            text="Detaliile programării" 
-            class="page-title"
-        ></Label>
+    <StackLayout class="page-content">
+        <ng-container
+            *ngIf="!scheduled; then titleBeforeConfirmation; else titleAfterConfirmation">
+        </ng-container>
+          
+        <ng-template #titleBeforeConfirmation>
+            <Label
+                text="Verificare înainte de trimitere" 
+                class="page-title"
+            ></Label>
+        </ng-template>
+        <ng-template #titleAfterConfirmation>
+            <Label
+                text="Programare realizată cu succes!" 
+                class="page-title"
+            ></Label>
+            <Label
+                text="Detaliile programării :" 
+                class="page-subtitle"
+            ></Label>
+        </ng-template>
 
-        <StackLayout
-            orientation="horizontal"
-            width="100%"
-            paddingLeft="0"
+
+        <StackLayout class="table-row">
+            <Label
+                class="property"
+                text="Nume donator"
+            ></Label>
+            <Label 
+                class="value"
+                text="{{ bookingTicket.person.getFullName() }}"
+            ></Label>
+        </StackLayout>
+        <!------------------------------------------------------>
+        <StackLayout class="table-row">
+            <Label 
+                class="property"
+                text="Centrul de donare"
+            ></Label>
+            <Label 
+                class="value" 
+                text="{{ bookingTicket.location }}"
+            >
+            </Label>
+        </StackLayout>
+        <!------------------------------------------------------>
+        <StackLayout class="table-row">
+            <Label 
+                class="property"
+                text="Data și ora programării"
+            ></Label>
+            <Label 
+                class="value" 
+                text="{{ bookingTicket.date | date: 'dd MMMM yyyy, orele HH:mm': 'undefined':'ro-MD' }}"
+            >
+            </Label>
+        </StackLayout>
+        <!------------------------------------------------------>
+        <StackLayout 
+            class="table-row"
+            *ngIf="scheduled === true"
+            color="blue"
         >
             <Label 
                 class="property"
-                text="Nume donator:"
+                text="Bon de ordine"
             ></Label>
-            <Label class="value">
-                <FormattedString>
-                    <Span text="{{ bookingTicket.person.firstName }}"></Span>
-                    <Span 
-                        *ngIf="bookingTicket.person.middleName" 
-                        text=" {{ bookingTicket.person.middleName }}}"
-                    ></Span>
-                    <Span text=" {{ bookingTicket.person.lastName }}"></Span>
-                </FormattedString>
+            <Label 
+                class="value" 
+                text="{{ bookingTicket.ticketNumber }}"
+            >
             </Label>
         </StackLayout>
 
         <StackLayout class="m-5"></StackLayout>
 
         <FlexboxLayout 
-            flexDirection="row"
-            alignItems="stretch"
-            horizontalAlignment="center"
-            width="100%"
+            class="button-row"
+            *ngIf="scheduled === false"
         >
             <Button
                 text="Înapoi" 
                 class="btn-primary-one-row"
-                width="80"
+                width="74"
                 (tap)="goBack()"
             ></Button>
             <Label width="8"></Label>
             <Button
                 text="Renunțare" 
                 class="btn-primary-one-row"
-                width="120"
+                width="114"
                 (tap)="cancel()"
             ></Button>
             <Label width="8"></Label>
@@ -54,8 +97,26 @@
                 text="Confirmare" 
                 class="btn-primary-one-row"
                 (tap)="finalizeBooking()"
-                width="128"
+                width="122"
             ></Button>
         </FlexboxLayout>
+        
+        <FlexboxLayout 
+            *ngIf="scheduled === true"
+            class="button-row"
+        >
+            <Button
+                text="Imprimă" 
+                class="btn-primary-one-row"
+                (tap)="printTicket()"
+            ></Button>
+            <Label width="18"></Label>
+            <Button
+                text="Încheiere" 
+                class="btn-primary-one-row"
+                (tap)="exitSchedulePane()"
+            ></Button>
+        </FlexboxLayout>
+
     </StackLayout>
 </ScrollView>

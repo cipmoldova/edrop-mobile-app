@@ -4,6 +4,8 @@
 @import '../node_modules/nativescript-theme-core/scss/light';
 
 // Custom colors
+$bloodyRed: #D51A1A !default;
+
 $background-dark: #F8F8F8 !default;
 $background-light: #FFFFFF !default;
 
@@ -35,6 +37,9 @@ $night-light: #01526C !default;
 $page-icon-color: #D7D7D7 !default;
 
 // Sizes
+$baseFontSize: 16;
+
+
 $page-content-placeholder-font-size: 20;
 $tab-font-size: 11;
 

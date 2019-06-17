@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 
 import { ActivatedRoute  } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
+
 import { DashboardComponent } from "~/app/dashboard/dashboard.component";
 
 @Component({
@@ -11,11 +12,22 @@ import { DashboardComponent } from "~/app/dashboard/dashboard.component";
 })
 export class BookingComponent implements OnInit {
 
+    @ViewChild("pickerField")
+    pickerField: ElementRef;
+
+    @ViewChild("dateTimePickerFields")
+    dateTimePickerFields: ElementRef;
+
     isItemVisible: boolean = true;
 
     selectedIndex: number;
-    date: Date;
+    selectedDate: string;
+
     location: string;
+    date: Date;
+
+    minDate: string;
+    maxDate: string;
 
     listPickerCenters: Array<string> = [
           "CNTS Chișinău"
@@ -49,28 +61,20 @@ export class BookingComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
+        const dateToday = new Date();
+        this.minDate = new Date(dateToday.getFullYear(), dateToday.getMonth(), dateToday.getDate() + 1).toISOString();
+        this.maxDate = new Date(dateToday.getFullYear(), dateToday.getMonth(), dateToday.getDate() + 30).toISOString();
     }
 
     cancel(): void {
         this.dashboard.goHome();
     }
 
-    checkDate(): boolean {
-        const currentDate: Date = new Date();
-        const maxAllowedDate: Date = new Date(Date.now() + 30);
-
-        if (
-            this.date <= currentDate ||
-            this.date > maxAllowedDate
-        ) {
-            return false;
-        }
-
-        return true;
-    }
-
     goNext(): void {
-        if (!this.selectedIndex || !this.date) {
+        this.selectedDate = this.dateTimePickerFields.nativeElement.date;
+        this.selectedIndex = this.pickerField.nativeElement.selectedIndex;
+
+        if (!this.selectedIndex || !this.selectedDate) {
             alert({
                 message: "Vă rugăm să completați toate câmpurile!",
                 okButtonText: "Bine",
@@ -80,6 +84,7 @@ export class BookingComponent implements OnInit {
 
             return;
         }
+        this.date = new Date(this.selectedDate);
         this.location = this.listPickerCenters[this.selectedIndex];
 
         this.isItemVisible = false;

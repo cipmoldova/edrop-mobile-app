@@ -18,6 +18,7 @@
     margin-right: 15;
     color: #555555;
     background-color: #FFFFFF;
+    widht: 100%;
 }
 
 //Action bar
@@ -25,7 +26,7 @@
     background-color: white;
     .action-bar-title {
         horizontal-align: left;
-        vertical-align: center;
+        vertical-align: middle;
         color: rgba(255, 0, 0, 0.8);
         font-weight: normal;
         font-size: 24;
@@ -40,7 +41,7 @@
     margin: 0;
     .action-bar-title {
         horizontal-align: center;
-        vertical-align: center;
+        vertical-align: middle;
         color: white;
         font-family: 'Roboto Regular';
         font-weight: bold;
@@ -58,8 +59,8 @@
     border-radius: 5;
     font-size: 17;
     width: 136;
-    margin-top: 5;
-    margin-bottom: 10;
+    margin-top: 25;
+    margin-bottom: 15;
     font-weight: 300; 
     text-align: center;
     padding: 0;
@@ -86,7 +87,32 @@
 }
 
 .page-title {
+    font-family: "Roboto Regular";
+    font-size: 22;
     margin-top: 22;
     margin-bottom: 18;
-    font-size: 24;
+    margin-left: 0;
+    padding-left: 0;
+    horizontal-align: left;
+}
+
+.page-subtitle {
+    font-size: 20;
+    margin-top: 4;
+    margin-bottom: 8;
+    horizontal-align: left;
+}
+
+.nota-bene {
+    font-size: 16;
+    margin-top: 2;
+    margin-bottom: 10;
+    horizontal-align: left;
+    font-style: italic;
+}
+
+.button-row {
+    flex-direction: row;
+    align-items: stretch;
+    horizontal-align: center;
 }
