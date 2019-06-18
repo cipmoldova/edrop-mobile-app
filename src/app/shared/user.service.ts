@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Errors, User } from "kinvey-nativescript-sdk";
 import { Observable, of } from "rxjs";
 
-import { LoginUser, Person } from "./user.model";
+import { LoginUser, Person, Sex } from "./user.model";
 
 @Injectable()
 export class UserService {
@@ -47,6 +47,7 @@ export class UserService {
         person.email = "office@cipm.md";
         person.password = "1234";
         person.phoneNumber = "(+373) 68459217";
+        person.sex = Sex.Masculin;
 
         return of (person);
     }

@@ -14,6 +14,7 @@ import { ChecklistComponent } from "./checklist/checklist.component";
 import { HtmlViewerComponent } from "./checklist/HtmlViewerComponent";
 import { ScheduleRoutingModule  } from "./schedule-routing.module";
 import { ScheduleComponent } from "./schedule.component";
+import { DatePipe } from "@angular/common";
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { ScheduleComponent } from "./schedule.component";
     providers: [
         UserService,
         ScheduleService,
+        DatePipe,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

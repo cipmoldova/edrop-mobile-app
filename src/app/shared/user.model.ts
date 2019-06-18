@@ -6,6 +6,12 @@ export class LoginUser {
     tocken: string;
 }
 
+export enum Sex {
+    Masculin = "M",
+    Feminin = "F"
+    // Cursed be he/she who tries to add or use other so-called "genders" in this application!
+}
+
 // tslint:disable-next-line:max-classes-per-file
 export class Person {
     firstName: string;
@@ -15,6 +21,7 @@ export class Person {
     email: string;
     password: string;
     phoneNumber: string;
+    sex: Sex;
 
     getFullName(): string {
         return this.firstName

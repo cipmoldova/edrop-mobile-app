@@ -13,6 +13,7 @@ export class ScheduleService {
     book(bookingTicket: BookingTicket) {
         return new Promise((resolve, reject) => {
             resolve();
+            // reject();
             // TODO send to server
         });
     }

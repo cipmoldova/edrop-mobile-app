@@ -2,8 +2,10 @@ import { Component, OnInit } from "@angular/core";
 
 import { RouterExtensions } from "nativescript-angular/router";
 
+import { DatePipe } from "@angular/common";
 import { DashboardComponent } from "~/app/dashboard/dashboard.component";
 import { ScheduleService } from "~/app/shared/schedule.service";
+import { Sex } from "~/app/shared/user.model";
 import { UserService } from "~/app/shared/user.service";
 import { BookingComponent } from "../booking.component";
 import { BookingTicket } from "./booking-ticket";
@@ -24,6 +26,7 @@ export class BookingSummaryComponent implements OnInit {
         private booking: BookingComponent,
         private userService: UserService,
         private scheduleService: ScheduleService,
+        private datePipe: DatePipe,
     ) {
         // Use the component constructor to inject providers.
     }
@@ -46,7 +49,6 @@ export class BookingSummaryComponent implements OnInit {
     }
 
     getTicketNumber(): void {
-        // TODO : get from server
         this.scheduleService.getTicketNumber().subscribe(
             (ticketNumber) => this.bookingTicket.ticketNumber = ticketNumber
         );
@@ -59,37 +61,42 @@ export class BookingSummaryComponent implements OnInit {
         );
     }
 
-    sendBookingToDonationCenter(): void {
-        const options = {
-            weekday: "long",
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-        };
+    finalizeBooking(): void {
+
+        // obtain a new generated ticket number from server
+        this.getTicketNumber();
+
+        // send booking to donation center
         this.scheduleService.book(this.bookingTicket)
+            // on succes :
             .then(() => {
                 alert({
                     title: "Vă mulțumim!",
-                    message: "Ați fost programat(ă) în data de " + this.bookingTicket.date.toLocaleDateString("ro-MD", options)
-                        + " la ora " + this.bookingTicket.date.toLocaleTimeString("ro-MD")
-                        + " la " + this.bookingTicket.location + ".\n"
-                        + "Vă rugăm să aveți buletinul la dumneavoastră!\n",
+                    message: "Ați fost programat"
+                        + (this.bookingTicket.person.sex === Sex.Feminin ? "ă" : "")
+                        + " în ziua de "
+                        + this.datePipe.transform(this.bookingTicket.date, "EEEE, dd MMMM yyyy", undefined, "ro-MD")
+                        + ", la orele "
+                        + this.datePipe.transform(this.bookingTicket.date, "HH:mm")
+                        + ", la "
+                        + this.bookingTicket.location + ".\n"
+                        + "Vă rugăm să aveți buletinul la dumneavoastră!",
                     okButtonText: "Bine",
                 });
+                // booking succeded, we toggle a variable which will trigger the booking ticket number to be displayed
+                this.scheduled = true;
             })
+            // on failure :
             .catch(() => {
                 alert({
                     title: "Ne cerem iertare!",
-                    message: "Din păcate a apărut o eroare și nu am reușit să vă programăm.\nVă rugăm sunați la numărul de telefon (+373) 68459217.",
+                    message: "Din păcate a apărut o eroare și nu am reușit să vă programăm." + "\n"
+                        + "Vă rugăm sunați la numărul de telefon (+373) 68459217.",
                     okButtonText: "Bine",
                 });
+                // booking failed, we get back to our homepage
+                this.exitSchedulePane();
             });
-    }
-
-    finalizeBooking(): void {
-        this.getTicketNumber();
-        this.sendBookingToDonationCenter();
-        this.scheduled = true;
     }
 
     exitSchedulePane(): void {

@@ -18,7 +18,6 @@ export class ChecklistComponent implements OnInit {
     file: fs.File;
 
     checklistQuestions: Array<ChecklistQuestion>;
-    height: number = 864; // TODO: de calculat in mod dinamic
 
     constructor(
         private routerExtension: RouterExtensions,
@@ -61,7 +60,7 @@ export class ChecklistComponent implements OnInit {
         // check whether there are wrong answers
         const failedQuestions = this.checklistQuestions.filter((question) => !question.pass()).length;
 
-        if (failedQuestions > 0 && false) { // dbg
+        if (failedQuestions > 0) {
             alert({
                 message: "Din păcate în acest moment nu sunteți pregătit pentru donare!",
                 okButtonText: "Bine",
