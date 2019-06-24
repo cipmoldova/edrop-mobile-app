@@ -3,7 +3,7 @@
 		<StackLayout class="logo">
 			<Image 
 				class="logo-image" 
-				src="res://login"
+				src="res://ic_launcher"
 			></Image>
 			<Label 
 				class="logo-text" 
@@ -12,51 +12,40 @@
 		</StackLayout>
 		<StackLayout class="form">
 
-			<StackLayout class="input-field">
-				<TextField 
-					class="input" 
-					hint="Adresa de e-mail" 
-					keyboardType="email"
-					autocorrect="false"
-					autocapitalizationType="none" 
-					[(ngModel)]="user.email" 
-					returnKeyType="next" 
-					(returnPress)="focusPassword()"
-				></TextField>
-				<StackLayout class="hr-light"></StackLayout>
-			</StackLayout>
+			<TextField 
+				autocapitalizationType="none" 
+				autocorrect="false"
+				class="input" 
+				hint="Adresa de e-mail" 
+				keyboardType="email"
+				[(ngModel)]="user.email" 
+				returnKeyType="next" 
+				(returnPress)="focusPassword()"
+			></TextField>
 
-			<StackLayout class="input-field">
-				<TextField 
-					#password 
-					class="input" 
-					hint="Parola" 
-					secure="true" 
-					[(ngModel)]="user.password" 
-					[returnKeyType]="isLoggingIn ? 'done' : 'next'" 
-					(returnPress)="focusConfirmPassword()"
-				></TextField>
-				<StackLayout class="hr-light"></StackLayout>
-			</StackLayout>
+			<TextField 
+				#password 
+				class="input" 
+				hint="Parola" 
+				[(ngModel)]="user.password" 
+				[returnKeyType]="isLoggingIn ? 'done' : 'next'" 
+				(returnPress)="focusConfirmPassword()"
+				secure="true" 
+			></TextField>
 
-			<StackLayout
-				class="input-field"
+			<TextField
+				#confirmPassword 
+				class="input" 
+				hint="Confirmați parola" 
 				*ngIf="!isLoggingIn" 
-			>
-				<TextField
-					#confirmPassword 
-					class="input" 
-					hint="Confirmați parola" 
-					secure="true" 
-					[(ngModel)]="user.confirmPassword" 
-					returnKeyType="done"
-				></TextField>
-				<StackLayout class="hr-light"></StackLayout>
-			</StackLayout>
+				[(ngModel)]="user.confirmPassword" 
+				returnKeyType="done"
+				secure="true" 
+			></TextField>
 
 			<Button
 				class="btn-login"
-				[text]="isLoggingIn ? 'Conectați-vă' : 'Înregistrați-vă'" 
+				[text]="isLoggingIn ? 'Conectare' : 'Înregistrare'" 
 				(tap)="submit()" 
 			></Button>
 			<Label

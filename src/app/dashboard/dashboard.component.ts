@@ -9,7 +9,8 @@ import { RouterExtensions } from "nativescript-angular/router";
 })
 export class DashboardComponent implements OnInit {
 
-    @ViewChild("dashboardTab") dashboardTab: ElementRef;
+    @ViewChild("dashboardTab", { static: true })
+    dashboardTab: ElementRef;
 
     constructor(
         private routerExtension: RouterExtensions,

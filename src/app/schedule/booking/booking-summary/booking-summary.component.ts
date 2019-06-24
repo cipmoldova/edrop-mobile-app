@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { DatePipe } from "@angular/common";
 
 import { RouterExtensions } from "nativescript-angular/router";
 
-import { DatePipe } from "@angular/common";
 import { DashboardComponent } from "~/app/dashboard/dashboard.component";
 import { ScheduleService } from "~/app/shared/schedule.service";
 import { Sex } from "~/app/shared/user.model";

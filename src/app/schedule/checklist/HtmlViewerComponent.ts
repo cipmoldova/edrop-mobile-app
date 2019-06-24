@@ -3,19 +3,30 @@ import { android as androidApp } from "tns-core-modules/application";
 import { Color } from "tns-core-modules/color";
 
 @Component({
+    // tslint:disable-next-line: component-selector
     selector: "HtmlViewer",
     template: `
         <HtmlView
             #htmlView
             [html]="html"
-            [width]="width"
             (loaded)="onLoaded()"
-            class="question-label"
+            marginBottom="-30"
+            marginTop="-12"
+            [width]="width"
         ></HtmlView>
 	`,
-    styleUrls: ["./checklist.component.scss"],
+    styleUrls: [ ],
 })
 export class HtmlViewerComponent implements OnInit {
+
+    @Input()
+    color: string;
+
+    @Input()
+    fontFamily: string;
+
+    @Input()
+    fontSize: string;
 
     @Input()
     html: string;
@@ -23,47 +34,68 @@ export class HtmlViewerComponent implements OnInit {
     @Input()
     width: string;
 
-    @Input()
-    fontFamily: string;
-
-    @Input()
-    textSize: string;
-
-    @Input()
-    textColor: string;
-
-    @ViewChild("htmlView")
+    @ViewChild("htmlView", { static: true })
     htmlView: ElementRef;
 
-    private fontLocation: string = "app/fonts";
+    private fontLocation: string = "app/fonts/";
     private fontExtension: string = ".ttf";
 
     private typeface: globalAndroid.graphics.Typeface;
-    private color: number;
+    private textColor: number;
+    private textSize: number;
 
-    ngOnInit(): void {
-
-        // set default values
-        this.html       = this.html         ? this.html         : "< Eroare! >";
-        this.textColor  = this.textColor    ? this.textColor    : "#555555";
-        this.textSize   = this.textSize     ? this.textSize     : "17";
-        this.fontFamily = this.fontFamily   ? this.fontFamily   : "Roboto Regular";
-        this.width      = this.width        ? this.width        : "65%";
-
-        this.typeface = android.graphics.Typeface.createFromAsset(
-            androidApp.context.getAssets(),
-            this.fontLocation + "/" + this.fontFamily + this.fontExtension
-        );
-        this.color = new Color(this.textColor).android;
+    constructor (private elementRef: ElementRef) {
     }
 
+    ngOnInit(): void {
+        // set default values
+        this.width = this.width ? this.width : "100%";
+    }
+
+    /// In this method we process inner and CSS style attributes
     onLoaded() {
-        while (!this.htmlView) {
-            setTimeout(() => null, 100);
+
+        // make sure the native element view has been built
+        while (!this.htmlView.nativeElement.android) {
+            setTimeout(() => {}, 100);
         }
         const htmlView = this.htmlView.nativeElement.android;
-        htmlView.setTextColor(this.color);
+
+        // manage the case where CSS attributes come from a CSS file or are not defined
+        this.color = this.color ? this.color : this.elementRef.nativeElement.style.color.hex;
+        this.color = this.color ? this.color : "black";
+        //
+        this.fontFamily = this.fontFamily ? this.fontFamily : this.elementRef.nativeElement.style.fontFamily;
+        this.fontFamily = this.fontFamily ? this.fontFamily : "serif";
+        this.fontFamily = this.fontFamily.replace(/[\"\']/g, ""); // trim surrounding quotes
+        //
+        this.fontSize = this.fontSize ? this.fontSize : this.elementRef.nativeElement.style.fontSize;
+        this.fontSize = this.fontSize ? this.fontSize : "16";
+
+        // calculate attributes
+        switch (this.fontFamily.toLowerCase()) {
+            case "monospace" :
+                this.typeface = android.graphics.Typeface.MONOSPACE;
+                break;
+            case "serif" :
+                this.typeface = android.graphics.Typeface.SERIF;
+                break;
+            case "sans-serif" :
+                this.typeface = android.graphics.Typeface.SANS_SERIF;
+                break;
+            default :
+                this.typeface = android.graphics.Typeface.createFromAsset(
+                    androidApp.context.getAssets(),
+                    this.fontLocation + this.fontFamily + this.fontExtension,
+                );
+                break;
+        }
+        this.textColor = new Color(this.color).android;
+        this.textSize = Number(this.fontSize);
+
+        // set attributes for the inner view
+        htmlView.setTextColor(this.textColor);
+        htmlView.setTextSize(this.textSize);
         htmlView.setTypeface(this.typeface);
-        htmlView.setTextSize(Number(this.textSize));
     }
 }

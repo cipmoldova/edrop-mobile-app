@@ -1,6 +1,5 @@
-
 <ListView 
-    class="list-group page-content" 
+    class="page-content" 
     [items]="checklistQuestions"
     orientation="vertical"
 >
@@ -17,44 +16,36 @@
             ></Label>
 
             <FlexboxLayout
-                flexDirection="row" 
                 class="list-group-item"
-                alignItems="flex-start"
                 justifyContent="flex-end"
-                padding="8"
-                paddingLeft="0"
             >
-                <StackLayout class="question-label">
-                    <HtmlViewer
-                        [html]="question.htmlText"
-                        textSize="16"
-                        textColor="#555555"
-                        fontFamily="Roboto Regular"
-                    >
-                    </HtmlViewer>
-                </StackLayout>
-                <Label width="12"></Label>
-                <StackLayout 
-                    orientation="horizontal" 
-                    width="100"
-                    class="checkbox"
+                <HtmlViewer
+                    class="question-label"
+                    [html]="question.htmlText"
                 >
+                </HtmlViewer>
+
+                <Label width="116"></Label>
+ 
+                <StackLayout class="checkbox">
                     <CheckBox 
                         #yesCheckbox 
-                        text="DA" 
+                        boxType="square"
                         [checked]="question.positiveAnswer"
                         (checkedChange)="yesCheckbox.checked !== question.positiveAnswer && question.changeCheckedRadio('DA')"
-                        boxType="square"
                         checkStyle="checkbox_selector"
+                        text="DA" 
                     ></CheckBox>
-                    <Label width="10"></Label>
+
+                    <Label class="blank-divider-smaller"></Label>
+
                     <CheckBox 
                         #noCheckbox 
-                        text="NU" 
+                        boxType="square"
                         [checked]="question.negativeAnswer"
                         (checkedChange)="noCheckbox.checked !== question.negativeAnswer && question.changeCheckedRadio('NU')"
-                        boxType="square"
                         checkStyle="checkbox_selector"
+                        text="NU" 
                     ></CheckBox>
                 </StackLayout>
             </FlexboxLayout>

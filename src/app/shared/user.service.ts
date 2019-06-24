@@ -57,7 +57,7 @@ export class UserService {
             .catch(this.handleErrors);
     }
 
-    handleErrors(error: Errors.BaseError) {
+    handleErrors(error: Errors.KinveyError) {
         console.error(error.message);
     }
 }

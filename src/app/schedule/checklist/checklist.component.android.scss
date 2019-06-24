@@ -1,14 +1,22 @@
-@import 'checklist.component';
+@import "checklist.component";
 
-// Question Label
+// Question Label 
+// NB: HtmlViewer only supports three style properties: 
+//  - color, 
+//  - font-family (fontFamily) and 
+//  - font-size (fontSize)
 .question-label {
-    padding-bottom: -36;
-    vertical-align: top;
+    color: gray;
+    font-family: "Roboto Regular";
+    font-size: 16;
 }
 
 // Checkbox
 .checkbox {
     font-size: 16;
     font-family: "Roboto Regular";
+    horizontal-align: left;
+    orientation: horizontal;
     vertical-align: top;
+    width: 216;
 }

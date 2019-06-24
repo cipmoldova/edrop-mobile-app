@@ -1,4 +1,5 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { DatePipe } from "@angular/common";
 
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { TNSCheckBoxModule } from "nativescript-checkbox/angular";
@@ -14,7 +15,6 @@ import { ChecklistComponent } from "./checklist/checklist.component";
 import { HtmlViewerComponent } from "./checklist/HtmlViewerComponent";
 import { ScheduleRoutingModule  } from "./schedule-routing.module";
 import { ScheduleComponent } from "./schedule.component";
-import { DatePipe } from "@angular/common";
 
 @NgModule({
     declarations: [

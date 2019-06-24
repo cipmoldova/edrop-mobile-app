@@ -6,10 +6,9 @@
 </ActionBar>
 
 <ListView
-    class="list-group page-content"
+    class="page-content"
     [items]="infoText"
     orientation="vertical"
-    width="100%"
 >
     <ng-template 
         let-infoItem="item" 
@@ -17,20 +16,17 @@
     >
         <StackLayout>
             <Label
-                text="De ce să donez?"
                 class="page-title"
                 *ngIf="infoText.isFirstIndex(i)"
+                text="De ce să donez?"
             ></Label>
 
-            <StackLayout 
-                orientation="horizontal"
-                class="list-group-item list-view-text-item"
-            >
-                <Label 
-                    text="{{i + 1}}. "
-                    width="30"
+            <StackLayout class="list-group-item">
+                <Label
                     fontWeight="bold"
+                    text="{{i + 1}}. "
                     textAlignment="center"
+                    width="30"
                 ></Label>
                 <Label 
                     text="{{ infoItem }}"
@@ -39,8 +35,8 @@
             </StackLayout>
 
             <Button
-                text="Continuare" 
                 class="btn-primary-one-row"
+                text="Continuare" 
                 *ngIf="infoText.isLastIndex(i)"
                 [nsRouterLink]="['schedule/default']" 
             ></Button>

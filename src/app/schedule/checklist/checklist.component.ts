@@ -1,4 +1,4 @@
-import { Component, OnInit, } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 import { ActivatedRoute  } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
@@ -17,6 +17,8 @@ export class ChecklistComponent implements OnInit {
     writtenContent: string;
     file: fs.File;
 
+    htmlViewerWidth: string;
+
     checklistQuestions: Array<ChecklistQuestion>;
 
     constructor(
@@ -24,7 +26,6 @@ export class ChecklistComponent implements OnInit {
         private route: ActivatedRoute,
         private dashboard: DashboardComponent,
     ) {
-        // Use the component constructor to inject providers.
     }
 
     ngOnInit(): void {
@@ -47,8 +48,8 @@ export class ChecklistComponent implements OnInit {
             new ChecklistQuestion("<span><p>Aveți alergii?</p></span>", "NU"),
             new ChecklistQuestion("<span><p>Ați consumat grăsimi, băuturi alcoolice sau țigări în ultimele 48 ore?</p></span>", "NU"),
             new ChecklistQuestion("<span><p>Dacă sunteți femeie, sunteți însărcinată sau în perioada menstruală?</p></span>", "NU"),
-            new ChecklistQuestion("<span><p>Sunteți sub tratament pentru una din următoarele afecțiuni: <br> - hipertensiune, <br> - boli de inimă, <br> - boli renale, <br> - boli psihice, <br> - boli endocrine, <br> - boli cu transmitere sexuală <br>?</p></span>", "NU"),
-            new ChecklistQuestion("<span><p>Aveți sau ați avut una dintre următoarele boli: <br> - hepatită (de orice fel), <br> - TBC, <br> - sifilis, <br> - malarie, <br> - epilepsie sau alte boli neurologice, <br> - diabet zaharat, <br> - boli de inimă, <br> - boli de piele<br>?</p></span>", "NU"),
+            new ChecklistQuestion("<span><p>Sunteți sub tratament pentru una din următoarele afecțiuni: <br>🔸 hipertensiune <br>🔸 boli de inimă <br>🔸 boli renale <br>🔸 boli psihice <br>🔸 boli endocrine <br>🔸 boli cu transmitere sexuală <br>?</p></span>", "NU"),
+            new ChecklistQuestion("<span><p>Aveți sau ați avut una dintre următoarele boli: <br>🔸 hepatită (de orice fel) <br>🔸 TBC <br>🔸 sifilis <br>🔸 malarie <br>🔸 epilepsie sau alte boli neurologice <br>🔸 diabet zaharat <br>🔸 boli de inimă <br>🔸 boli de piele<br>?</p></span>", "NU"),
         );
     }
 
@@ -61,12 +62,21 @@ export class ChecklistComponent implements OnInit {
         const failedQuestions = this.checklistQuestions.filter((question) => !question.pass()).length;
 
         if (failedQuestions > 0) {
-            alert({
-                message: "Din păcate în acest moment nu sunteți pregătit pentru donare!",
-                okButtonText: "Bine",
-                title: "Ne pare rău!"
-            });
-            this.dashboard.goHome();
+            const unansweredQuestions = this.checklistQuestions.filter((question) => question.getLastAnswer() === "");
+            if (unansweredQuestions.length > 0) {
+                alert({
+                    title: "Chestionar necompletat!",
+                    message: "Vă rugăm răspundeți la toate întrebările!",
+                    okButtonText: "Bine",
+                });
+            } else {
+                alert({
+                    title: "Ne pare rău!",
+                    message: "Din păcate în acest moment nu sunteți pregătit pentru donare!",
+                    okButtonText: "Bine",
+                });
+                this.dashboard.goHome();
+            }
         } else {
             this.routerExtension.navigate(
                 ["../booking"],

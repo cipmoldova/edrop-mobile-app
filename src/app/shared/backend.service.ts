@@ -1,4 +1,3 @@
-import { Injectable } from "@angular/core";
 import { init } from "kinvey-nativescript-sdk";
 
 export class BackendService {

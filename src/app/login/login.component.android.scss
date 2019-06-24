@@ -13,7 +13,8 @@
   margin: 0;
 
   .logo-image {
-    height: 96;
+    height: 88;
+    margin: 8;
   }
 
   .logo-text {
@@ -30,12 +31,11 @@
   flex-grow: 2;
   vertical-align: middle;
 
-  .input-field {
-    margin-bottom: 25;
-  }
   .input {
     font-size: 18;
+    margin-bottom: 25;
     placeholder-color: darkGray;
+    width: 96%;
   }
 }
 
@@ -44,9 +44,16 @@
   margin: 20 5 15 5;
   background-color: $bloodyRed;
   color: white;
-  border-radius: 5;
   font-size: 20;
-  font-weight: 600;
+  font-weight: 500;
+  width: 70%;
+  android-elevation: 8;
+  android-dynamic-elevation-offset: 8;
+
+  &:highlighted {
+    background-color: white;
+    color: $bloodyRed;
+  }
 }
 
 .login-label {

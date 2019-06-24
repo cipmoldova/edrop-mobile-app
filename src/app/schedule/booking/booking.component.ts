@@ -12,10 +12,10 @@ import { DashboardComponent } from "~/app/dashboard/dashboard.component";
 })
 export class BookingComponent implements OnInit {
 
-    @ViewChild("pickerField")
+    @ViewChild("pickerField", { static: true })
     pickerField: ElementRef;
 
-    @ViewChild("dateTimePickerFields")
+    @ViewChild("dateTimePickerFields", { static: true })
     dateTimePickerFields: ElementRef;
 
     isItemVisible: boolean = true;
@@ -76,11 +76,10 @@ export class BookingComponent implements OnInit {
 
         if (!this.selectedIndex || !this.selectedDate) {
             alert({
+                title: "Lipsesc informații!",
                 message: "Vă rugăm să completați toate câmpurile!",
                 okButtonText: "Bine",
-                title: "Lipsesc informații!"
             });
-            this.cancel();
 
             return;
         }

@@ -2,22 +2,30 @@
 
 .chart {
   background-color: seaShell;
-  height: 224;
+  border-color: antiqueWhite;
+  border-width: 1;
+  height: 200;
 }
 
 .highlight {
-  color: red;
+  color: black;
+  font-family: "monospace";
   font-size: 18;
   font-weight: bold;
-  vertical-align: middle;
   horizontal-align: center;
+  vertical-align: middle;
 }
 
 .stats-box {
-  background-color: rgba(128, 64, 64, 0.05);
+  background-color: beige;
+  border-color: antiqueWhite;
   border-width: 1;
-  border-color: #ffe4c6;
+  font-size: 14;
   padding: 1;
   margin: 2;
-  font-size: 14;
+
+  .stats-label {
+    text-wrap: true;
+    width: 120;
+  }
 }

@@ -3,116 +3,148 @@
 
 // Font icon class
 @mixin font-icon {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon';
+  font-family: "icomoon";
+}
+
+@mixin btn-primary {
+  background-color: red;
+  border: 1;
+  border-color: red;
+  border-radius: 5;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+  color: white;
+  font-family: "Roboto Regular";
+  font-size: 17;
+  font-weight: 300;
+  margin-bottom: 15;
+  margin-top: 15;
+  padding: 0;
+  text-align: center;
+  width: 136;
+
+  &:highlighted {
+    color: red;
+    background-color: white;
+  }
 }
 
 // Common page class
 .page-content {
-    align-items: center;
-    flex-direction: column;
-    font-family: "Roboto Regular";
-    font-size: 16;
-    vertical-align: top;
-    margin-left: 15;
-    margin-right: 15;
-    color: #555555;
-    background-color: #FFFFFF;
+  align-items: stretch;
+  background-color: white;
+  flex-direction: column;
+  font-family: "Roboto Regular";
+  font-size: 16;
+  margin-left: 8;
+  margin-right: 8;
+  vertical-align: top;
 }
 
 //Action bar
 .action-bar-app {
-    background-color: white;
-    .action-bar-title {
-        horizontal-align: left;
-        vertical-align: middle;
-        color: rgba(255, 0, 0, 0.8);
-        font-weight: normal;
-        font-size: 24;
-        padding-top: -24;
-        @include font-icon;
-    }
-}
-.action-bar {
-    background-color: rgba(255, 0, 0, 0.8);
-    height: 30;
-    padding: 0;
-    margin: 0;
-    .action-bar-title {
-        horizontal-align: center;
-        vertical-align: middle;
-        color: white;
-        font-family: 'Roboto Regular';
-        font-weight: bold;
-        font-size: 20;
-        margin: 0;
-    }
+  background-color: white;
+
+  .action-bar-title {
+    color: rgba(255, 0, 0, .8);
+    font-size: 24;
+    font-weight: normal;
+    horizontal-align: left;
+    padding-top: -24;
+    vertical-align: middle;
+    @include font-icon;
+  }
 }
 
-@mixin btn-primary {
-    background-color: #FF0000;
-    border-color:#FF0000;
-    border: 1;
-    color:#FFFFFF;
-    font-family: 'Roboto Regular';
-    border-radius: 5;
-    font-size: 17;
-    width: 136;
-    margin-top: 25;
-    margin-bottom: 15;
-    font-weight: 300; 
-    text-align: center;
-    padding: 0;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    &:highlighted {
-        background-color:#FFFFFF;
-        color:#ff0000;
-    }
+.action-bar {
+  background-color: rgba(255, 0, 0, .8);
+  height: 30;
+  margin: 0;
+  padding: 0;
+
+  .action-bar-title {
+    color: white;
+    font-family: "Roboto Regular";
+    font-size: 20;
+    font-weight: bold;
+    horizontal-align: center;
+    margin: 0;
+    vertical-align: middle;
+  }
 }
 
 .btn-primary-one-row {
-    @include btn-primary;
-    height: 32;
+  @include btn-primary;
+  height: 32;
 }
+
 .btn-primary-two-rows {
-    @include btn-primary;
-    height: 48;
-    line-height: 2;
+  @include btn-primary;
+  height: 48;
+  line-height: 2;
 }
 
 .btn-disabled {
-  opacity: 0.6;
   cursor: not-allowed;
+  opacity: .6;
 }
 
 .page-title {
-    font-family: "Roboto Regular";
-    font-size: 22;
-    margin-top: 22;
-    margin-bottom: 18;
-    margin-left: 0;
-    padding-left: 0;
-    horizontal-align: left;
+  color: black;
+  font-family: "Roboto Regular";
+  font-size: 20;
+  horizontal-align: left;
+  margin-bottom: 18;
+  margin-left: 0;
+  margin-top: 22;
+  padding-left: 0;
 }
 
 .page-subtitle {
-    font-size: 20;
-    margin-top: 4;
-    margin-bottom: 8;
-    horizontal-align: left;
+  color: darkBlue;
+  font-size: 18;
+  horizontal-align: left;
+  margin-bottom: 4;
+  margin-top: 4;
 }
 
 .nota-bene {
-    font-size: 16;
-    margin-top: 2;
-    margin-bottom: 10;
-    padding-right: 2;
-    horizontal-align: left;
-    font-style: italic;
+  font-size: 16;
+  font-style: italic;
+  horizontal-align: left;
+  margin-bottom: 10;
+  margin-top: 2;
+  padding-right: 2;
 }
 
 .button-row {
-    flex-direction: row;
-    align-items: stretch;
-    horizontal-align: center;
+  align-items: stretch;
+  flex-direction: row;
+  horizontal-align: center;
+}
+
+.list-group-item {
+  align-items: center;
+  flex-direction: row;
+  font-size: 16;
+  orientation: horizontal;
+  padding-bottom: 10;
+  padding-left: 5;
+  padding-right: 5;
+  padding-top: 10;
+  vertical-align: center;
+}
+
+.blank-divider-smaller {
+  height: 16;
+  width: 16;
+}
+
+.blank-divider {
+  height: 24;
+  width: 24;
+}
+
+.blank-divider-larger {
+  height: 32;
+  width: 32;
 }

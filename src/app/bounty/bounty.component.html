@@ -6,28 +6,20 @@
 </ActionBar>
 
 <ListView 
-    class="list-group page-content" 
+    class="page-content" 
     [items]="companies" 
     (itemTap)="onItemTap($event)"
     orientation="vertical"
-    width="100%"
 >
     <ng-template let-company="item">
-        <FlexboxLayout 
-            flexDirection="row" 
-            class="list-group-item"
-            verticalAlignment="center"
-            padding="10"
-        >
-            <Image 
+        <FlexboxLayout class="list-group-item">
+            <Image
+                class="list-thumb"
                 [src]="company.imageSrc" 
-                class="thumb img-circle"
             ></Image>
-            <Label 
+            <Label
+                class="list-label"
                 [text]="company.name" 
-                fontSize="18"
-                verticalAlignment="center"
-                paddingTop="8"
             ></Label>
         </FlexboxLayout>
     </ng-template>

@@ -1,5 +1,5 @@
 // tslint:disable-next-line:ordered-imports
-import { NgModule, NO_ERRORS_SCHEMA, ErrorHandler, NgModuleFactoryLoader } from "@angular/core";
+import { NgModule, NO_ERRORS_SCHEMA, ErrorHandler } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
 import { enable as traceEnable } from "tns-core-modules/trace";

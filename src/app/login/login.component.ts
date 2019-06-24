@@ -15,10 +15,10 @@ export class LoginComponent implements OnInit {
     isLoggingIn = true;
     user: LoginUser;
 
-    @ViewChild("confirmPassword")
+    @ViewChild("confirmPassword", { static: true })
     confirmPassword: ElementRef;
 
-    @ViewChild("password")
+    @ViewChild("password", { static: true })
     password: ElementRef;
 
     constructor(
@@ -51,6 +51,10 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
+        this.routerExtension.navigate(
+            ["../dashboard/default"],
+            { clearHistory: true }
+        ); return; // dbg
         this.userService.login(this.user)
             .then(() => {
                 this.user.tocken = "ZwPNMBoK8XD8Q="; // TODO : get from server

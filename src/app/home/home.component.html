@@ -7,14 +7,13 @@
 
 <ScrollView>
     <StackLayout
-        height="496"
-        marginTop="16"
-        fontSize="12"
         class="page-content"
+        height="464"
+        marginTop="16"
     >   
         <Label 
+            class="page-subtitle"
             text="Statistici globale" 
-            class="h3 p-l-0"
         ></Label>
 
         <RadCartesianChart class="chart">
@@ -132,9 +131,11 @@
             </BarSeries>
         </RadCartesianChart>
 
+        <Label class="blank-divider-smaller"></Label>
+
         <Label 
+            class="page-subtitle"
             text="Statistici personale" 
-            class="h3 p-l-0 m-t-10"
         ></Label>
 
         <StackLayout orientation="vertical">
@@ -143,13 +144,12 @@
                 orientation="horizontal"
             >
                 <Label 
+                    class="stats-label"
                     text="Recoltări&#010;realizate:" 
-                    textWrap=true 
-                    width="120"
                 ></Label>
                 <Label class="highlight">
                     <FormattedString>
-                        <Span text="{{ numberOfDonations }}"></Span>
+                        <Span text="💉 {{ numberOfDonations }}"></Span>
                     </FormattedString>
                 </Label>
             </StackLayout>
@@ -158,13 +158,12 @@
                 class="stats-box"
             >
                 <Label 
+                    class="stats-label"
                     text="Puncte&#010;disponibile:" 
-                    textWrap=true 
-                    width="120"
                 ></Label>
                 <Label class="highlight">
                     <FormattedString>
-                        <Span text="{{ numberOfCredits }}"></Span>
+                        <Span text="❤️ {{ numberOfCredits }}"></Span>
                     </FormattedString>
                 </Label>
             </StackLayout>
@@ -173,13 +172,12 @@
                 class="stats-box"
             >
                 <Label 
+                    class="stats-label"
                     text="Data ultimei&#010;recoltări:" 
-                    textWrap=true 
-                    width="120"
                 ></Label>
                 <Label class="highlight">
                     <FormattedString>
-                        <Span text="{{ dateLastDonation | date: 'dd MMMM yyyy': 'undefined':'ro-MD' }}"></Span>
+                        <Span text="📅 {{ dateLastDonation | date: 'dd MMMM yyyy': 'undefined':'ro-MD' }}"></Span>
                     </FormattedString>
                 </Label>
             </StackLayout>
@@ -188,7 +186,6 @@
         <Button 
             text="Programare" 
             class="btn-primary-one-row"
-            marginTop="5"
             [nsRouterLink]="['schedule/default']" 
         ></Button>
 

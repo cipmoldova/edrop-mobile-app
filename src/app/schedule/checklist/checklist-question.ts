@@ -9,6 +9,10 @@ export class ChecklistQuestion {
       public passphrase: string,
     ) {}
 
+    getLastAnswer(): string {
+      return this.lastAnswer;
+    }
+
     pass(): boolean {
       return this.lastAnswer === this.passphrase;
     }
