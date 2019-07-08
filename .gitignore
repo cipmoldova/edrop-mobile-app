@@ -35,3 +35,7 @@ typings/
 
 # Firebase (for Kinvey)
 App_Resources/Android/google-services.json
+Google Play/*.jks
+Google Play/*.aab
+bin/*
+Google Play/*.apks
