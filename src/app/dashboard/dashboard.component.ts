@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
                         homeTab: ["home"],
                         donationTab: ["donation"],
                         bountyTab: ["bounty"],
-                        extraTab: ["extra"],
+                        infoTab: ["info"],
                     }
                 }
             ],
@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
                 this.dashboardTab.nativeElement.selectedIndex = 2;
                 break;
             }
-            case "extraTab": {
+            case "infoTab": {
                 this.dashboardTab.nativeElement.selectedIndex = 3;
                 break;
             }

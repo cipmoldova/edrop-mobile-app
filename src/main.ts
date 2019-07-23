@@ -5,5 +5,5 @@ import { enableProdMode } from "@angular/core";
 
 import { AppModule } from "./app/app.module";
 
-// enableProdMode();
+// enableProdMode(); // debug
 platformNativeScriptDynamic().bootstrapModule(AppModule);

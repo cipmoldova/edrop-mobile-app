@@ -1,19 +1,20 @@
 <ActionBar class="action-bar">
     <Label 
         class="action-bar-title" 
-        text="Mai multe..."
+        text="Mai multe informații..."
     ></Label>
 </ActionBar>
 
 <ListView 
-    [items]="items" 
+    [items]="infoItemList" 
     class="page-content"
 >
-    <ng-template let-item="item">
+    <ng-template let-infoItem="item">
         <Label 
-            [nsRouterLink]="['item', item.id]" 
-            [text]="item.name" 
             class="list-group-item"
+            [nsRouterLink]="['item', infoItem.type]" 
+            [text]="infoItem.title" 
+            textWrap="true"
         ></Label>
     </ng-template>
 </ListView>

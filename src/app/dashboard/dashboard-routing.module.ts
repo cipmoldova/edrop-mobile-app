@@ -28,10 +28,10 @@ const routes: Routes = [
                 loadChildren: () => import("~/app/bounty/bounty.module").then(m => m.BountyModule),
             },
             {
-                path: "extra",
-                outlet: "extraTab",
+                path: "info",
+                outlet: "infoTab",
                 component: NSEmptyOutletComponent,
-                loadChildren: () => import("~/app/extra/extra.module").then(m => m.ExtraModule),
+                loadChildren: () => import("~/app/info/info.module").then(m => m.InfoModule),
             },
         ],
     },

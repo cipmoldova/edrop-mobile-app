@@ -6,6 +6,7 @@ import { enable as traceEnable } from "tns-core-modules/trace";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { MyErrorHandler } from "./utils/my-error-handler";
 
 traceEnable();
 
@@ -24,14 +25,6 @@ Array.prototype.isLastIndex = function(index: number): boolean {
     return index === (this.length - 1);
 };
 
-export class MyErrorHandler implements ErrorHandler {
-    handleError(error) {
-        console.log("### ErrorHandler Error: " + error.toString());
-        console.log("### ErrorHandler Stack: " + error.stack);
-    }
-}
-
-// tslint:disable-next-line:max-classes-per-file
 @NgModule({
     bootstrap: [
         AppComponent
@@ -44,7 +37,10 @@ export class MyErrorHandler implements ErrorHandler {
         AppRoutingModule,
     ],
     providers: [
-        { provide: ErrorHandler, useClass: MyErrorHandler },
+        {
+            provide: ErrorHandler,
+            useClass: MyErrorHandler,
+        },
     ],
     exports: [
     ],

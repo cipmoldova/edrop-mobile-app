@@ -3,6 +3,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { BountyRoutingModule  } from "./bounty-routing.module";
 import { BountyComponent } from "./bounty.component";
+import { BountyService } from "../shared/bounty.service";
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import { BountyComponent } from "./bounty.component";
         BountyRoutingModule,
     ],
     providers: [
+        BountyService,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

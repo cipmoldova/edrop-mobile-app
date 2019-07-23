@@ -66,7 +66,7 @@ export class BookingComponent implements OnInit {
         this.maxDate = new Date(dateToday.getFullYear(), dateToday.getMonth(), dateToday.getDate() + 30).toISOString();
     }
 
-    cancel(): void {
+    goHome(): void {
         this.dashboard.goHome();
     }
 

@@ -10,9 +10,9 @@
         <StackLayout>
             
             <Label
-                text="Chestionar preliminar"
                 class="page-title"
                 *ngIf="checklistQuestions.isFirstIndex(i)"
+                text="Chestionar preliminar"
             ></Label>
 
             <FlexboxLayout
@@ -22,6 +22,8 @@
                 <HtmlViewer
                     class="question-label"
                     [html]="question.htmlText"
+                    marginBottom="-30"
+                    marginTop="-12"
                 >
                 </HtmlViewer>
 
@@ -57,7 +59,7 @@
                 <Button
                     text="Renunțare" 
                     class="btn-primary-one-row"
-                    (tap)="cancel()"
+                    (tap)="goHome()"
                 ></Button>
                 <Label width="18"></Label>
                 <Button

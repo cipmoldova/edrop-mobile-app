@@ -1,7 +1,7 @@
 <ActionBar class="action-bar">
     <Label 
         class="action-bar-title" 
-        text="Donează sânge"
+        text="Mai multe informații..."
     ></Label>
 </ActionBar>
 
@@ -22,8 +22,8 @@
 
         <Button
             class="btn-primary-one-row"
-            [nsRouterLink]="['schedule/default']" 
-            text="Continuare" 
+            (tap)="goBack()"
+            text="Înapoi" 
         ></Button>
 
     </StackLayout>

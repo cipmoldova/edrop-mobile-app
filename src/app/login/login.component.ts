@@ -3,8 +3,7 @@ import { alert, prompt } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 
 import { RouterExtensions } from "nativescript-angular/router";
-import { LoginUser } from "../shared/user.model";
-import { UserService } from "../shared/user.service";
+import { LoginUser, UserService } from "../shared/user.service";
 
 @Component({
     selector: "ns-login",
@@ -54,7 +53,8 @@ export class LoginComponent implements OnInit {
         this.routerExtension.navigate(
             ["../dashboard/default"],
             { clearHistory: true }
-        ); return; // dbg
+        );
+        return; // debug
         this.userService.login(this.user)
             .then(() => {
                 this.user.tocken = "ZwPNMBoK8XD8Q="; // TODO : get from server
@@ -86,19 +86,19 @@ export class LoginComponent implements OnInit {
 
     forgotPassword() {
         prompt({
-            cancelButtonText: "Cancel",
+            cancelButtonText: "Renunțare",
             defaultText: "",
             inputType: "email",
             message: "Vă rugăm introduceți adresa de email cu care v-ați înregistrat.",
-            okButtonText: "Ok",
+            okButtonText: "Bine",
             title: "Parolă uitată"
         }).then((data) => {
             if (data.result) {
                 this.userService.resetPassword(data.text.trim())
                     .then(() => {
-                        this.alert("Parola dumneavoastră a fost resetată. \
-                        Vă rugăm să vă verificați căsuța de e-mail pentru a afla cum \
-                        să vă alegeți o nouă parolă pentru contul dumneavoastră.");
+                        this.alert("Parola dumneavoastră a fost resetată. "
+                        + "Vă rugăm să vă verificați căsuța de e-mail pentru a afla cum "
+                        + "să vă alegeți o nouă parolă pentru contul dumneavoastră.");
                     }).catch(() => {
                         this.alert("Din păcate a apărut o eroare la resetarea parolei.");
                     });

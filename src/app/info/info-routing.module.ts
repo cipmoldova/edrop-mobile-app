@@ -2,17 +2,17 @@ import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
-import { ExtraComponent } from "./extra.component";
-import { ItemDetailComponent } from "./item-detail/item-detail.component";
+import { InfoComponent } from "./info.component";
+import { InfoItemComponent } from "./info-item/info-item.component";
 
 const routes: Routes = [
     {
         path: "",
-        component: ExtraComponent,
+        component: InfoComponent,
     },
     {
-        path: "item/:id",
-        component: ItemDetailComponent,
+        path: "item/:type",
+        component: InfoItemComponent,
     },
 ];
 
@@ -22,4 +22,4 @@ const routes: Routes = [
     ],
     exports: [NativeScriptRouterModule]
 })
-export class ExtraRoutingModule { }
+export class InfoRoutingModule { }

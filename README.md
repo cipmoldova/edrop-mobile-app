@@ -40,7 +40,7 @@ There are four components used for the tab views located in these folders:
 - `/home`
 - `/donation`
 - `/bounty`
-- `/more`
+- `/info`
 
 ### Styling
 This template is set up to use SASS for styling. All classes used are based on the {N} core theme – consult the [documentation](https://docs.nativescript.org/angular/ui/theme.html#theme) to understand how to customize it. Check it out to see what classes you can use on which component.

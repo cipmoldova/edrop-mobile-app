@@ -4,11 +4,9 @@ import { DatePipe } from "@angular/common";
 import { RouterExtensions } from "nativescript-angular/router";
 
 import { DashboardComponent } from "~/app/dashboard/dashboard.component";
-import { ScheduleService } from "~/app/shared/schedule.service";
-import { Sex } from "~/app/shared/user.model";
-import { UserService } from "~/app/shared/user.service";
+import { BookingTicket, ScheduleService } from "~/app/shared/schedule.service";
+import { Sex, UserService } from "~/app/shared/user.service";
 import { BookingComponent } from "../booking.component";
-import { BookingTicket } from "./booking-ticket";
 
 @Component({
     selector: "ns-booking-summary",
@@ -44,7 +42,7 @@ export class BookingSummaryComponent implements OnInit {
         this.routerExtension.back();
     }
 
-    cancel(): void {
+    goHome(): void {
         this.dashboard.goHome();
     }
 
@@ -91,19 +89,15 @@ export class BookingSummaryComponent implements OnInit {
                 alert({
                     title: "Ne cerem iertare!",
                     message: "Din păcate a apărut o eroare și nu am reușit să vă programăm." + "\n"
-                        + "Vă rugăm sunați la numărul de telefon (+373) 68459217.",
+                        + "Vă rugăm sunați la numărul de telefon (+373) 68459217.", // TODO
                     okButtonText: "Bine",
                 });
                 // booking failed, we get back to our homepage
-                this.exitSchedulePane();
+                this.goHome();
             });
     }
 
-    exitSchedulePane(): void {
-        this.dashboard.goHome();
-    }
-
     printTicket(): void {
-
+        // TODO
     }
 }

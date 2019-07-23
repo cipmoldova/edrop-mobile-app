@@ -8,10 +8,11 @@ import { Color } from "tns-core-modules/color";
     template: `
         <HtmlView
             #htmlView
-            [html]="html"
+            html="<span><p>{{ html }}</p></span>"
             (loaded)="onLoaded()"
-            marginBottom="-30"
-            marginTop="-12"
+            [marginBottom]="marginBottom"
+            [marginTop]="marginTop"
+            paddingLeft="10"
             [width]="width"
         ></HtmlView>
 	`,
@@ -34,6 +35,12 @@ export class HtmlViewerComponent implements OnInit {
     @Input()
     width: string;
 
+    @Input()
+    marginTop: string;
+
+    @Input()
+    marginBottom: string;
+
     @ViewChild("htmlView", { static: true })
     htmlView: ElementRef;
 
@@ -49,7 +56,9 @@ export class HtmlViewerComponent implements OnInit {
 
     ngOnInit(): void {
         // set default values
-        this.width = this.width ? this.width : "100%";
+        this.width  = this.width ? this.width : "100%";
+        this.marginTop = this.marginTop ? this.marginTop : "0";
+        this.marginBottom = this.marginBottom ? this.marginBottom : "0";
     }
 
     /// In this method we process inner and CSS style attributes
