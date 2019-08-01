@@ -1,0 +1,76 @@
+{
+  "infoItemsHeaders": [
+    {
+      // http://cnts.md/?page_id=44
+      // WHY_DONATE
+      "id": "0",
+      "title": "De ce să donez?",
+    },
+    {
+      // http://cnts.md/?page_id=48
+      // WHO_CAN_DONATE
+      "id": "1",
+      "title": "Cine poate fi donator?",
+    },
+    {
+      //
+      // HOW_TO_DONATE
+      "id": "2",
+      "title": "Cum pot să donez?",
+    },
+    {
+      // http://cnts.md/?page_id=280
+      // WHERE_TO_DONATE
+      "id": "3",
+      "title": "Unde pot dona?",
+    },
+    {
+      // http://cnts.md/?page_id=50
+      // HOW_TO_PREPARE_FOR_DONATION
+      "id": "4",
+      "title": "Ce trebuie să fac înainte, în timpul şi după donare?",
+    },
+    {
+      // http://cnts.md/?p=11
+      // USEFUL_INFO
+      "id": "5",
+      "title": "Informație utilă pentru donatori",
+    },
+    {
+      // http://cnts.md/?page_id=39
+      // ABOUT_BLOOD
+      "id": "6",
+      "title": "Sîngele şi originea lui",
+    },
+    {
+      // http://cnts.md/?page_id=41
+      // ABOUT_BLOOD_GROUPS
+      "id": "7",
+      "title": "Grupele de sînge şi compatibilitatea lor",
+    },
+    {
+      // http://cnts.md/?page_id=46
+      // RIGHTS_AND_OBLIGATIONS
+      "id": "8",
+      "title": "Drepturile şi Obligaţiile Donatorilor",
+    },
+    {
+      // https://cnts.md/?page_id=21
+      // ABOUT_CNTS
+      "id": "9",
+      "title": "Informaţii generale despre CNTS",
+    },
+    {
+      // https://cnts.md/?page_id=23
+      // HISTORY_CNTS
+      "id": "10",
+      "title": "Scurt istoric CNTS",
+    },
+    {
+      // https://cnts.md/?p=16
+      // CALLS
+      "id": "11",
+      "title": "APEL PENTRU OAMENI CU SUFLET MARE",
+    },
+  ]
+}

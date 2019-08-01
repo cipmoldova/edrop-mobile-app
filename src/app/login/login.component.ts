@@ -3,7 +3,7 @@ import { alert, prompt } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 
 import { RouterExtensions } from "nativescript-angular/router";
-import { LoginUser, UserService } from "../shared/user.service";
+import { LoginUser, UserService } from "~/app/shared/user.service";
 
 @Component({
     selector: "ns-login",
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         return; // debug
         this.userService.login(this.user)
             .then(() => {
-                this.user.tocken = "ZwPNMBoK8XD8Q="; // TODO : get from server
+                this.user.token = "ZwPNMBoK8XD8Q="; // TODO : get from server
                 this.routerExtension.navigate(
                     ["../dashboard/default"],
                     { clearHistory: true }

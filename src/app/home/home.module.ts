@@ -18,8 +18,8 @@ import { HomeComponent } from "./home.component";
         HomeRoutingModule,
     ],
     providers: [
-        UserService,
         StatisticDataService,
+        UserService,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

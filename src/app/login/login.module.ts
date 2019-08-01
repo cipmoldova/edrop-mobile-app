@@ -2,9 +2,8 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
-import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
-import { UserService } from "../shared/user.service";
+import { UserService } from "~/app/shared/user.service";
 import { LoginRoutingModule  } from "./login-routing.module";
 import { LoginComponent } from "./login.component";
 
@@ -15,7 +14,6 @@ import { LoginComponent } from "./login.component";
     imports: [
         NativeScriptCommonModule,
         NativeScriptFormsModule,
-        NativeScriptHttpClientModule,
         LoginRoutingModule,
     ],
     providers: [

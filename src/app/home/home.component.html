@@ -1,5 +1,5 @@
 <ActionBar class="action-bar">
-    <Label 
+    <Label
         class="action-bar-title"
         text="Acasă"
     ></Label>
@@ -10,10 +10,10 @@
         class="page-content"
         height="464"
         marginTop="16"
-    >   
-        <Label 
+    >
+        <Label
             class="page-subtitle"
-            text="Statistici globale" 
+            text="Statistici globale"
         ></Label>
 
         <RadCartesianChart class="chart">
@@ -28,46 +28,46 @@
                 horizontalStrokeWidth="0.5"
             >
             </RadCartesianChartGrid>
-            <Palette 
-                seriesName="bloodDonatedSeries" 
+            <Palette
+                seriesName="bloodDonatedSeries"
                 tkCartesianPalette
                 seriesState="Normal"
             >
-                <PaletteEntry 
-                    tkCartesianPaletteEntry 
+                <PaletteEntry
+                    tkCartesianPaletteEntry
                     fillColor="#30a850"
                     strokeColor="#30a850"
                 ></PaletteEntry>
             </Palette>
-            
-            <Palette 
-                seriesName="bloodGapSeries" 
+
+            <Palette
+                seriesName="bloodGapSeries"
                 tkCartesianPalette
                 seriesState="Normal"
             >
-                <PaletteEntry 
-                    tkCartesianPaletteEntry 
+                <PaletteEntry
+                    tkCartesianPaletteEntry
                     fillColor="#FC9829"
                     strokeColor="#FC9829"
                 ></PaletteEntry>
             </Palette>
 
-            <Palette 
-                seriesName="labelsSeries" 
+            <Palette
+                seriesName="labelsSeries"
                 tkCartesianPalette
                 seriesState="Normal"
             >
-                <PaletteEntry 
-                    tkCartesianPaletteEntry 
+                <PaletteEntry
+                    tkCartesianPaletteEntry
                     fillColor="#FFFFFF"
                     strokeColor="#FF0000"
                     strokeSize="0.5"
                 ></PaletteEntry>
             </Palette>
 
-            <RadLegendView 
+            <RadLegendView
                 tkCartesianLegend
-                position="Bottom" 
+                position="Bottom"
                 enableSelection="false"
             ></RadLegendView>
 
@@ -78,39 +78,39 @@
                 ticksColor="white"
                 lineThickness="1"
             ></CategoricalAxis>
-            <LinearAxis 
-                tkCartesianVerticalAxis 
+            <LinearAxis
+                tkCartesianVerticalAxis
                 labelFormat="%.0f"
                 labelMargin="8"
                 lineThickness="1"
                 labelSize="10.5"
                 ticksColor="lightGray"
             ></LinearAxis>
-            <BarSeries 
-                tkCartesianSeries 
+            <BarSeries
+                tkCartesianSeries
                 seriesName="bloodDonatedSeries"
-                [items]="bloodDonated"
-                categoryProperty="month" 
+                items="{{ (globalStatistics$ | async)?.bloodDonated }}"
+                categoryProperty="month"
                 valueProperty="amount"
                 paletteMode="Series"
                 stackMode="Stack"
-                legendTitle="Sânge donat (în {{ measurementUnit }})"
-            ></BarSeries>    
-            <BarSeries 
-                tkCartesianSeries 
+                legendTitle="Sânge donat (în {{ (globalStatistics$ | async)?.measurementUnit }})"
+            ></BarSeries>
+            <BarSeries
+                tkCartesianSeries
                 seriesName="bloodGapSeries"
-                [items]="bloodGap"
-                categoryProperty="month" 
+                items="{{ (globalStatistics$ | async)?.bloodGap }}"
+                categoryProperty="month"
                 valueProperty="amount"
                 paletteMode="Series"
                 stackMode="Stack"
-                legendTitle="Sânge necesar (în {{ measurementUnit }})"
-            ></BarSeries>  
-            <BarSeries 
+                legendTitle="Sânge necesar (în {{ (globalStatistics$ | async)?.measurementUnit }})"
+            ></BarSeries>
+            <BarSeries
                 tkCartesianSeries
                 seriesName="labelsSeries"
-                [items]="labels"
-                categoryProperty="month" 
+                items="{{ (globalStatistics$ | async)?.labels }}"
+                categoryProperty="month"
                 valueProperty="amount"
                 paletteMode="Series"
                 stackMode="Stack"
@@ -118,12 +118,12 @@
                 legendTitle="Raportul sânge donat / sânge necesar"
                 maxBarSize="0.5"
             >
-                <PointLabelStyle 
+                <PointLabelStyle
                     tkBarLabelStyle
-                    margin="5" 
-                    fontStyle="Normal" 
-                    fillColor="White" 
-                    textSize="10" 
+                    margin="5"
+                    fontStyle="Normal"
+                    fillColor="White"
+                    textSize="10"
                     textColor="Red"
                     strokeColor="Red"
                     textFormat="%.0f%%">
@@ -133,60 +133,60 @@
 
         <Label class="blank-divider-smaller"></Label>
 
-        <Label 
+        <Label
             class="page-subtitle"
-            text="Statistici personale" 
+            text="Statistici personale"
         ></Label>
 
         <StackLayout orientation="vertical">
-            <StackLayout 
+            <StackLayout
                 class="stats-box"
                 orientation="horizontal"
             >
-                <Label 
+                <Label
                     class="stats-label"
-                    text="Recoltări&#010;realizate:" 
+                    text="Recoltări&#010;realizate:"
                 ></Label>
                 <Label class="highlight">
                     <FormattedString>
-                        <Span text="💉 {{ numberOfDonations }}"></Span>
+                        <Span text="💉 {{ (userStatistics$ | async)?.numberOfDonations }}"></Span>
                     </FormattedString>
                 </Label>
             </StackLayout>
-            <StackLayout 
+            <StackLayout
                 orientation="horizontal"
                 class="stats-box"
             >
-                <Label 
+                <Label
                     class="stats-label"
-                    text="Puncte&#010;disponibile:" 
+                    text="Puncte&#010;disponibile:"
                 ></Label>
                 <Label class="highlight">
                     <FormattedString>
-                        <Span text="❤️ {{ numberOfCredits }}"></Span>
+                        <Span text="❤️ {{ (userStatistics$ | async)?.numberOfCredits  }}"></Span>
                     </FormattedString>
                 </Label>
             </StackLayout>
-            <StackLayout 
+            <StackLayout
                 orientation="horizontal"
                 class="stats-box"
             >
-                <Label 
+                <Label
                     class="stats-label"
-                    text="Data ultimei&#010;recoltări:" 
+                    text="Data ultimei&#010;recoltări:"
                 ></Label>
                 <Label class="highlight">
                     <FormattedString>
-                        <Span text="📅 {{ dateLastDonation | date: 'dd MMMM yyyy': 'undefined':'ro-MD' }}"></Span>
+                        <Span text="📅 {{ (userStatistics$ | async)?.dateLastDonation | date: 'dd MMMM yyyy': 'undefined':'ro-MD' }}"></Span>
                     </FormattedString>
                 </Label>
             </StackLayout>
         </StackLayout>
 
-        <Button 
-            text="Programare" 
+        <Button
+            text="Programare"
             class="btn-primary-one-row"
-            [nsRouterLink]="['schedule/default']" 
+            [nsRouterLink]="['schedule/default']"
         ></Button>
 
     </StackLayout>

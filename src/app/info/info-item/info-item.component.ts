@@ -2,14 +2,14 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 import { InfoItem, InfoService } from "~/app/shared/info.service";
-import { waitForResources } from "~/app/utils/edrop.common.module";
+import { Observable } from "rxjs";
 
 @Component({
     selector: "ns-info-item",
     templateUrl: "./info-item.component.html"
 })
 export class InfoItemComponent implements OnInit {
-    infoItem: InfoItem;
+    infoItem$: Observable<InfoItem>;
 
     constructor(
         private route: ActivatedRoute,
@@ -18,11 +18,8 @@ export class InfoItemComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        const infoType = +this.route.snapshot.params.type;
-        this.infoService.getInfoItem(infoType).subscribe(
-            (infoItem) => this.infoItem = infoItem
-        );
-        waitForResources(this.infoItem); // debug
+        const infoId = +this.route.snapshot.params.id;
+        this.infoItem$ = this.infoService.getInfoItem(infoId);
     }
 
     goBack() {

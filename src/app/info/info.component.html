@@ -6,14 +6,14 @@
 </ActionBar>
 
 <ListView 
-    [items]="infoItemList" 
+    [items]="infoItemsHeaders$ | async" 
     class="page-content"
 >
-    <ng-template let-infoItem="item">
+    <ng-template let-infoItemHeader="item">
         <Label 
             class="list-group-item"
-            [nsRouterLink]="['item', infoItem.type]" 
-            [text]="infoItem.title" 
+            [nsRouterLink]="['item', infoItemHeader.id]" 
+            [text]="infoItemHeader.title" 
             textWrap="true"
         ></Label>
     </ng-template>

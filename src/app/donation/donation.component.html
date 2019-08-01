@@ -10,13 +10,13 @@
 
         <Label
             class="page-title"
-            text="{{ infoItem.title }}"
+            text="{{ (infoItem$ | async)?.title }}"
             textWrap="true"
         ></Label>
 
         <HtmlViewer
             class="html-viewer"
-            html="{{ infoItem.detail }}"
+            html="{{ (infoItem$ | async)?.detail }}"
         >
         </HtmlViewer>
 

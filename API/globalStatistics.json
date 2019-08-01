@@ -1,0 +1,62 @@
+{
+  "globalStatistics": [
+    {
+      "id": "0",
+      "bloodNeeded": [
+        {
+          "month": "Ianuarie",
+          "amount": 18500
+        },
+        {
+          "month": "Februarie",
+          "amount": 17800
+        },
+        {
+          "month": "Martie",
+          "amount": 7000
+        },
+        {
+          "month": "Aprilie",
+          "amount": 4200
+        },
+        {
+          "month": "Mai",
+          "amount": 6800
+        },
+        {
+          "month": "Iunie",
+          "amount": 3500
+        }
+      ],
+      "bloodDonated": [
+        {
+          "month": "Ianuarie",
+          "amount": 5000
+        },
+        {
+          "month": "Februarie",
+          "amount": 4900
+        },
+        {
+          "month": "Martie",
+          "amount": 5000
+        },
+        {
+          "month": "Aprilie",
+          "amount": 2200
+        },
+        {
+          "month": "Mai",
+          "amount": 5100
+        },
+        {
+          "month": "Iunie",
+          "amount": 2000
+        }
+      ],
+      "bloodGap": [],
+      "labels": [],
+      "measurementUnit": ""
+    }
+  ]
+}

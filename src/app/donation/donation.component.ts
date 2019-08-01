@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { InfoService, InfoType, InfoItem } from "~/app/shared/info.service";
-import { waitForResources } from "~/app/utils/edrop.common.module";
+import { InfoService, Info, InfoItem } from "~/app/shared/info.service";
+import { Observable } from "rxjs";
 
 @Component({
     selector: "ns-donation",
@@ -9,7 +9,7 @@ import { waitForResources } from "~/app/utils/edrop.common.module";
 })
 export class DonationComponent implements OnInit {
 
-    infoItem: InfoItem;
+    infoItem$: Observable<InfoItem>;
 
     constructor(private infoService: InfoService) {
         // Use the component constructor to inject providers.
@@ -17,9 +17,6 @@ export class DonationComponent implements OnInit {
 
     ngOnInit(): void {
         // Use the "ngOnInit" handler to initialize data for the view.
-        this.infoService.getInfoItem(InfoType.WHY_DONATE).subscribe(
-            (infoItem: InfoItem) => this.infoItem = infoItem
-        );
-        waitForResources(this.infoItem); // debug
+        this.infoItem$ = this.infoService.getInfoItem(Info.WHY_DONATE);
     }
 }

@@ -7,9 +7,9 @@ import { NativeScriptDateTimePickerModule } from "nativescript-datetimepicker/an
 import { NativeScriptPickerModule } from "nativescript-picker/angular";
 
 import { EDropCommonModule } from "~/app/utils/edrop.common.module";
-import { DashboardModule } from "../dashboard/dashboard.module";
-import { ScheduleService } from "../shared/schedule.service";
-import { UserService } from "../shared/user.service";
+import { DashboardModule } from "~/app/dashboard/dashboard.module";
+import { ScheduleService } from "~/app/shared/schedule.service";
+import { UserService } from "~/app/shared/user.service";
 import { BookingSummaryComponent } from "./booking/booking-summary/booking-summary.component";
 import { BookingComponent } from "./booking/booking.component";
 import { ChecklistComponent } from "./checklist/checklist.component";

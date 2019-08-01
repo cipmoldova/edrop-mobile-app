@@ -11,7 +11,7 @@ const routes: Routes = [
         component: InfoComponent,
     },
     {
-        path: "item/:type",
+        path: "item/:id",
         component: InfoItemComponent,
     },
 ];

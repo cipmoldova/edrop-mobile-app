@@ -1,12 +1,15 @@
 import { Injectable } from "@angular/core";
 import { Errors, User } from "kinvey-nativescript-sdk";
 import { Observable, of } from "rxjs";
+import { HttpHeaders, HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { retry, catchError } from "rxjs/operators";
+import { MyErrorHandler } from "~/app/utils/my-error-handler";
 
 export class LoginUser {
     email: string;
     password: string;
     confirmPassword: string;
-    tocken: string;
+    token: string;
 }
 
 export enum Sex {
@@ -34,22 +37,35 @@ export class Person {
     }
 }
 
+export interface UserStatistics {
+    id: number; // TODO : get rid of
+    numberOfDonations: number;
+    numberOfCredits: number;
+    dateLastDonation: Date;
+}
+
 // tslint:disable-next-line: max-classes-per-file
 @Injectable()
 export class UserService {
 
-    authenticatedUser: LoginUser = new LoginUser();
+    // Define API base URL
+    apiURL = "http://5d3a3a81fa091c001447086e.mockapi.io";
 
-    getNumberOfDonations(): Observable<number> {
-        return of(15);
+    constructor(private http: HttpClient) { }
+
+    private _authenticatedUser: LoginUser;
+    public get authenticatedUser(): LoginUser {
+        return this._authenticatedUser;
+    }
+    public set authenticatedUser(value: LoginUser) {
+        this._authenticatedUser = value;
     }
 
-    getNumberOfCredits(): Observable<number> {
-        return of(3000);
-    }
-
-    getDateLastDonation(): Observable<Date> {
-        return of(new Date());
+    getUserStatistics(): Observable<UserStatistics> {
+        return this.http.get<UserStatistics>(this.apiURL + "/userStatistics" + "/" + "0").pipe(
+            retry(1),
+            catchError(MyErrorHandler.handleHttpError<UserStatistics>("getUserStatistics", null))
+        );
     }
 
     register(user: LoginUser) {

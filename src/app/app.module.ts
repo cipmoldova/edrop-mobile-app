@@ -1,7 +1,11 @@
 // tslint:disable-next-line:ordered-imports
 import { NgModule, NO_ERRORS_SCHEMA, ErrorHandler } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { registerLocaleData } from "@angular/common";
+import localeRoExtra from "@angular/common/locales/extra/ro";
+import localeRo from "@angular/common/locales/ro";
 
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { enable as traceEnable } from "tns-core-modules/trace";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -9,6 +13,8 @@ import { AppComponent } from "./app.component";
 import { MyErrorHandler } from "./utils/my-error-handler";
 
 traceEnable();
+
+registerLocaleData(localeRo, "ro-MD", localeRoExtra);
 
 declare global {
     // tslint:disable-next-line: interface-name
@@ -35,6 +41,7 @@ Array.prototype.isLastIndex = function(index: number): boolean {
     imports: [
         NativeScriptModule,
         AppRoutingModule,
+        NativeScriptHttpClientModule,
     ],
     providers: [
         {
