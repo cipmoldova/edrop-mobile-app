@@ -44,7 +44,7 @@
     "ajv": "^6.10.2",
     "codelyzer": "^5.1.0",
     "nativescript-dev-webpack": "^1.0.2",
-    "node-sass": "4.12.0",
+    "node-sass": "4.13.1",
     "tns-platform-declarations": "^6.0.4",
     "tslint": "^5.18.0",
     "tslint-angular": "^3.0.2",
